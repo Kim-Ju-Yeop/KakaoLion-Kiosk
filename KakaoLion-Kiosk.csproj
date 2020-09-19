@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E58C28B1-1CA0-4930-916D-65A34B92D931}</ProjectGuid>
+    <ProjectGuid>{1C6ED46E-A64B-4D13-AC76-A58C8B7AC684}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>KakaoLion_Kiosk</RootNamespace>
     <AssemblyName>KakaoLion-Kiosk</AssemblyName>
