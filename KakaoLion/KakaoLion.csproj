@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1C6ED46E-A64B-4D13-AC76-A58C8B7AC684}</ProjectGuid>
+    <ProjectGuid>{19E171B2-683A-4152-BBAF-38913E9E3DE9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>KakaoLion_Kiosk</RootNamespace>
-    <AssemblyName>KakaoLion-Kiosk</AssemblyName>
+    <RootNamespace>KakaoLion</RootNamespace>
+    <AssemblyName>KakaoLion</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

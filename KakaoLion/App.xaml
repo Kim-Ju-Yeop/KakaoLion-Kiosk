@@ -1,7 +1,7 @@
-﻿<Application x:Class="KakaoLion_Kiosk.App"
+﻿<Application x:Class="KakaoLion.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:KakaoLion_Kiosk"
+             xmlns:local="clr-namespace:KakaoLion"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

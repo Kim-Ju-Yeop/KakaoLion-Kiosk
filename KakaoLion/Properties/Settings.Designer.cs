@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KakaoLion_Kiosk.Properties
+namespace KakaoLion.Properties
 {
 
 
