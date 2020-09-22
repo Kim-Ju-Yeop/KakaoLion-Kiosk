@@ -55,6 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="pages\OrderPage.xaml.cs">
+      <DependentUpon>OrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\PurchaseMethodPage.xaml.cs">
+      <DependentUpon>PurchaseMethodPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\PurchasePlacePage.xaml.cs">
+      <DependentUpon>PurchasePlacePage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,10 +76,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="pages\OrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\PurchaseMethodPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\PurchasePlacePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,6 +121,71 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resources\video\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\image\small\라이언 치즈볼 쿠션 팩.jpg" />
+    <Resource Include="resources\image\small\레몬 테라스 미니키체인 라이언.jpg" />
+    <Resource Include="resources\image\small\리본 라이언.jpg" />
+    <Resource Include="resources\image\small\리틀 프렌즈 핑거퍼펫 세트 v1.jpg" />
+    <Resource Include="resources\image\small\마린 마스코트 키체인 라이언.jpg" />
+    <Resource Include="resources\image\small\마린 페이스 키체인 라이언.jpg" />
+    <Resource Include="resources\image\small\미니 라이언 위드 아이앱 스튜디오.jpg" />
+    <Resource Include="resources\image\small\미니 인형 플라밍고 라이언.jpg" />
+    <Resource Include="resources\image\small\미니페이스 리틀라이언.jpg" />
+    <Resource Include="resources\image\small\미니페이스 키링 라이언.jpg" />
+    <Resource Include="resources\image\small\베이비 드리밍 드림키체인 라이언.jpg" />
+    <Resource Include="resources\image\small\베이비드리밍 타이니프렌즈 라이언.jpg" />
+    <Resource Include="resources\image\small\비치펍 키체인 햄버거 라이언.jpg" />
+    <Resource Include="resources\image\small\아장아장프렌즈 라이언.jpg" />
+    <Resource Include="resources\image\small\어텀 스토리 다람쥐 패밀리.jpg" />
+    <Resource Include="resources\image\small\윈터 원더 랜드 미니키체인 라이언.jpg" />
+    <Resource Include="resources\image\small\잠자는 치즈볼 라이언.jpg" />
+    <Resource Include="resources\image\small\치즈볼 라이언 13cm 키링 인형.jpg" />
+    <Resource Include="resources\image\small\타이니프렌즈 라이언.jpg" />
+    <Resource Include="resources\image\small\포레스트 미니인형 라이언.jpg" />
+    <Resource Include="resources\image\small\폼폼 프렌즈 미니 키체인 라이언.jpg" />
+    <Resource Include="resources\image\small\폼폼 프렌즈 미니 필로우 곰돌이 라이언.jpg" />
+    <Resource Include="resources\image\small\프루티 미니 인형 라이언.jpg" />
+    <Resource Include="resources\image\small\하비스트 미니 키체인 옥수수 라이언.jpg" />
+    <Resource Include="resources\image\small\허니프렌즈 세트인형 꿀단지.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\image\medium\25cm인형 치즈볼 라이언.jpg" />
+    <Resource Include="resources\image\medium\꿀잠 베이비 필로우 라이언.jpg" />
+    <Resource Include="resources\image\medium\레몬 테라스 얼굴 쿠션 라이언.jpg" />
+    <Resource Include="resources\image\medium\레몬 테라스 향기 인형 라이언.jpg" />
+    <Resource Include="resources\image\medium\리틀 얼굴 쿠션 라이언.jpg" />
+    <Resource Include="resources\image\medium\마린 소프트 토이 해양구조대 라이언.jpg" />
+    <Resource Include="resources\image\medium\베이비 드리밍 러블리 애착 라이언 인형.jpg" />
+    <Resource Include="resources\image\medium\베이비 필로우 러블리 라이언.jpg" />
+    <Resource Include="resources\image\medium\비치펍 리버서블 인형 햄버거 라이언.jpg" />
+    <Resource Include="resources\image\medium\비치펍 베이비필로우 소라게 라이언.jpg" />
+    <Resource Include="resources\image\medium\손목 보호 인형 리틀 라이언.jpg" />
+    <Resource Include="resources\image\medium\얌얌인형 리틀 라이언.jpg" />
+    <Resource Include="resources\image\medium\어텀 스토리 도토리 라이언.jpg" />
+    <Resource Include="resources\image\medium\클래식 라이언 위드 아이앱 스튜디오.jpg" />
+    <Resource Include="resources\image\medium\클래식 인형 라이언.jpg" />
+    <Resource Include="resources\image\medium\페이스 말랑쿠션 라이언.jpg" />
+    <Resource Include="resources\image\medium\포레스트 라이언 인형.jpg" />
+    <Resource Include="resources\image\medium\폼폼 프렌즈 소프트 곰돌이 라이언.jpg" />
+    <Resource Include="resources\image\medium\하비스트 마스코트 땅콩 라이언 인형.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\image\big\롱 바디 필로우 라이언.jpg" />
+    <Resource Include="resources\image\big\리틀 바디 필로우 라이언 인형.jpg" />
+    <Resource Include="resources\image\big\말랑 허그 바디 라이언 쿠션.jpg" />
+    <Resource Include="resources\image\big\메가 바디 필로우 리틀 라이언.jpg" />
+    <Resource Include="resources\image\big\메가 페이스 라이언 쿠션 .jpg" />
+    <Resource Include="resources\image\big\비치펍 대왕감자 라이언.jpg" />
+    <Resource Include="resources\image\big\윈터 라이언.jpg" />
+    <Resource Include="resources\image\big\허니 프렌즈 말랑 라이언 쿠션.jpg" />
+    <Resource Include="resources\image\big\후디 바디 필로우 라이언.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\image\icon\ic_home.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
