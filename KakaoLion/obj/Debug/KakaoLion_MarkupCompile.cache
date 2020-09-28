@@ -4,32 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\
-=======
-D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\
->>>>>>> 8bc23d319074fd32d50a72469aa38dd01484257f
 KakaoLion
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\App.xaml
 5-561277178
-
+1-989664666
 9-377843167
 13-1505183044
 pages\HomePage.xaml;MainWindow.xaml;pages\OrderPage.xaml;pages\PurchaseMethodPage.xaml;pages\PurchasePlacePage.xaml;
 
 False
-=======
-D:\git\KakaoLion-Kiosk\KakaoLion\App.xaml
-11151548125
-
-61434861427
-13-1505183044
-MainWindow.xaml;
-
-True
->>>>>>> 8bc23d319074fd32d50a72469aa38dd01484257f
 

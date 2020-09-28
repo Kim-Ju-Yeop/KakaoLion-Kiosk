@@ -122,9 +122,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="resources\video\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="resources\image\small\라이언 치즈볼 쿠션 팩.jpg" />
     <Resource Include="resources\image\small\레몬 테라스 미니키체인 라이언.jpg" />
@@ -186,6 +184,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\image\icon\ic_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\image\icon\ic_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\image\icon\ic_logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\video\video.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
