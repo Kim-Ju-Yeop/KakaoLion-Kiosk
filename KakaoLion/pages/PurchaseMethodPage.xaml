@@ -5,10 +5,52 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KakaoLion.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="PurchaseMethodPage">
 
-    <Grid>
-        
+    <Grid Background="#f5f5f5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="166*"/>
+            <RowDefinition Height="197*"/>
+            <RowDefinition Height="177*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="503*"/>
+            <ColumnDefinition Width="457*"/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="20" BorderThickness="2px" 
+                BorderBrush="#dbdbdb" 
+                Width="900px" Height="600px" 
+                Margin="70,290,36.4,190"
+                Background="#fcfcfc" Grid.RowSpan="3">
+            <ListView Background="Transparent"
+                      ItemsSource="{Binding myMenu}" Margin="0.4,-1.6,0.4,2.4">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" 
+                                        Header="메뉴" Width="260px">
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding count}"
+                                        Header="수량" Width="240PX">
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Price}"
+                                        Header="가격" Width="400px">
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
+        <Button Width="380px" Height="380px" Margin="39.6,9,494,4.6" 
+                Content="현금" Click="moneyBtn_Click" FontWeight="Bold" 
+                FontFamily="Noto Sans" FontSize="70"
+                Background="#FFCB44" Name="moneyBtn" Grid.Column="1" Grid.Row="1">
+        </Button>
+        <Button Width="380px" Height="380px" Margin="473.6,8,60,5.6" 
+                Background="#FFCB44" Content="카드" FontFamily="Noto Sans" 
+                FontSize="70" FontWeight="Bold" Name="cardBtn" Click="cardBtn_click" Grid.Column="1" Grid.Row="1"/>
+        <Button Width="200px" Height="80px" Margin="346.6,39.4,367,235" 
+                Background="#FFCB44" Content="이전" FontFamily="Noto Sans" 
+                FontSize="36" FontWeight="Bold" Name="backspaceBtn" Grid.Column="1" Grid.Row="2">
+        </Button>
     </Grid>
 </Page>
