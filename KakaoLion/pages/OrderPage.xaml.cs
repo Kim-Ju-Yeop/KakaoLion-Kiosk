@@ -1,17 +1,125 @@
 ﻿using KakaoLion.model;
 using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace KakaoLion.pages
 { 
     public partial class OrderPage : Page
     {
-        private List<MenuModel> _menuList = new List<MenuModel>();
+        /*private List<MenuModel> _menuList = new List<MenuModel>();
         public List<MenuModel> MenuList 
         {
             get => _menuList;
             set => _menuList = value;
         }
+*/
+        public List<MenuModel> MenuList = new List<MenuModel>()
+        {
+            new MenuModel() {
+                idx = 0,
+                category = MenuModel.Category.Small,
+                name="라이언 치즈볼 쿠션 팩",
+                price = 12000,
+                discount = 0,               
+                imagePath = "/resources/image/small/라이언 치즈볼 쿠션 팩.jpg"
+            },
+             new MenuModel() {
+                idx = 1,
+                category = MenuModel.Category.Small,
+                name="레몬 테라스 미니키체인 라이언",
+                price = 12000,
+                discount = 0,
+                imagePath = "/resources/image/small/레몬 테라스 미니키체인 라이언.jpg"
+            },
+              new MenuModel() {
+                idx = 2,
+                category = MenuModel.Category.Small,
+                name="리본 라이언",
+                price = 12000,
+                discount = 0,
+                imagePath = "/resources/image/small/리본 라이언.jpg"
+            },
+               new MenuModel() {
+                idx = 3,
+                category = MenuModel.Category.Small,
+                name="리틀 프렌즈 핑거퍼펫 세트 v1",
+                price = 12000,
+                discount = 0,
+                imagePath = "/resources/image/small/리틀 프렌즈 핑거퍼펫 세트 v1.jpg"
+            },
+
+
+            new MenuModel() {
+                idx = 0,
+                category = MenuModel.Category.Medium,
+                name="25cm인형 치즈볼 라이언",
+                price = 8000,
+                discount = 0,
+                imagePath = "/resources/image/medium/25cm인형 치즈볼 라이언.jpg"
+            },
+            new MenuModel() {
+                idx = 1,
+                category = MenuModel.Category.Medium,
+                name="꿀잠 베이비 필로우 라이언",
+                price = 8000,
+                discount = 0,
+                imagePath = "/resources/image/medium/꿀잠 베이비 필로우 라이언.jpg"
+            },
+            new MenuModel() {
+                idx = 2,
+                category = MenuModel.Category.Medium,
+                name="레몬 테라스 얼굴 쿠션 라이언",
+                price = 8000,
+                discount = 0,
+                imagePath = "/resources/image/medium/레몬 테라스 얼굴 쿠션 라이언.jpg"
+            },
+            new MenuModel() {
+                idx = 3,
+                category = MenuModel.Category.Medium,
+                name="레몬 테라스 향기 인형 라이언",
+                price = 8000,
+                discount = 0,
+                imagePath = "/resources/image/medium/레몬 테라스 향기 인형 라이언.jpg"
+            },
+
+
+            new MenuModel() {
+                idx = 0,
+                category = MenuModel.Category.Big,
+                name="롱 바디 필로우 라이언",
+                price = 5000,
+                discount = 0,
+                imagePath = "/resources/image/big/롱 바디 필로우 라이언.jpg"
+            },
+            new MenuModel() {
+                idx = 1,
+                category = MenuModel.Category.Big,
+                name="리틀 바디 필로우 라이언 인형",
+                price = 5000,
+                discount = 0,
+                imagePath = "/resources/image/big/리틀 바디 필로우 라이언 인형.jpg"
+            },
+            new MenuModel() {
+                idx = 2,
+                category = MenuModel.Category.Big,
+                name="말랑 허그 바디 라이언 쿠션",
+                price = 5000,
+                discount = 0,
+                imagePath = "/resources/image/big/말랑 허그 바디 라이언 쿠션.jpg"
+            },
+            new MenuModel() {
+                idx = 3,
+                category = MenuModel.Category.Big,
+                name="메가 바디 필로우 리틀 라이언",
+                price = 5000,
+                discount = 0,
+                imagePath = "/resources/image/big/메가 바디 필로우 리틀 라이언.jpg"
+            }
+
+        };
 
         public OrderPage()
         {
@@ -21,13 +129,22 @@ namespace KakaoLion.pages
 
         private void OrderPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            DataContext = this;
-            setMenuList();
+            /* DataContext = this;
+             setMenuList();*/
+            lbCategory.SelectedIndex = 0;
+
         }
 
-        public void setMenuList()
+        private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MenuModel menuModel1 = new MenuModel();
+            if (lbCategory.SelectedIndex == -1) return;
+            MenuModel.Category category = (MenuModel.Category)lbCategory.SelectedIndex;
+            lbMenus.ItemsSource = MenuList.Where(x => x.category == category).ToList();
+        }
+
+       /* public void setMenuList()
+        {
+           *//* MenuModel menuModel1 = new MenuModel();
             menuModel1.idx = 0;
             menuModel1.category = 1;
             menuModel1.name = "라이언 치즈볼 쿠션 팩";
@@ -107,7 +224,8 @@ namespace KakaoLion.pages
             MenuList.Add(menuModel6);
             MenuList.Add(menuModel7);
             MenuList.Add(menuModel8);
-            MenuList.Add(menuModel9);
-        }
+            MenuList.Add(menuModel9);*//*
+        }*/
+
     }
 }
