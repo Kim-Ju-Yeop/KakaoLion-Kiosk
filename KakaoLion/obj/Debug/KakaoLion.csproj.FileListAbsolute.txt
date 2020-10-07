@@ -22,10 +22,28 @@ C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion_C
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\resources\video\video.mp4
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\PurchasePlacePage.g.cs
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\PurchasePlacePage.baml
-C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csprojAssemblyReference.cache
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\KakaoLion.exe.config
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\KakaoLion.exe
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\KakaoLion.pdb
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\Google.Protobuf.dll
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\Renci.SshNet.dll
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\System.Buffers.dll
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\System.Memory.dll
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\Google.Protobuf.xml
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\Renci.SshNet.xml
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\System.Buffers.xml
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\System.Memory.xml
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\HomePage.g.cs
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\MainWindow.g.cs
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\OrderPage.g.cs
@@ -43,12 +61,13 @@ C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoL
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.Properties.Resources.resources
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csproj.GenerateResource.cache
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csproj.CoreCompileInputs.cache
+C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csproj.CopyComplete
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.exe
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.pdb
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csprojAssemblyReference.cache
-<<<<<<< Updated upstream
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\PurchaseQRcodePage.g.cs
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\PurchaseQRcodePage.baml
+<<<<<<< Updated upstream
 D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csprojAssemblyReference.cache
 D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.exe
 D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.pdb
@@ -75,12 +94,8 @@ D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.Properties.Resources.resour
 D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csproj.GenerateResource.cache
 D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csproj.CoreCompileInputs.cache
 =======
-C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion_Content.g.cs
-C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\resources\video\video.mp4
-C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\MoneyMethodPage.g.cs
-C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\MoneyMethodPage.baml
-C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\CardMethodPage.g.cs
-C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\CardMethodPage.baml
-C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\ResultPage.g.cs
-C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\ResultPage.baml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\SelectStorePage.g.cs
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\SelectStorePage.baml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csprojAssemblyReference.cache
 >>>>>>> Stashed changes

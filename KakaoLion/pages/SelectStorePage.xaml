@@ -1,0 +1,84 @@
+﻿<Page x:Class="KakaoLion.pages.SelectStorePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KakaoLion.pages"
+      xmlns:converter="clr-namespace:KakaoLion.converter"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="SelectStorePage">
+    <Page.Resources>
+        <converter:BooleanToVisibillity x:Key="booleanToVisibillity"/>
+    </Page.Resources>
+    <Grid Background="#E5E5E5">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="500"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 40, 0, 0">
+            <Button Content="이전으로" Width="150px" Height="50px" Background="#FFCB44" Margin="0, 0, 15, 0" FontWeight="Bold"/>
+            <Button Content="다음으로" Width="150px" Height="50px" Background="#FFCB44" Margin="15, 0, 0, 0" FontWeight="Bold"/>
+        </StackPanel>
+
+        <Grid Grid.Column="1" Background="White" Margin="0, 40, 0, 40">
+            <Label Content="지점을 선택해주세요" FontSize="50px" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="0, 30, 0, 0"/>
+            <ListBox Margin="0, 100, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                x:Name="storeListBox"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="200px" Height="200px" Background="#FFCB44" >
+                            <Image Source="/resources/image/icon/ic_cancel.png" Visibility="{Binding possible, Converter={StaticResource booleanToVisibillity}}"/>
+                            <Label Content="{Binding name}" FontSize="34px" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid VerticalAlignment="Bottom">
+                                <Label Content="{Binding recentlyAt}" FontSize="22px" Foreground="Black" HorizontalAlignment="Left"/>
+                                <Label Content="00:58" FontSize="22px" Foreground="Black" HorizontalAlignment="Right"/>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center" Margin="40, 0, 40, 0">
+
+            <StackPanel Orientation="Horizontal">
+                <Grid Width="200px" Height="200px" Background="#FFCB44">
+                    <Image Source="/resources/image/icon/ic_cancel.png"/> 
+                </Grid>
+                <Label Content="선택 불가능" FontSize="34px" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 50, 0, 0">
+                <Grid Width="200px" Height="200px" Background="#FF9E89">
+                    <Label Content="동대구점" FontSize="34px" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <Label Content="선택시 버튼" FontSize="34px" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 50, 0, 0">
+                <Grid Width="200px" Height="200px" Background="#FFCB44">
+                    <Label Content="지점 이름" FontSize="34px" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid VerticalAlignment="Bottom">
+                        <Label Content="최근구매" FontSize="22px" Foreground="Black" HorizontalAlignment="Left"/>
+                        <Label Content="대기시간" FontSize="22px" Foreground="Black" HorizontalAlignment="Right"/>
+                    </Grid>
+                </Grid>
+                <Label Content="상세 정보" FontSize="34px" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Page>

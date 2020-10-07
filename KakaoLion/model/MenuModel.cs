@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KakaoLion.dto.model;
+using System;
 
 namespace KakaoLion.model
 {
@@ -11,11 +12,5 @@ namespace KakaoLion.model
         public int price { get; set; }
         public int discount { get; set; }
         public String imagePath { get; set; }
-        public enum Category
-        {
-            Small,
-            Medium,
-            Big,
-        }
     }
 }
