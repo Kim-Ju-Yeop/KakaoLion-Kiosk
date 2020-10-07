@@ -1,8 +1,19 @@
 ﻿
 
+<<<<<<< Updated upstream
 FD:\git\KakaoLion-Kiosk\KakaoLion\pages\HomePage.xaml;;
 FD:\git\KakaoLion-Kiosk\KakaoLion\MainWindow.xaml;;
 FD:\git\KakaoLion-Kiosk\KakaoLion\pages\OrderPage.xaml;;
 FD:\git\KakaoLion-Kiosk\KakaoLion\pages\PurchaseMethodPage.xaml;;
 FD:\git\KakaoLion-Kiosk\KakaoLion\pages\PurchasePlacePage.xaml;;
+=======
+FC:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\pages\CardMethodPage.xaml;;
+FC:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\pages\HomePage.xaml;;
+FC:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\MainWindow.xaml;;
+FC:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\pages\MoneyMethodPage.xaml;;
+FC:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\pages\OrderPage.xaml;;
+FC:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\pages\PurchaseMethodPage.xaml;;
+FC:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\pages\PurchasePlacePage.xaml;;
+FC:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\pages\ResultPage.xaml;;
+>>>>>>> Stashed changes
 
