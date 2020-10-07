@@ -1,4 +1,5 @@
-﻿using KakaoLion.model;
+﻿using KakaoLion.dto.model;
+using KakaoLion.model;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -24,7 +25,7 @@ namespace KakaoLion.pages
         {
             new MenuModel() {
                 idx = 0,
-                category = MenuModel.Category.Small,
+                category = Category.Small,
                 name="라이언 치즈볼 쿠션 팩",
                 price = 12000,
                 discount = 0,
@@ -33,7 +34,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 1,
-                category = MenuModel.Category.Small,
+                category = Category.Small,
                 name="레몬 테라스 미니키체인 라이언",
                 price = 12000,
                 discount = 0,
@@ -42,7 +43,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 2,
-                category = MenuModel.Category.Small,
+                category = Category.Small,
                 name="리본 라이언",
                 price = 12000,
                 discount = 0,
@@ -51,7 +52,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 3,
-                category = MenuModel.Category.Small,
+                category = Category.Small,
                 name="리틀 프렌즈 핑거퍼펫 세트 v1",
                 price = 12000,
                 discount = 0,
@@ -60,7 +61,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 4,
-                category = MenuModel.Category.Small,
+                category = Category.Small,
                 name="마린 마스코트 키체인 라이언",
                 price = 12000,
                 discount = 0,
@@ -69,7 +70,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 5,
-                category = MenuModel.Category.Small,
+                category = Category.Small,
                 name="리틀 프렌즈 핑거퍼펫 세트 v1",
                 price = 12000,
                 discount = 0,
@@ -78,7 +79,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 6,
-                category = MenuModel.Category.Small,
+                category = Category.Small,
                 name="리틀 프렌즈 핑거퍼펫 세트 v1",
                 price = 12000,
                 discount = 0,
@@ -87,7 +88,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 7,
-                category = MenuModel.Category.Small,
+                category = Category.Small,
                 name="리틀 프렌즈 핑거퍼펫 세트 v1",
                 price = 12000,
                 discount = 0,
@@ -96,7 +97,7 @@ namespace KakaoLion.pages
             },
              new MenuModel() {
                 idx = 8,
-                category = MenuModel.Category.Small,
+                category = Category.Small,
                 name="리틀 프렌즈 핑거퍼펫 세트 v1",
                 price = 12000,
                 discount = 0,
@@ -105,7 +106,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 9,
-                category = MenuModel.Category.Small,
+                category = Category.Small,
                 name="리틀 프렌즈 핑거퍼펫 세트 v1",
                 price = 12000,
                 discount = 0,
@@ -116,7 +117,7 @@ namespace KakaoLion.pages
 
             new MenuModel() {
                 idx = 0,
-                category = MenuModel.Category.Medium,
+                category = Category.Medium,
                 name="25cm인형 치즈볼 라이언",
                 price = 8000,
                 discount = 0,
@@ -125,7 +126,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 1,
-                category = MenuModel.Category.Medium,
+                category = Category.Medium,
                 name="꿀잠 베이비 필로우 라이언",
                 price = 8000,
                 discount = 0,
@@ -134,7 +135,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 2,
-                category = MenuModel.Category.Medium,
+                category = Category.Medium,
                 name="레몬 테라스 얼굴 쿠션 라이언",
                 price = 8000,
                 discount = 0,
@@ -143,7 +144,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 3,
-                category = MenuModel.Category.Medium,
+                category = Category.Medium,
                 name="레몬 테라스 향기 인형 라이언",
                 price = 8000,
                 discount = 0,
@@ -154,7 +155,7 @@ namespace KakaoLion.pages
 
             new MenuModel() {
                 idx = 0,
-                category = MenuModel.Category.Big,
+                category = Category.Big,
                 name="롱 바디 필로우 라이언",
                 price = 5000,
                 discount = 0,
@@ -163,7 +164,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 1,
-                category = MenuModel.Category.Big,
+                category = Category.Big,
                 name="리틀 바디 필로우 라이언 인형",
                 price = 5000,
                 discount = 0,
@@ -172,7 +173,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 2,
-                category = MenuModel.Category.Big,
+                category = Category.Big,
                 name="말랑 허그 바디 라이언 쿠션",
                 price = 5000,
                 discount = 0,
@@ -181,7 +182,7 @@ namespace KakaoLion.pages
             },
             new MenuModel() {
                 idx = 3,
-                category = MenuModel.Category.Big,
+                category = Category.Big,
                 name="메가 바디 필로우 리틀 라이언",
                 price = 5000,
                 discount = 0,
@@ -208,7 +209,7 @@ namespace KakaoLion.pages
 
         public List<MenuModel> PageChange(int pageCount)
         {
-            MenuModel.Category category = (MenuModel.Category)lbCategory.SelectedIndex;
+            Category category = (Category)lbCategory.SelectedIndex;
             return (List<MenuModel>)MenuList.Where(x => x.page == pageCount && x.category == category).ToList();
         }
 
@@ -238,7 +239,7 @@ namespace KakaoLion.pages
         {
             this.pageCount = 1;
             if (lbCategory.SelectedIndex == -1) return;
-            MenuModel.Category category = (MenuModel.Category)lbCategory.SelectedIndex;
+            Category category = (Category)lbCategory.SelectedIndex;
             lbMenus.ItemsSource = PageChange(this.pageCount);
         }
 

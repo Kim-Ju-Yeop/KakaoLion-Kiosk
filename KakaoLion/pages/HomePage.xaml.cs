@@ -13,7 +13,7 @@ namespace KakaoLion
 
         private void orderButton_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new PurchasePlacePage());
+            this.NavigationService.Navigate(new PurchaseMethodPage());
         }
     }
 }

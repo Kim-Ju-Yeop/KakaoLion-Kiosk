@@ -1,7 +1,4 @@
-﻿using KakaoLion.model;
-using System.Collections.Generic;
-using System.Management;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace KakaoLion.pages
 {
@@ -15,12 +12,10 @@ namespace KakaoLion.pages
 
         private void moneyBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-           
         }
 
         private void cardBtn_click(object sender, System.Windows.RoutedEventArgs e)
         {
-
         }
     }
 }
