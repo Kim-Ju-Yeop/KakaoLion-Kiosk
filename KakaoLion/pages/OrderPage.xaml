@@ -49,7 +49,7 @@
                     </Style>
                 
                 </ListBox.ItemContainerStyle>
-                
+
                 <ListBoxItem>소형 인형</ListBoxItem>
                 <ListBoxItem>중형 인형</ListBoxItem>
                 <ListBoxItem>대형 인형</ListBoxItem>
@@ -81,8 +81,8 @@
             </ListBox>
 
             <StackPanel Orientation="Horizontal" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                <Button Width="140" Height="40" Content="이전으로" FontSize="14px" Background="#FFCB44" Margin="0, 0, 120, 0" x:Name="previous"/>
-                <Button Width="140" Height="40" Content="다음으로" FontSize="14px" Background="#FFCB44" Margin="120, 0, 0, 0" x:Name="next"/>
+                <Button Width="140" Height="40" Content="이전으로" FontSize="14px" Background="#FFCB44" Margin="0, 0, 120, 0" x:Name="previous" Click="previous_Click"/>
+                <Button Width="140" Height="40" Content="다음으로" FontSize="14px" Background="#FFCB44" Margin="120, 0, 0, 0" x:Name="next" Click="next_Click"/>
             </StackPanel>
 
         </StackPanel>
