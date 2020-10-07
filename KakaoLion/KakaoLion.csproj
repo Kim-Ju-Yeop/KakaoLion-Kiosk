@@ -55,8 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="converter\BooleanToVisibillity.cs" />
+    <Compile Include="model\Category.cs" />
     <Compile Include="model\MenuModel.cs" />
     <Compile Include="model\OrderModel.cs" />
+    <Compile Include="model\StoreModel.cs" />
     <Compile Include="pages\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
@@ -97,8 +100,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="pages\SelectStorePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="pages\SelectStorePage.xaml.cs">
+      <DependentUpon>SelectStorePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -194,6 +204,7 @@
     <Resource Include="resources\image\icon\ic_logo2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="resources\image\icon\ic_cancel.png" />
     <Content Include="resources\video\video.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

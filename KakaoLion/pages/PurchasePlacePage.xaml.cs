@@ -1,28 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace KakaoLion.pages
 {
-    /// <summary>
-    /// PurchasePlacePage.xaml에 대한 상호 작용 논리
-    /// </summary>
     public partial class PurchasePlacePage : Page
     {
         public PurchasePlacePage()
         {
             InitializeComponent();
+        }
+
+        private void storeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new SelectStorePage());
+        }
+
+        private void deliveryButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new PurchaseMethodPage());
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new OrderPage());
         }
     }
 }
