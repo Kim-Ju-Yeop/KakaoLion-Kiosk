@@ -56,7 +56,7 @@
 
             </ListBox>
 
-            <ListBox x:Name="lbMenus" Height="710" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox x:Name="lbMenus" Height="710" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
 
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -67,11 +67,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical" Width="180" Height="230" Margin="10 0 0 0">
-                            <Button BorderThickness="0" Background="White">
-                                <Border BorderBrush="gray" BorderThickness="1">
-                                    <Image Source="{Binding imagePath}"/>
-                                </Border>
-                            </Button>
+                            <Image Source="{Binding imagePath}"/>
                             <Label Content="{Binding name}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
                             <Label Content="{Binding price}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
                         </StackPanel>
@@ -83,6 +79,7 @@
             <StackPanel Orientation="Horizontal" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Button Width="140" Height="40" Content="이전으로" FontSize="14px" Background="#FFCB44" Margin="0, 0, 120, 0" x:Name="previous" Click="previous_Click"/>
                 <Button Width="140" Height="40" Content="다음으로" FontSize="14px" Background="#FFCB44" Margin="120, 0, 0, 0" x:Name="next" Click="next_Click"/>
+                
             </StackPanel>
 
         </StackPanel>
@@ -92,29 +89,11 @@
             <ListView>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="메뉴" Width="240"></GridViewColumn>
-                        <GridViewColumn Header="수량" Width="240"></GridViewColumn>
-                        <GridViewColumn Header="총가격" Width="420"></GridViewColumn>
+                        <GridViewColumn Header="메뉴" Width="240" DisplayMemberBinding="{Binding name}"></GridViewColumn>
+                        <GridViewColumn Header="수량" Width="240" DisplayMemberBinding="{Binding quantity}"></GridViewColumn>
+                        <GridViewColumn Header="총가격" Width="420" DisplayMemberBinding="{Binding totalPrice}"></GridViewColumn>
                     </GridView>
                 </ListView.View>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            
-                            <Label Content="{Binding name}"></Label> 
-                            <StackPanel Orientation="Horizontal">
-                                <Label></Label>
-                                <StackPanel Orientation="Vertical">
-                                    <Button></Button>
-                                    <Button></Button>
-                                </StackPanel>
-                            </StackPanel>
-                            <Label></Label>
-                            <Button></Button>
-                            
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
             </ListView>
             
         </StackPanel>
