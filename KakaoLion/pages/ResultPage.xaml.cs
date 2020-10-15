@@ -1,28 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace KakaoLion.pages
 {
-    /// <summary>
-    /// ResultPage.xaml에 대한 상호 작용 논리
-    /// </summary>
     public partial class ResultPage : Page
     {
+        int tik = 60;
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
+
         public ResultPage()
         {
             InitializeComponent();
+            startTimer();
+        }
+
+        public void startTimer()
+        { 
+            // DB 접근 후 특정 지점 possible 값을 false로 변경
+            // DB 접근 후 특정 지점 lastOrder 값을 변경 (mmss)
+            dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
+            dispatcherTimer.Tick += new EventHandler(timer_Tick);
+            dispatcherTimer.Start();
+        }
+
+        public void stopTimer()
+        {
+            dispatcherTimer.Stop();
+            // DB 접근 후 특정 지점 possible 값을 true로 변경
+        }
+
+        public void timer_Tick(object sender, EventArgs e)
+        {
+            if (tik > 0) tik--;
+            else stopTimer();
         }
     }
 }

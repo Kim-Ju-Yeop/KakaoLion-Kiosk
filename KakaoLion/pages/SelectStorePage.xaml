@@ -29,7 +29,28 @@
             <ListBox Margin="0, 100, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Center"
                 x:Name="storeListBox"
                 ScrollViewer.VerticalScrollBarVisibility="Disabled" 
-                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                SelectionChanged="storeListBox_SelectionChanged">
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="IsEnabled" Value="{Binding possible}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Border x:Name="border" Width="200" Height="200" Background="#FFCB44"  Margin="10, 10, 10, 10">
+                                        <ContentPresenter ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" TargetName="border" Value="#FF9E89"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
 
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -39,12 +60,11 @@
 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid Width="200px" Height="200px" Background="#FFCB44" >
+                        <Grid Name="layout" Width="200px" Height="200px">
                             <Image Source="/resources/image/icon/ic_cancel.png" Visibility="{Binding possible, Converter={StaticResource booleanToVisibillity}}"/>
                             <Label Content="{Binding name}" FontSize="34px" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Grid VerticalAlignment="Bottom">
-                                <Label Content="{Binding recentlyAt}" FontSize="22px" Foreground="Black" HorizontalAlignment="Left"/>
-                                <Label Content="00:58" FontSize="22px" Foreground="Black" HorizontalAlignment="Right"/>
+                                <Label Content="{Binding timer}" FontSize="22px" Foreground="Black" HorizontalAlignment="Right"/>
                             </Grid>
                         </Grid>
                     </DataTemplate>
