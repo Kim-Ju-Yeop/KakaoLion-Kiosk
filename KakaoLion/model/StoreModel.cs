@@ -29,7 +29,7 @@ namespace KakaoLion.model
 
                     if (nowSeconds - lastSeconds < 60)
                     {
-                        tik = nowSeconds - lastSeconds;
+                        tik = 60 - (nowSeconds - lastSeconds);
                         timer = (tik--).ToString();
                     } else
                     {

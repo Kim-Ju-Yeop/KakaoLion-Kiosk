@@ -92,7 +92,6 @@
                 <Grid Width="200px" Height="200px" Background="#FFCB44">
                     <Label Content="지점 이름" FontSize="34px" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Grid VerticalAlignment="Bottom">
-                        <Label Content="최근구매" FontSize="22px" Foreground="Black" HorizontalAlignment="Left"/>
                         <Label Content="대기시간" FontSize="22px" Foreground="Black" HorizontalAlignment="Right"/>
                     </Grid>
                 </Grid>
