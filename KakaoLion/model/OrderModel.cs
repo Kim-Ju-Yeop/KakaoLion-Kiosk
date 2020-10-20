@@ -2,10 +2,10 @@
 
 namespace KakaoLion.model
 {
-    class OrderModel
+    public class OrderModel
     {
 
-        public int idx { get; set; } 
+        public int? idx { get; set; } 
         public int menuindx { get; set; } 
         public int quantity { get; set; }
         public int totalPrice { get; set; } 

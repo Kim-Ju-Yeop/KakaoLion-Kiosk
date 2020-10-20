@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace KakaoLion.pages
-{ 
+{
     public partial class OrderPage : Page
     {
         public int pageCount = 1;
@@ -182,6 +182,7 @@ namespace KakaoLion.pages
             }
 
         };
+        public List<OrderModel> orderList = new List<OrderModel>();
 
         public OrderPage()
         {
@@ -190,7 +191,7 @@ namespace KakaoLion.pages
             Category category = (Category)lbCategory.SelectedIndex;
             for (int i = 0; i < MenuList.Count; i++)
             {
-                if (MenuList[i].idx < 9 )
+                if (MenuList[i].idx < 9)
                 {
                     MenuList[i].page = 1;
                 }
@@ -201,28 +202,24 @@ namespace KakaoLion.pages
             }
             Loaded += OrderPage_Loaded;
         }
-
         private void OrderPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             lbCategory.SelectedIndex = 0;
         }
-
         public List<MenuModel> PageChange(int pageCount)
         {
             Category category = (Category)lbCategory.SelectedIndex;
             return (List<MenuModel>)MenuList.Where(x => x.page == pageCount && x.category == category).ToList();
         }
-
         private void previous_Click(object sender, RoutedEventArgs e)
         {
-            
+
             --this.pageCount;
             lbMenus.ItemsSource = PageChange(this.pageCount);
             if (this.pageCount - 1 <= 0)
                 previous.IsEnabled = false;
             next.IsEnabled = true;
         }
-
         private void next_Click(object sender, RoutedEventArgs e)
         {
 
@@ -238,15 +235,70 @@ namespace KakaoLion.pages
             }
 
         }
-       private void lbMenus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Up(object sender, RoutedEventArgs e)
         {
-            MenuModel menu = (MenuModel)lbMenus.ItemsSource;
-            OrderModel orderMenu = (OrderModel)lbMenus.ItemsSource;
-            orderMenu.menuindx = menu.idx;
-            orderMenu.quantity = 1;
-            orderMenu.totalPrice = (orderMenu.quantity) * (menu.price);
-        }
 
+            if (lbMenus.SelectedItem != null)
+            {
+                var selectedMenu = lbMenus.SelectedItem as MenuModel;
+                foreach (var temp in orderList)
+                {
+                    if (temp.menuindx == selectedMenu.idx)
+                    {
+                        temp.quantity++;
+                        temp.totalPrice = selectedMenu.price * temp.quantity;
+                    }
+                }
+                lvResult.ItemsSource = orderList.ToList();
+            }
+            
+        }
+        private void Down(object sender, RoutedEventArgs e)
+        {
+            if(lbMenus.SelectedItem != null)
+            {
+                var selectedMenu = lbMenus.SelectedItem as MenuModel;
+                foreach (var temp in orderList)
+                {
+                    if (temp.menuindx == selectedMenu.idx)
+                    {
+                        if(temp.quantity > 0)
+                        {
+                            temp.quantity--;
+                            temp.totalPrice = selectedMenu.price * temp.quantity;
+                        }
+                        
+                    }
+                }
+                lvResult.ItemsSource = orderList.ToList();
+            }
+        }
+        private void lbMenus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbMenus.SelectedItem != null)
+            {
+                MenuModel menu = (MenuModel)lbMenus.SelectedItem;
+                OrderModel model = orderList.Where((order) => order.menuindx== menu.idx).FirstOrDefault();
+
+                if (model == null)
+                {
+                    orderList.Add(new OrderModel() { idx = null, menuindx = menu.idx, quantity = 1, totalPrice = menu.price, userId = "user", purchaseAt = "2020-10-16 09:50:00", paymentPlace = true, paymentMethod = true, shopIdx = 1 });
+                } else
+                {
+                    model.quantity++;
+                }
+                
+                var selectedMenu = lbMenus.SelectedItem as MenuModel;
+                lvResult.ItemsSource = orderList.ToList();
+                foreach (var temp in orderList)
+                {
+                    if(temp.menuindx == selectedMenu.idx)
+                    {
+                        temp.totalPrice = selectedMenu.price * temp.quantity;
+                    }
+                }
+            }
+        }
         private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.pageCount = 1;
@@ -255,6 +307,5 @@ namespace KakaoLion.pages
             lbMenus.ItemsSource = PageChange(this.pageCount);
         }
 
-        
     }
 }
