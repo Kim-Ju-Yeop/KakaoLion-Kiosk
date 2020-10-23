@@ -24,6 +24,8 @@ namespace KakaoLion.pages
         public OrderPage()
         {
             InitializeComponent();
+
+            menuList.Clear();
             getAllMenu();
 
             Loaded += OrderPage_Loaded;
@@ -152,6 +154,7 @@ namespace KakaoLion.pages
                 }
 
                 lvResult.ItemsSource = orderList.ToList();
+                OrderList_CollectionChanged(null, null);
                 lbMenus.UnselectAll();
             }
         }
@@ -209,7 +212,7 @@ namespace KakaoLion.pages
                 totalCount += order.quantity;
                 totalPrice += order.totalPrice;
             }
-            orderCount.Content = totalCount + "명";
+            orderCount.Content = totalCount + "개";
             orderPrice.Content = totalPrice + "원";
         }
 
