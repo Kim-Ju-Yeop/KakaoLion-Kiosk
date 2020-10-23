@@ -1,5 +1,5 @@
 ﻿using KakaoLion.model;
-using KakaoLion.util;
+using KakaoLion.widget;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -31,7 +31,7 @@ namespace KakaoLion.pages
             using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
             {
                 conn.Open();
-                String sql = "SELECT * FROM shop";
+                string sql = "SELECT * FROM shop";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();

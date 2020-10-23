@@ -1,11 +1,13 @@
-﻿using System.Windows;
+﻿using KakaoLion.model;
+using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace KakaoLion.pages
 {
     public partial class PurchasePlacePage : Page
     {
-        public PurchasePlacePage()
+        public PurchasePlacePage(ObservableCollection<OrderModel> orderList)
         {
             InitializeComponent();
         }

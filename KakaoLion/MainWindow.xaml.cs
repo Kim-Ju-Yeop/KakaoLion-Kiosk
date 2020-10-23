@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KakaoLion.pages;
+using System;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -28,7 +29,14 @@ namespace KakaoLion
 
         private void homeButton_Click(object sender, RoutedEventArgs e)
         {
-            pageFrame.Source = new Uri("pages/HomePage.xaml", UriKind.Relative);
+            if (pageFrame.Source == null)
+            {
+                if (MessageBox.Show("정말로 홈화면으로 돌아가시겠습니까?\n(주문 목록이 삭제됩니다.)", "이전으로", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    OrderPage.orderList.Clear();
+                    pageFrame.Source = new Uri("pages/HomePage.xaml", UriKind.Relative);
+                }
+            }
         }
     }
 }

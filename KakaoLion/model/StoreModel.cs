@@ -27,7 +27,7 @@ namespace KakaoLion.model
                     int nowSeconds = int.Parse(now.Substring(0, 2)) * 60 + int.Parse(now.Substring(2));
                     int lastSeconds = int.Parse(last.Substring(0, 2)) * 60 + int.Parse(last.Substring(2));
 
-                    if (nowSeconds - lastSeconds < 60)
+                    if (nowSeconds > lastSeconds && nowSeconds - lastSeconds < 60)
                     {
                         tik = 60 - (nowSeconds - lastSeconds);
                         timer = (tik--).ToString();

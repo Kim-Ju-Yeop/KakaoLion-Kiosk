@@ -4,9 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KakaoLion.pages"
+      xmlns:converter="clr-namespace:KakaoLion.converter"
       mc:Ignorable="d"
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="OrderPage">
+    <Page.Resources>
+        <converter:MenuIdxToName x:Key="menuIdxToName"/>
+    </Page.Resources>
 
     <Grid Background="#E5E5E5">
         <Grid.ColumnDefinitions>
@@ -103,7 +107,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Padding="12">
-                                        <TextBlock Text="{Binding name}"></TextBlock>
+                                        <TextBlock Text="{Binding menuIdx, Converter={StaticResource menuIdxToName}}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -126,7 +130,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
                                         <TextBlock Text="{Binding totalPrice}"/>
-                                        <Button Content="x" Background="LightGray" BorderThickness="0" Width="30" Height="30" VerticalAlignment="Center"/>
+                                        <Button Content="x" Background="LightGray" BorderThickness="0" Width="30" Height="30" VerticalAlignment="Center" Click="Remove"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -134,14 +138,21 @@
 
                     </GridView>
                 </ListView.View>
+              
             </ListView>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="총 개수, 금액"/>
+                <Label x:Name="orderCount"/>
+                <Label x:Name="orderPrice"/>
+            </StackPanel>
 
         </StackPanel>
         
         <StackPanel Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 700 0 0">
-            <Button Width="180" Height="60" Content="초기화" FontSize="14px" Background="#FFCB44" Margin="0, 0, 210, 0"/>
-            <Button Width="180" Height="60" Content="주문취소" FontSize="14px" Background="#FFCB44" Margin="130, 0, 0, 0"/>
-            <Button Width="180" Height="60" Content="주문하기" FontSize="14px" Background="#FFCB44" Margin="20, 0, 0, 0"/>
+            <Button Width="180" Height="60" Content="초기화" FontSize="14px" Background="#FFCB44" Margin="0, 0, 210, 0" Click="Reset_Click" />
+            <Button Width="180" Height="60" Content="이전으로" FontSize="14px" Background="#FFCB44" Margin="130, 0, 0, 0" Click="Back_Click"/>
+            <Button Width="180" Height="60" Content="주문하기" FontSize="14px" Background="#FFCB44" Margin="20, 0, 0, 0" Click="Order_Click"/>
         </StackPanel>
         
     </Grid>
