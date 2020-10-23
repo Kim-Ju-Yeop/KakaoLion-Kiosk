@@ -1,0 +1,159 @@
+﻿<Page x:Class="KakaoLion.pages.OrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KakaoLion.pages"
+      xmlns:converter="clr-namespace:KakaoLion.converter"
+      mc:Ignorable="d"
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="OrderPage">
+    <Page.Resources>
+        <converter:MenuIdxToName x:Key="menuIdxToName"/>
+    </Page.Resources>
+
+    <Grid Background="#E5E5E5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Width="617" Height="870" Background="#FCFCFC">
+
+            <ListBox  x:Name="lbCategory" FontSize="16" FontWeight="SemiBold" BorderBrush="Transparent"  VerticalAlignment="Center" SelectionChanged="lbCategory_SelectionChanged">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemContainerStyle>
+                
+                    <Style TargetType="{x:Type ListBoxItem}">
+                    
+                        <Setter Property="Foreground" Value="Gray" />
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Width" Value="204" />
+                        <Setter Property="Padding" Value="18,10,18,10" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Grid>
+                                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" >
+                                            <ContentPresenter ></ContentPresenter>
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter Property="Background" Value="#FFCB44" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                
+                </ListBox.ItemContainerStyle>
+
+                
+                <ListBoxItem>소형 인형</ListBoxItem>
+                <ListBoxItem>중형 인형</ListBoxItem>
+                <ListBoxItem>대형 인형</ListBoxItem>
+
+            </ListBox>
+
+            <ListBox x:Name="lbMenus" Height="710" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lbMenus_SelectionChanged">
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Width="180" Height="230" Margin="10 0 0 0">
+                            <Image Source="{Binding imagePath}"/>
+                            <Label Content="{Binding name}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <Label Content="{Binding price}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                
+            </ListBox>
+
+            <StackPanel Orientation="Horizontal" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Button Width="140" Height="40" Content="이전으로" FontSize="14px" Background="#FFCB44" Margin="0, 0, 120, 0" x:Name="previous" Click="previous_Click"/>
+                <Button Width="140" Height="40" Content="다음으로" FontSize="14px" Background="#FFCB44" Margin="120, 0, 0, 0" x:Name="next" Click="next_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Width="900" Height="600" Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <ListView x:Name="lvResult" Height="530">
+                <ListView.View>
+                    <GridView>
+
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="Foreground" Value="Gray" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Height" Value="64" />
+                                <Setter Property="FontSize" Value="30"/>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+
+                        <GridViewColumn Header="메뉴" Width="250">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Padding="12">
+                                        <TextBlock Text="{Binding menuIdx, Converter={StaticResource menuIdxToName}}"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="수량" Width="240">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Stretch" Padding="12">
+                                        <Button Content="-" Width="30" Height="30" Background="LightGray" BorderThickness="0" Click="Down" />
+                                        <TextBlock Text="{Binding quantity}"/>
+                                        <Button Content="+" Width="30" Height="30" Background="LightGray" BorderThickness="0" Click="Up" />
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="총가격" Width="400">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
+                                        <TextBlock Text="{Binding totalPrice}"/>
+                                        <Button Content="x" Background="LightGray" BorderThickness="0" Width="30" Height="30" VerticalAlignment="Center" Click="Remove"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+              
+            </ListView>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="총 개수, 금액"/>
+                <Label x:Name="orderCount"/>
+                <Label x:Name="orderPrice"/>
+            </StackPanel>
+
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 700 0 0">
+            <Button Width="180" Height="60" Content="초기화" FontSize="14px" Background="#FFCB44" Margin="0, 0, 210, 0" Click="Reset_Click" />
+            <Button Width="180" Height="60" Content="이전으로" FontSize="14px" Background="#FFCB44" Margin="130, 0, 0, 0" Click="Back_Click"/>
+            <Button Width="180" Height="60" Content="주문하기" FontSize="14px" Background="#FFCB44" Margin="20, 0, 0, 0" Click="Order_Click"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>
