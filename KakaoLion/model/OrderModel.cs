@@ -4,7 +4,6 @@ namespace KakaoLion.model
 {
     public class OrderModel
     {
-
         public int? idx { get; set; } 
         public int? orderCount { get; set; }
         public int menuIdx { get; set; } 
