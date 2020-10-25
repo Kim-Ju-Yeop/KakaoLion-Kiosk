@@ -172,3 +172,17 @@ C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\zxing.
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.Imaging.xml
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.xml
 C:\Users\nnss1\OneDrive\문서\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.Math.xml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\KQRCode.dll
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.Video.dll
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\zxing.dll
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.Imaging.dll
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.dll
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.Math.dll
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\KQRCode.pdb
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.Video.xml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\zxing.xml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.Imaging.xml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.xml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\AForge.Math.xml

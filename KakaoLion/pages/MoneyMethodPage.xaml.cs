@@ -56,7 +56,7 @@ namespace KakaoLion.pages
             if (userBarcode.Equals(dataBox.Text.ToString()))
             {
                 statusView.Text = "데이터가 일치합니다.";
-                // Result 페이지 이동
+                this.NavigationService.Navigate(new ResultPage());
             }
             else
             {
