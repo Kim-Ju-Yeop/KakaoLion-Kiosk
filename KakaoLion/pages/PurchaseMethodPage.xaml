@@ -62,7 +62,7 @@
 
             <Button Width="200px" Height="80px"  
                     Background="#FFCB44" Content="이전" FontFamily="Noto Sans" 
-                    FontSize="36" FontWeight="Bold"/>
+                    FontSize="36" FontWeight="Bold" Click="backBtn_Click"/>
         </StackPanel>
     </Grid>
 </Page>

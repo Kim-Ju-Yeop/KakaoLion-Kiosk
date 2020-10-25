@@ -2,13 +2,9 @@
 using KakaoLion.model;
 using KakaoLion.widget;
 using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.Data.Odbc;
 using System.Linq;
-using System.Management;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -236,7 +232,7 @@ namespace KakaoLion.pages
         private void Order_Click(object sender, RoutedEventArgs e)
         {
             if (orderList.Count == 0) MessageBox.Show("주문 목록을 추가해주시기 바랍니다.");
-            else this.NavigationService.Navigate(new PurchasePlacePage(orderList));
+            else this.NavigationService.Navigate(new PurchasePlacePage());
         }
     }
 }

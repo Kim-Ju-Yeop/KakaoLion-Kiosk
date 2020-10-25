@@ -21,13 +21,16 @@ namespace KakaoLion.model
                 SetProperty(ref _possible, value);
                 if (value == false)
                 {
-                    var now = String.Format("{0:mmss}", DateTime.Now);
+                    var now = String.Format("{0:HHmmss}", DateTime.Now);
                     var last = lastOrder;
 
-                    int nowSeconds = int.Parse(now.Substring(0, 2)) * 60 + int.Parse(now.Substring(2));
-                    int lastSeconds = int.Parse(last.Substring(0, 2)) * 60 + int.Parse(last.Substring(2));
+                    int nowHour = int.Parse(now.Substring(0, 2));
+                    int lastHour = int.Parse(last.Substring(0, 2));
 
-                    if (nowSeconds > lastSeconds && nowSeconds - lastSeconds < 60)
+                    int nowSeconds = int.Parse(now.Substring(2, 2)) * 60 + int.Parse(now.Substring(4));
+                    int lastSeconds = int.Parse(last.Substring(2, 2)) * 60 + int.Parse(last.Substring(4));
+
+                    if (nowHour == lastHour && nowSeconds > lastSeconds && nowSeconds - lastSeconds < 60)
                     {
                         tik = 60 - (nowSeconds - lastSeconds);
                         timer = (tik--).ToString();
