@@ -212,7 +212,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\KQRCode\KQRCode.csproj">
+      <Project>{62f1b37e-4bb2-442b-99a7-36279c5c0f3f}</Project>
+      <Name>KQRCode</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\image\small\라이언 치즈볼 쿠션 팩.jpg" />
     <Resource Include="resources\image\small\레몬 테라스 미니키체인 라이언.jpg" />

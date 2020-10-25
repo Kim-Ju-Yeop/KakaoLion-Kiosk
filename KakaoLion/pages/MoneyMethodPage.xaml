@@ -21,13 +21,13 @@
         <StackPanel Grid.Column="0" Width="400" Height="300" Background="#fcfcfc">
             <TextBlock Height="40" FontSize="20px">주문정보</TextBlock>
             <TextBlock Height="130" FontSize="40px">총개수 총금액</TextBlock>
-            <TextBlock Height="130" FontSize="40px">4개 42000\</TextBlock>
+            <TextBlock x:Name="orderInfo" Height="130" FontSize="40px">4개 42000\</TextBlock>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Width="800" Height="840" Background="#fcfcfc">
-            <TextBlock FontSize="34" HorizontalAlignment="Center" Margin="0 90 0 0">바코드를 보여주세요!</TextBlock>
-            <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 190 0 0">전도권님의 바코드 번호입니다.</TextBlock>
-            <TextBlock FontSize="26" HorizontalAlignment="Center" Margin="0 30 0 0">093247509</TextBlock>
+            <TextBlock x:Name="statusView" FontSize="34" HorizontalAlignment="Center" Margin="0 90 0 0">바코드를 보여주세요!</TextBlock>
+            <TextBlock x:Name="userInfo" FontSize="30" HorizontalAlignment="Center" Margin="0 190 0 0">전도권님의 바코드 번호입니다.</TextBlock>
+            <TextBox x:Name="dataBox" FontSize="26" HorizontalAlignment="Center" Margin="0 30 0 0" TextChanged="dataBox_TextChanged"></TextBox>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 140 0 0">
                 <Button Width="200" Height="100" Margin="0 0 10 0" 
                         Background="#FFCB44" FontSize="30" Click="backBtn_Click">이전</Button>
