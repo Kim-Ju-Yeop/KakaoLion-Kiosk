@@ -1,5 +1,6 @@
 ﻿using KakaoLion.model;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Controls;
 
 namespace KakaoLion.pages
@@ -9,6 +10,23 @@ namespace KakaoLion.pages
         public PurchaseMethodPage()
         {
             InitializeComponent();
+            viewListData();
+        }
+
+        private void viewListData()
+        {
+            lvResult.ItemsSource = OrderPage.orderList.ToList();
+
+            int totalCount = 0;
+            int totalPrice = 0;
+
+            foreach (OrderModel order in OrderPage.orderList)
+            {
+                totalCount += order.quantity;
+                totalPrice += order.totalPrice;
+            }
+            orderCount.Content = totalCount + "개";
+            orderPrice.Content = totalPrice + "원";
         }
 
         private void moneyBtn_Click(object sender, System.Windows.RoutedEventArgs e)

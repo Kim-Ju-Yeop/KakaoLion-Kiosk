@@ -14,11 +14,11 @@
             <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 50 0 0">결제가 완료 되었습니다!</TextBlock>
             <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 90 0 0">주문 정보</TextBlock>
             <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 30 0 0">총개수 금액</TextBlock>
-            <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 10 0 0">4개 42000\</TextBlock>
+            <TextBlock x:Name="orderInfo" FontSize="30" HorizontalAlignment="Center" Margin="0 10 0 0">4개 42000\</TextBlock>
             <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 90 0 0">주문번호</TextBlock>
-            <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 10 0 0">666</TextBlock>
+            <TextBlock x:Name="orderCount" FontSize="30" HorizontalAlignment="Center" Margin="0 10 0 0">666</TextBlock>
             <Button Width="200" Height="100" HorizontalAlignment="Center" 
-                    Background="#FFCB44" FontSize="30" Margin="0 100 0 0">확인</Button>
+                    Background="#FFCB44" FontSize="30" Margin="0 100 0 0" Click="Next_Click">확인</Button>
         </StackPanel>
     </Grid>
 </Page>

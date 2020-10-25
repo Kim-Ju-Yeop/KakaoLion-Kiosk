@@ -1,6 +1,8 @@
 ﻿using KakaoLion.model;
+using KakaoLion.widget;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
@@ -11,18 +13,90 @@ namespace KakaoLion.pages
         int tik = 60;
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
 
+        int lastOrderCount;
+        int shopIdx;
+
         public ResultPage()
         {
             InitializeComponent();
-            startTimer();
 
-            // 전달받은 orders 데이터에서 userId, purchaseAt 데이터를 추가하여 DB에 주문목록을 넣는다.
+            getLastOrderCount();
+            setOrder();
+        }
+
+        public void getLastOrderCount()
+        {
+            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            {
+                conn.Open();
+                String sql = "SELECT MAX(orderCount) FROM order";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                try
+                {
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    rdr.Read();
+                    lastOrderCount = (int)rdr["orderCount"];
+                } 
+                catch (Exception e)
+                {
+                    lastOrderCount = 0;
+                }
+            }
+        }
+
+        public void setOrder()
+        {
+            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            {
+                string userId = "student";
+                string purchaseAt = String.Format("{0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
+
+                conn.Open();
+                foreach (OrderModel order in OrderPage.orderList)
+                {
+                    string values = "(" + (lastOrderCount + 1) + ", " + order.menuIdx + ", " + order.quantity + ", " + order.totalPrice + ", '" +
+                        userId + "', '" + purchaseAt + "', " + order.paymentPlace + ", " + order.paymentMethod + ", " + (int)(order.shopIdx == null ? 0 : order.shopIdx) + ")";
+
+                    string sql = "INSERT INTO lion.order(orderCount, menuIdx, quantity, totalPrice, userId, purchaseAt, paymentPlace, paymentMethod, shopIdx) VALUES" + values;
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            if (OrderPage.orderList[0].shopIdx != null) startTimer();
+            showData();
+        }
+
+        public void showData()
+        {
+            int totalCount = 0;
+            int totalPrice = 0;
+
+            foreach (OrderModel order in OrderPage.orderList)
+            {
+                totalCount += order.quantity;
+                totalPrice += order.totalPrice;
+            }
+
+            orderInfo.Text = totalCount + "개 " + totalPrice + "원";
+            orderCount.Text = (lastOrderCount + 1).ToString();
         }
 
         public void startTimer()
         {
-            // DB 접근 후 특정 지점 possible 값을 false로 변경
-            // DB 접근 후 특정 지점 lastOrder 값을 변경 (HHmmss)
+            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            {
+                shopIdx = (int)OrderPage.orderList[0].shopIdx;
+                string lastOrder = String.Format("{0:HHmmss}", DateTime.Now);
+
+                conn.Open();
+                string sql = "UPDATE shop SET lastOrder=" + "'" + lastOrder + "', possible=" + false + " WHERE idx=" + shopIdx;
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             dispatcherTimer.Tick += new EventHandler(timer_Tick);
             dispatcherTimer.Start();
@@ -30,14 +104,27 @@ namespace KakaoLion.pages
 
         public void stopTimer()
         {
+            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            {
+                conn.Open();
+                string sql = "UPDATE shop SET possible=" + true + " WHERE idx=" + shopIdx;
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
             dispatcherTimer.Stop();
-            // DB 접근 후 특정 지점 possible 값을 true로 변경
         }
 
         public void timer_Tick(object sender, EventArgs e)
         {
             if (tik > 0) tik--;
             else stopTimer();
+        }
+
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            OrderPage.orderList.Clear();
+            this.NavigationService.Navigate(new HomePage());
         }
     }
 }
