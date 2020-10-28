@@ -29,7 +29,7 @@ namespace KakaoLion.pages
             using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
             {
                 conn.Open();
-                String sql = "SELECT MAX(orderCount) FROM order";
+                String sql = "SELECT MAX(orderCount) FROM lion.order";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
@@ -37,7 +37,7 @@ namespace KakaoLion.pages
                 {
                     MySqlDataReader rdr = cmd.ExecuteReader();
                     rdr.Read();
-                    lastOrderCount = (int)rdr["orderCount"];
+                    lastOrderCount = (int)rdr["MAX(orderCount)"];
                 } 
                 catch (Exception e)
                 {
