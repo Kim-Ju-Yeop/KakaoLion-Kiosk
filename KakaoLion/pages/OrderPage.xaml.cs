@@ -85,7 +85,6 @@ namespace KakaoLion.pages
         private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             pageCount = 1;
-
             previous.IsEnabled = false;
 
             if (lbCategory.SelectedIndex == 2) next.IsEnabled = false;
@@ -210,29 +209,43 @@ namespace KakaoLion.pages
             }
             orderCount.Content = totalCount + "개";
             orderPrice.Content = totalPrice + "원";
+
+            if (orderList.Count == 0)
+            {
+                resetButton.IsEnabled = false;
+                orderButton.IsEnabled = false;
+            } else
+            {
+                resetButton.IsEnabled = true;
+                orderButton.IsEnabled = true;
+            }
         }
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-            orderList.Clear();
-            lvResult.ItemsSource = orderList.ToList();
+            if (MessageBox.Show("주문목록을 초기화하시겠습니까?\n(주문 목록이 삭제됩니다.)", "초기화", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                orderList.Clear();
+                lvResult.ItemsSource = orderList.ToList();
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("정말로 이전화면으로 돌아가시겠습니까?\n(주문 목록이 삭제됩니다.)", "이전으로", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (orderList.Count == 0)
+            {
+                this.NavigationService.Navigate(new HomePage());
+            } 
+            else if (MessageBox.Show("정말로 이전화면으로 돌아가시겠습니까?\n(주문 목록이 삭제됩니다.)", "이전으로", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 orderList.Clear();
-                lvResult.ItemsSource = orderList.ToList();
-
                 this.NavigationService.Navigate(new HomePage());
             }
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)
         {
-            if (orderList.Count == 0) MessageBox.Show("주문 목록을 추가해주시기 바랍니다.");
-            else this.NavigationService.Navigate(new PurchasePlacePage());
+            this.NavigationService.Navigate(new PurchasePlacePage());
         }
     }
 }
