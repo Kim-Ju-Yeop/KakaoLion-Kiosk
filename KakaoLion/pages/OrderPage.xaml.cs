@@ -54,6 +54,13 @@ namespace KakaoLion.pages
                 while(rdr.Read())
                 {
                     string imagePath = "";
+                    int discount = (int)rdr["discount"];
+                    int price = (int)rdr["price"];
+
+                    if (discount > 0)
+                    {
+                        price -= (price*discount/100);
+                    }
 
                     switch ((Category) rdr["category"])
                     {
@@ -74,8 +81,8 @@ namespace KakaoLion.pages
                         page = (int)rdr["page"],
                         category = (Category) rdr["category"],
                         name = (string)rdr["name"],
-                        price = (int)rdr["price"],
-                        discount = (int)rdr["discount"],
+                        price = price,
+                        discount = discount,
                         imagePath = imagePath
                     });
                 }

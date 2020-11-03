@@ -109,6 +109,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="converter\DiscountToVisibillity.cs" />
     <Compile Include="converter\MenuIdxToName.cs" />
     <Compile Include="converter\BooleanToVisibillity.cs" />
     <Compile Include="model\Category.cs" />

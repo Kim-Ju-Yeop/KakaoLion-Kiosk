@@ -10,6 +10,7 @@
       Title="OrderPage">
     <Page.Resources>
         <converter:MenuIdxToName x:Key="menuIdxToName"/>
+        <converter:DiscountToVisibillity x:Key="discountToVisibillity"/>
     </Page.Resources>
 
     <Grid Background="#E5E5E5">
@@ -70,7 +71,10 @@
                         <StackPanel Orientation="Vertical" Width="180" Height="230" Margin="10 0 0 0">
                             <Image Source="{Binding imagePath}"/>
                             <Label Content="{Binding name}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
-                            <Label Content="{Binding price}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="{Binding price}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                <Label x:Name="isDiscount" Content="할인 중" Foreground="red" Visibility="{Binding discount, Converter={StaticResource discountToVisibillity}}"/>
+                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
