@@ -7,6 +7,8 @@ namespace KakaoLion
 {
     public partial class MainWindow : Window
     {
+        public static DateTime startOperationTime { get; set; } = DateTime.Now;
+
         public MainWindow()
         {
             InitializeComponent();

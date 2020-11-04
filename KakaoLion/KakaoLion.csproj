@@ -109,14 +109,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="converter\DiscountToVisibillity.cs" />
     <Compile Include="converter\MenuIdxToName.cs" />
     <Compile Include="converter\BooleanToVisibillity.cs" />
     <Compile Include="model\Category.cs" />
     <Compile Include="model\MenuModel.cs" />
     <Compile Include="model\OrderModel.cs" />
     <Compile Include="model\StoreModel.cs" />
+    <Compile Include="model\UserModel.cs" />
+    <Compile Include="pages\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\CardMethodPage.xaml.cs">
       <DependentUpon>CardMethodPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWIndow.xaml.cs">
+      <DependentUpon>LoginWIndow.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\MoneyMethodPage.xaml.cs">
       <DependentUpon>MoneyMethodPage.xaml</DependentUpon>
@@ -131,6 +139,10 @@
       <DependentUpon>PurchasePlacePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="widget\Constants.cs" />
+    <Page Include="pages\AdminPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="pages\CardMethodPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -154,6 +166,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="LoginWIndow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\MoneyMethodPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
