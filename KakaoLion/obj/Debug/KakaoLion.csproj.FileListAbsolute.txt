@@ -263,3 +263,7 @@ D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.Properties.Resources.resour
 D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csproj.GenerateResource.cache
 D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csproj.CoreCompileInputs.cache
 D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\KakaoLion.csproj.CopyComplete
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\AdminPage.g.cs
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\AdminPage.baml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\LoginWIndow.g.cs
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\LoginWIndow.baml

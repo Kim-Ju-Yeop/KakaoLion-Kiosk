@@ -15,5 +15,10 @@ namespace KakaoLion
         {
             this.NavigationService.Navigate(new OrderPage());
         }
+
+        private void adminButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AdminPage());
+        }
     }
 }

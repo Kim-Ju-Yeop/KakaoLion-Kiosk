@@ -5,16 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KakaoLion.pages"
         mc:Ignorable="d"
-        Title="loginWIndow" Height="351" Width="473">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="66,120,0,0" Text="Id" VerticalAlignment="Top" Width="67" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="58,168,0,0"  Text="Password" VerticalAlignment="Top" Width="77" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="118,115,0,0" Name="textBoxId" VerticalAlignment="Top" Width="247" Grid.ColumnSpan="2" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="118,168,0,0" Name="textBoxPw" VerticalAlignment="Top" Width="247" Grid.ColumnSpan="2" />
-        <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="118,211,0,0" Name="button1" VerticalAlignment="Top" Width="104" Click="button1_Click_1" />
+        Title="loginWIndow" Height="800" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Content="Welcome Kakao" Height="100px" FontSize="60px" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="top"/>
+        <StackPanel Orientation="Vertical" Margin="0, 150, 0, 0">
+            <StackPanel Orientation="Vertical">
+                <Label Content="아이디" FontSize="20px" FontWeight="Bold" Margin="0, 0, 0, 10"/>
+                <TextBox Width="500px" Height="40px" Name="textBoxId" FontSize="20px" Padding="0, 5, 0, 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="0, 20, 0, 0">
+                <Label Content="비밀번호" FontSize="20px" FontWeight="Bold" Margin="0, 0, 0, 10"/>
+                <TextBox Width="500px" Height="40px" Name="textBoxPw" FontSize="20px" Padding="0, 5, 0, 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <CheckBox VerticalAlignment="Center" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                <Label Name="checkBox2" Content="자동로그인" FontSize="15px" FontWeight="Bold"/>
+            </StackPanel>
+            <Button Height="60px" Background="#FFCB44" Content="로그인" FontSize="20px" FontWeight="Bold" BorderThickness="0" Margin="0, 20, 0, 0" Click="loginButton_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

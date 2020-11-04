@@ -117,6 +117,9 @@
     <Compile Include="model\OrderModel.cs" />
     <Compile Include="model\StoreModel.cs" />
     <Compile Include="model\UserModel.cs" />
+    <Compile Include="pages\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\CardMethodPage.xaml.cs">
       <DependentUpon>CardMethodPage.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <DependentUpon>PurchasePlacePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="widget\Constants.cs" />
+    <Page Include="pages\AdminPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="pages\CardMethodPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

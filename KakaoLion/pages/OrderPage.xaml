@@ -14,7 +14,7 @@
     </Page.Resources>
 
     <Grid Background="#E5E5E5">
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -22,7 +22,7 @@
 
         <StackPanel Orientation="Vertical" Grid.Column="0" Width="620" Height="870" Background="#FCFCFC">
 
-            <ListBox  x:Name="lbCategory" FontSize="16" FontWeight="SemiBold" BorderBrush="Transparent"  VerticalAlignment="Center" SelectionChanged="lbCategory_SelectionChanged">
+            <ListBox  x:Name="lbCategory" FontSize="30" FontWeight="SemiBold" BorderBrush="Transparent"  VerticalAlignment="Center" SelectionChanged="lbCategory_SelectionChanged">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal"/>
@@ -33,13 +33,15 @@
                     <Style TargetType="{x:Type ListBoxItem}">
                         <Setter Property="Foreground" Value="Gray" />
                         <Setter Property="Background" Value="Transparent" />
-                        <Setter Property="Width" Value="204" />
-                        <Setter Property="Padding" Value="18,10,18,10" />
+                        <Setter Property="Width" Value="204"/>
+                        <Setter Property="Height" Value="88"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="38,23,38,23" />
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                                     <Grid>
-                                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" >
+                                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
                                             <ContentPresenter ></ContentPresenter>
                                         </Border>
                                     </Grid>
@@ -59,7 +61,7 @@
                 <ListBoxItem>대형 인형</ListBoxItem>
             </ListBox>
 
-            <ListBox x:Name="lbMenus" Height="710" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lbMenus_SelectionChanged">
+            <ListBox x:Name="lbMenus" Height="710" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lbMenus_SelectionChanged" BorderThickness="0">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal"/>
@@ -68,12 +70,12 @@
 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical" Width="180" Height="230" Margin="10 0 0 0">
+                        <StackPanel Orientation="Vertical" Width="180" Height="230" Margin="8 0 8 0">
                             <Image Source="{Binding imagePath}"/>
                             <Label Content="{Binding name}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Label Content="{Binding price}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
-                                <Label x:Name="isDiscount" Content="할인 중" Foreground="red" Visibility="{Binding discount, Converter={StaticResource discountToVisibillity}}"/>
+                                <Label x:Name="isDiscount" Content="할인중" Foreground="LightGray" Visibility="{Binding discount, Converter={StaticResource discountToVisibillity}}"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
@@ -81,14 +83,14 @@
             </ListBox>
 
             <StackPanel Orientation="Horizontal" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                <Button Width="140" Height="40" Content="이전으로" FontSize="14px" Background="#FFCB44" Margin="0, 0, 120, 0" x:Name="previous" Click="previous_Click"/>
-                <Button Width="140" Height="40" Content="다음으로" FontSize="14px" Background="#FFCB44" Margin="120, 0, 0, 0" x:Name="next" Click="next_Click"/>
+                <Button Width="140" Height="40" Content="이전으로" FontSize="14px" Background="#FFCB44" Margin="0, 0, 120, 0" x:Name="previous" Click="previous_Click" BorderThickness="0"/>
+                <Button Width="140" Height="40" Content="다음으로" FontSize="14px" Background="#FFCB44" Margin="120, 0, 0, 0" x:Name="next" Click="next_Click" BorderThickness="0"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Width="900" Height="600" Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-            <ListView x:Name="lvResult" Height="530">
+            <ListView x:Name="lvResult" Height="536" BorderThickness="0">
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
@@ -97,13 +99,14 @@
                                 <Setter Property="Background" Value="Transparent" />
                                 <Setter Property="Height" Value="64" />
                                 <Setter Property="FontSize" Value="30"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
 
                         <GridViewColumn Header="메뉴" Width="250">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Padding="12">
+                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
                                         <TextBlock Text="{Binding menuIdx, Converter={StaticResource menuIdxToName}}"/>
                                     </TextBlock>
                                 </DataTemplate>
@@ -113,10 +116,10 @@
                         <GridViewColumn Header="수량" Width="240">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Stretch" Padding="12">
-                                        <Button Content="-" Width="30" Height="30" Background="LightGray" BorderThickness="0" Click="Down" />
+                                    <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="12">
+                                        <Button Content="-" Width="30" Height="30" Background="Transparent" BorderThickness="0" Click="Down" />
                                         <TextBlock Text="{Binding quantity}"/>
-                                        <Button Content="+" Width="30" Height="30" Background="LightGray" BorderThickness="0" Click="Up" />
+                                        <Button Content="+" Width="30" Height="30" Background="Transparent" BorderThickness="0" Click="Up" />
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -127,7 +130,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
                                         <TextBlock Text="{Binding totalPrice}"/>
-                                        <Button Content="x" Background="LightGray" BorderThickness="0" Width="30" Height="30" VerticalAlignment="Center" Click="Remove"/>
+                                        <Button Content="x" Background="Transparent" BorderThickness="0" Width="30" Height="30" VerticalAlignment="Center" Click="Remove"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -136,18 +139,18 @@
                 </ListView.View>
             </ListView>
 
-            <StackPanel Orientation="Horizontal">
-                <Label Content="총 개수, 금액"/>
-                <Label x:Name="orderCount"/>
-                <Label x:Name="orderPrice"/>
+            <StackPanel Orientation="Horizontal" Height="64">
+                <Label Content="총 개수, 금액" Width="250" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                <Label x:Name="orderCount" Width="240" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                <Label x:Name="orderPrice" Width="400" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
             </StackPanel>
         </StackPanel>
-        
+
         <StackPanel Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 700 0 0">
-            <Button x:Name="resetButton" Width="180" Height="60" Content="초기화" FontSize="14px" Background="#FFCB44" Margin="0, 0, 210, 0" Click="Reset_Click" />
+            <Button x:Name="resetButton" Width="180" Height="60" Content="초기화" FontSize="14px" Background="#FFCB44" Margin="0, 0, 210, 0" Click="Reset_Click"/>
             <Button Width="180" Height="60" Content="이전으로" FontSize="14px" Background="#FFCB44" Margin="130, 0, 0, 0" Click="Back_Click"/>
             <Button x:Name="orderButton" Width="180" Height="60" Content="주문하기" FontSize="14px" Background="#FFCB44" Margin="20, 0, 0, 0" Click="Order_Click"/>
         </StackPanel>
-        
+
     </Grid>
 </Page>

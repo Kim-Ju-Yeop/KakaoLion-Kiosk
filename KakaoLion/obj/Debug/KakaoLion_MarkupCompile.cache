@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\git\KakaoLion-Kiosk\KakaoLion\obj\Debug\
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\
 KakaoLion
 none
 false
 DEBUG;TRACE
-D:\git\KakaoLion-Kiosk\KakaoLion\App.xaml
-9502996626
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\App.xaml
+11-115311405
 1-989664666
-21-1820414692
-140-2138634302
-pages\CardMethodPage.xaml;pages\HomePage.xaml;MainWindow.xaml;pages\MoneyMethodPage.xaml;pages\OrderPage.xaml;pages\PurchaseMethodPage.xaml;pages\PurchasePlacePage.xaml;pages\ResultPage.xaml;pages\SelectStorePage.xaml;
+24-700081080
+1401998463349
+pages\AdminPage.xaml;pages\CardMethodPage.xaml;pages\HomePage.xaml;MainWindow.xaml;LoginWIndow.xaml;pages\MoneyMethodPage.xaml;pages\OrderPage.xaml;pages\PurchaseMethodPage.xaml;pages\PurchasePlacePage.xaml;pages\ResultPage.xaml;pages\SelectStorePage.xaml;
 
 False
 
