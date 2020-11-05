@@ -1,14 +1,15 @@
 ﻿
 
-FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\AdminPage.xaml;;
-FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\CardMethodPage.xaml;;
-FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\HomePage.xaml;;
+FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\admin\AdminPage.xaml;;
+FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\customer\CardMethodPage.xaml;;
+FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\customer\HomePage.xaml;;
 FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\MainWindow.xaml;;
 FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\LoginWIndow.xaml;;
-FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\MoneyMethodPage.xaml;;
-FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\OrderPage.xaml;;
-FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\PurchaseMethodPage.xaml;;
-FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\PurchasePlacePage.xaml;;
-FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\ResultPage.xaml;;
-FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\SelectStorePage.xaml;;
+FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\customer\MoneyMethodPage.xaml;;
+FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\customer\OrderPage.xaml;;
+FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\customer\PurchaseMethodPage.xaml;;
+FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\customer\PurchasePlacePage.xaml;;
+FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\customer\ResultPage.xaml;;
+FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\customer\SelectStorePage.xaml;;
+FC:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\pages\admin\StatsPage1.xaml;;
 

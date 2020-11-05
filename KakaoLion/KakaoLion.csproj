@@ -117,37 +117,44 @@
     <Compile Include="model\OrderModel.cs" />
     <Compile Include="model\StoreModel.cs" />
     <Compile Include="model\UserModel.cs" />
-    <Compile Include="pages\AdminPage.xaml.cs">
+    <Compile Include="pages\admin\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\CardMethodPage.xaml.cs">
+    <Compile Include="pages\admin\StatsPage1.xaml.cs">
+      <DependentUpon>StatsPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\customer\CardMethodPage.xaml.cs">
       <DependentUpon>CardMethodPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWIndow.xaml.cs">
       <DependentUpon>LoginWIndow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\MoneyMethodPage.xaml.cs">
+    <Compile Include="pages\customer\MoneyMethodPage.xaml.cs">
       <DependentUpon>MoneyMethodPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\OrderPage.xaml.cs">
+    <Compile Include="pages\customer\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\PurchaseMethodPage.xaml.cs">
+    <Compile Include="pages\customer\PurchaseMethodPage.xaml.cs">
       <DependentUpon>PurchaseMethodPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\PurchasePlacePage.xaml.cs">
+    <Compile Include="pages\customer\PurchasePlacePage.xaml.cs">
       <DependentUpon>PurchasePlacePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="widget\Constants.cs" />
-    <Page Include="pages\AdminPage.xaml">
+    <Page Include="pages\admin\AdminPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\CardMethodPage.xaml">
+    <Page Include="pages\admin\StatsPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\customer\CardMethodPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\HomePage.xaml">
+    <Page Include="pages\customer\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,7 +166,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="pages\HomePage.xaml.cs">
+    <Compile Include="pages\customer\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -170,36 +177,36 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\MoneyMethodPage.xaml">
+    <Page Include="pages\customer\MoneyMethodPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\OrderPage.xaml">
+    <Page Include="pages\customer\OrderPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\PurchaseMethodPage.xaml">
+    <Page Include="pages\customer\PurchaseMethodPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\PurchasePlacePage.xaml">
+    <Page Include="pages\customer\PurchasePlacePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\ResultPage.xaml">
+    <Page Include="pages\customer\ResultPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\SelectStorePage.xaml">
+    <Page Include="pages\customer\SelectStorePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="pages\ResultPage.xaml.cs">
+    <Compile Include="pages\customer\ResultPage.xaml.cs">
       <DependentUpon>ResultPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\SelectStorePage.xaml.cs">
+    <Compile Include="pages\customer\SelectStorePage.xaml.cs">
       <DependentUpon>SelectStorePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
