@@ -8,7 +8,7 @@
         Title="MainWindow" Height="1080" Width="1920">
     <Grid Background="#FFCB44">
 
-        <Frame NavigationUIVisibility="Hidden" Name="pageFrame" Margin="0, 120, 0, 0" Source="pages/HomePage.xaml" />
+        <Frame NavigationUIVisibility="Hidden" Name="pageFrame" Margin="0, 120, 0, 0" Source="pages/customer/HomePage.xaml" />
 
         <Grid>
             <Grid.ColumnDefinitions>

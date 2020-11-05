@@ -68,7 +68,7 @@
         </Grid>
 
         <Grid Grid.Row="2">
-            <Frame NavigationUIVisibility="Hidden" Name="pageFrame"/>
+            <Frame NavigationUIVisibility="Hidden" Name="pageFrame" Source="StatsPage1.xaml"/>
         </Grid>
     </Grid>
 </Page>

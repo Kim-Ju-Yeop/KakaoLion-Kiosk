@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\App.xaml
-11-115311405
+121140533415
 1-989664666
-24-700081080
+252058431854
 1401998463349
-pages\AdminPage.xaml;pages\CardMethodPage.xaml;pages\HomePage.xaml;MainWindow.xaml;LoginWIndow.xaml;pages\MoneyMethodPage.xaml;pages\OrderPage.xaml;pages\PurchaseMethodPage.xaml;pages\PurchasePlacePage.xaml;pages\ResultPage.xaml;pages\SelectStorePage.xaml;
+pages\admin\AdminPage.xaml;pages\admin\StatsPage1.xaml;pages\customer\CardMethodPage.xaml;pages\customer\HomePage.xaml;MainWindow.xaml;LoginWIndow.xaml;pages\customer\MoneyMethodPage.xaml;pages\customer\OrderPage.xaml;pages\customer\PurchaseMethodPage.xaml;pages\customer\PurchasePlacePage.xaml;pages\customer\ResultPage.xaml;pages\customer\SelectStorePage.xaml;
 
 False
 
