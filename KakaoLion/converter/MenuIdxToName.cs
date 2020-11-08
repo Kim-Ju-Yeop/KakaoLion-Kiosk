@@ -12,7 +12,7 @@ namespace KakaoLion.converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         { 
-            List<MenuModel> menuList = OrderPage.menuList.Where(menu => menu.idx.Equals(value)).ToList();
+            List<MenuModel> menuList = MainWindow.menuList.Where(menu => menu.idx.Equals(value)).ToList();
             return menuList[0].name;
         }
 
