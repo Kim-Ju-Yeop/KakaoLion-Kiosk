@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KakaoLion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920">
+        Title="MainWindow" Height="1080" Width="1920"
+        Closed="Window_Closed">
     <Grid Background="#FFCB44">
 
         <Frame NavigationUIVisibility="Hidden" Name="pageFrame" Margin="0, 120, 0, 0" Source="pages/customer/HomePage.xaml" />

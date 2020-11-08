@@ -10,59 +10,56 @@
       Title="StatsPage1">
     <Page.Resources>
         <converter:MenuIdxToName x:Key="menuIdxToName"/>
-        <converter:DiscountToVisibillity x:Key="discountToVisibillity"/>
     </Page.Resources>
 
     <Grid Background="White">
-        <Label Content="메뉴별 판매 수 및 총액" FontSize="35px" Foreground="Black"/>
-        <ListView x:Name="lvResult" Height="536" BorderThickness="0">
-            <ListView.View>
-                <GridView>
-                    <GridView.ColumnHeaderContainerStyle>
-                        <Style TargetType="GridViewColumnHeader">
-                            <Setter Property="Foreground" Value="Gray" />
-                            <Setter Property="Background" Value="Transparent" />
-                            <Setter Property="Height" Value="64" />
-                            <Setter Property="FontSize" Value="30"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </Style>
-                    </GridView.ColumnHeaderContainerStyle>
+        <StackPanel Orientation="Vertical">
+            <Label Content="메뉴별 판매 수 및 총액" FontSize="30px" Foreground="Black" FontWeight="Bold" Margin="10, 30, 0, 0"/>
+            <ListView x:Name="lvResult" Height="600px" BorderThickness="0" Margin="10, 30, 10, 10" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="Foreground" Value="Gray" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Height" Value="64" />
+                                <Setter Property="FontSize" Value="30"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
 
-                    <GridViewColumn Header="메뉴" Width="250">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                        <GridViewColumn Header="메뉴" Width="640px">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
                                         <TextBlock Text="{Binding menuIdx, Converter={StaticResource menuIdxToName}}"/>
                                     </TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="수량" Width="240">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="12">
-                                        <Button Content="-" Width="30" Height="30" Background="Transparent" BorderThickness="0" />
+                        <GridViewColumn Header="수량" Width="640px">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="12">
                                         <TextBlock Text="{Binding quantity}"/>
-                                        <Button Content="+" Width="30" Height="30" Background="Transparent" BorderThickness="0" />
                                     </TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="총가격" Width="400">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
+                        <GridViewColumn Header="총가격" Width="640px">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
                                         <TextBlock Text="{Binding totalPrice}"/>
-                                        <Button Content="x" Background="Transparent" BorderThickness="0" Width="30" Height="30" VerticalAlignment="Center"/>
                                     </TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>
