@@ -51,7 +51,6 @@ namespace KakaoLion.pages
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            DateTime dateTime = new DateTime(0001, 01, 01, 00, 00, 00);
             Time = "가동시간 : " + (MainWindow.operationDateTime - dateTime).ToString();
         }
 
@@ -79,7 +78,7 @@ namespace KakaoLion.pages
                     pageFrame.Source = new Uri("StatsPage1.xaml", UriKind.Relative);
                     break;
                 case CATEGORY2:
-                    pageFrame.Source = new Uri("StatsPage1.xaml", UriKind.Relative);
+                    pageFrame.Source = new Uri("StatsPage2.xaml", UriKind.Relative);
                     break;
                 case CATEGORY3:
                     pageFrame.Source = new Uri("StatsPage1.xaml", UriKind.Relative);

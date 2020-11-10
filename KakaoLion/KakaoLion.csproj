@@ -109,12 +109,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="converter\CategoryToName.cs" />
     <Compile Include="converter\DiscountToVisibillity.cs" />
     <Compile Include="converter\MenuIdxToName.cs" />
     <Compile Include="converter\BooleanToVisibillity.cs" />
     <Compile Include="model\Category.cs" />
     <Compile Include="model\MenuModel.cs" />
     <Compile Include="model\OrderModel.cs" />
+    <Compile Include="model\StatsModel.cs" />
     <Compile Include="model\StoreModel.cs" />
     <Compile Include="model\UserModel.cs" />
     <Compile Include="pages\admin\AdminPage.xaml.cs">
@@ -122,6 +124,9 @@
     </Compile>
     <Compile Include="pages\admin\StatsPage1.xaml.cs">
       <DependentUpon>StatsPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\admin\StatsPage2.xaml.cs">
+      <DependentUpon>StatsPage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\customer\CardMethodPage.xaml.cs">
       <DependentUpon>CardMethodPage.xaml</DependentUpon>
@@ -147,6 +152,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="pages\admin\StatsPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\admin\StatsPage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
