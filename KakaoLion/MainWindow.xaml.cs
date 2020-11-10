@@ -14,12 +14,14 @@ namespace KakaoLion
     {
         public static DateTime operationDateTime;
         public static List<MenuModel> menuList = new List<MenuModel>();
+        public static List<StoreModel> storeList = new List<StoreModel>();
 
         public MainWindow()
         {
             InitializeComponent();
             getOperationTime();
             getAllMenu();
+            getAllStore();
         }
 
         private void setTimer()
@@ -80,6 +82,29 @@ namespace KakaoLion
                         price = price,
                         discount = discount,
                         imagePath = imagePath
+                    });
+                }
+            }
+        }
+        public void getAllStore()
+        {
+            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM lion.shop";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    bool possible = int.Parse(rdr["possible"].ToString()) == 1;
+                    storeList.Add(new StoreModel()
+                    {
+                        idx = (int)rdr["idx"],
+                        name = (string)rdr["name"],
+                        lastOrder = (string)rdr["lastOrder"],
+                        possible = possible
                     });
                 }
             }
