@@ -4,7 +4,7 @@ using System.Windows.Threading;
 
 namespace KakaoLion.model
 {
-    class StoreModel : BindableBase
+    public class StoreModel : BindableBase
     {
         public int idx { get; set; }
 

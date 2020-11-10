@@ -81,7 +81,7 @@ namespace KakaoLion.pages
                     pageFrame.Source = new Uri("StatsPage2.xaml", UriKind.Relative);
                     break;
                 case CATEGORY3:
-                    pageFrame.Source = new Uri("StatsPage1.xaml", UriKind.Relative);
+                    pageFrame.Source = new Uri("StatsPage3.xaml", UriKind.Relative);
                     break;
                 case CATEOGRY4:
                     pageFrame.Source = new Uri("StatsPage1.xaml", UriKind.Relative);
