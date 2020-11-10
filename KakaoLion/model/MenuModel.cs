@@ -1,5 +1,4 @@
 ﻿using KakaoLion.dto.model;
-using System;
 
 namespace KakaoLion.model
 {

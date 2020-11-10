@@ -9,12 +9,12 @@ using System.Windows.Controls;
 
 namespace KakaoLion.pages.admin
 {
-    public partial class StatsPage1 : Page
+    public partial class StatsPage2 : Page
     {
         public List<OrderModel> orderList = new List<OrderModel>();
-        public List<OrderModel> statsList = new List<OrderModel>();
+        public List<StatsModel> statsList = new List<StatsModel>();
 
-        public StatsPage1()
+        public StatsPage2()
         {
             InitializeComponent();
             getAllOrder();
@@ -55,30 +55,28 @@ namespace KakaoLion.pages.admin
 
         public void combineData()
         {
-            foreach(MenuModel menu in MainWindow.menuList)
+            for (int i = 0; i < 3; i++)
             {
                 int quantity = 0;
                 int totalPrice = 0;
 
-                List<OrderModel> menuOrderList = orderList.Where(order => menu.idx == order.menuIdx).ToList();
-                foreach(OrderModel order in menuOrderList)
+                foreach(MenuModel menu in MainWindow.menuList)
                 {
-                    quantity += order.quantity;
-                    totalPrice += order.totalPrice;
+                    if (menu.category == (Category)i)
+                    {
+                        List<OrderModel> menuOrderList = orderList.Where(order => menu.idx == order.menuIdx).ToList();
+                        foreach (OrderModel order in menuOrderList)
+                        {
+                            quantity += order.quantity;
+                            totalPrice += order.totalPrice;
+                        }
+                    }
                 }
-
-                statsList.Add(new OrderModel
+                statsList.Add(new StatsModel
                 {
-                    idx = null,
-                    orderCount = null,
-                    menuIdx = menu.idx,
+                    category = (Category)i,
                     quantity = quantity,
-                    totalPrice = totalPrice,
-                    userId = null,
-                    purchaseAt = null,
-                    paymentPlace = null,
-                    paymentMethod = null,
-                    shopIdx = null
+                    totalPrice = totalPrice
                 });
             }
             lvResult.ItemsSource = statsList.ToList();
