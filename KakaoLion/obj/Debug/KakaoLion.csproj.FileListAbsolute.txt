@@ -271,3 +271,5 @@ C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage1.baml
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage2.g.cs
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage2.baml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage3.g.cs
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage3.baml
