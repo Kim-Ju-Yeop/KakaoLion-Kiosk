@@ -131,6 +131,9 @@
     <Compile Include="pages\admin\StatsPage3.xaml.cs">
       <DependentUpon>StatsPage3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pages\admin\StatsPage4.xaml.cs">
+      <DependentUpon>StatsPage4.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\customer\CardMethodPage.xaml.cs">
       <DependentUpon>CardMethodPage.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\admin\StatsPage3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\admin\StatsPage4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
