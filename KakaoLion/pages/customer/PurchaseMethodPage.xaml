@@ -80,14 +80,15 @@
         <StackPanel Grid.Column="1" Orientation="Vertical" 
                     HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
+                <Button Width="380px" Height="380px" 
+                    Click="cardBtn_click"  Content="카드" 
+                    FontFamily="Noto Sans" FontSize="70" FontWeight="Bold"  
+                    Background="#FFCB44" Margin="0 0 20 50"/>
+                
                 <Button Width="380px" Height="380px"  
                     Click="moneyBtn_Click" Content="현금"  
                     FontWeight="Bold" FontFamily="Noto Sans" FontSize="70"
                     Background="#FFCB44" Margin="0 0 20 50"/>
-                <Button Width="380px" Height="380px" 
-                    Click="cardBtn_click"  Content="카드" 
-                    FontFamily="Noto Sans" FontSize="70" FontWeight="Bold"  
-                    Background="#FFCB44" Margin="20 0 0 50"/>
             </StackPanel>
 
             <Button Width="200px" Height="80px"  

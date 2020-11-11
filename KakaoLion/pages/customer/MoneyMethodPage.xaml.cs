@@ -24,7 +24,7 @@ namespace KakaoLion.pages
             using(MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
             {
                 conn.Open();
-                string sql = "SELECT * FROM user WHERE id = " + "'" + "student" + "'";
+                string sql = "SELECT * FROM user WHERE id = " + "'" + "student1" + "'";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();

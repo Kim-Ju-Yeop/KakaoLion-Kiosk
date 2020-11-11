@@ -275,3 +275,11 @@ C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage3.baml
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage4.g.cs
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage4.baml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\LiveCharts.dll
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\LiveCharts.pdb
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\LiveCharts.xml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage5.g.cs
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage5.baml
