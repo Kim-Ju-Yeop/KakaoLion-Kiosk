@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KakaoLion.model
+﻿namespace KakaoLion.model
 {
-    class UserModel
+    public class UserModel
     {
         public string id { get; set; }
         public string pw { get; set; }
