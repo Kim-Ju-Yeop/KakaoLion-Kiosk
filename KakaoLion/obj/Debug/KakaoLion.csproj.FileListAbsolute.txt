@@ -283,3 +283,7 @@ C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\LiveCharts.
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage5.g.cs
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage5.baml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage6.g.cs
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage6.baml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage7.g.cs
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\StatsPage7.baml

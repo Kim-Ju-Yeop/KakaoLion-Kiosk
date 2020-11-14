@@ -12,11 +12,11 @@ namespace KakaoLion.pages
     {
         public const string CATEGORY1 = "메뉴별 판매 수 및 총액";
         public const string CATEGORY2 = "카테고리 별 판매 수 및 총액";
-        public const string CATEGORY3 = "지점별 메뉴별  판매수 및 총액";
+        public const string CATEGORY3 = "지점별 메뉴별 판매수 및 총액";
         public const string CATEOGRY4 = "지점별 카테고리별 판매수 및 총액";
         public const string CATEGORY5 = "일별 총 매출액";
         public const string CATEGORY6 = "하루 중 시간대별 총 매출액";
-        public const string CATEGORY7 = "회원별 총 매출액 & 판매수 및 총액";
+        public const string CATEGORY7 = "회원별 총 매출액 및 판매수 총액";
 
         public DateTime dateTime = new DateTime(0001, 01, 01, 00, 00, 00);
 
@@ -90,10 +90,10 @@ namespace KakaoLion.pages
                     pageFrame.Source = new Uri("StatsPage5.xaml", UriKind.Relative);
                     break;
                 case CATEGORY6:
-                    pageFrame.Source = new Uri("StatsPage1.xaml", UriKind.Relative);
+                    pageFrame.Source = new Uri("StatsPage6.xaml", UriKind.Relative);
                     break;
                 case CATEGORY7:
-                    pageFrame.Source = new Uri("StatsPage1.xaml", UriKind.Relative);
+                    pageFrame.Source = new Uri("StatsPage7.xaml", UriKind.Relative);
                     break;
             }
         }

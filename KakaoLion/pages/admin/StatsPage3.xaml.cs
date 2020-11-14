@@ -19,8 +19,6 @@ namespace KakaoLion.pages.admin
             setStore();
         }
 
- 
-
         public void setStore()
         {
             foreach (StoreModel store in MainWindow.storeList)
