@@ -103,5 +103,10 @@ namespace KakaoLion.pages
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void UserPage_Click(object sender, RoutedEventArgs e)
+        {
+            pageFrame.Source = new Uri("UserPage.xaml", UriKind.Relative);
+        }
     }
 }

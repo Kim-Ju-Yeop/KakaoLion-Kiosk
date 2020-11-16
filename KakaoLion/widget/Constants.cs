@@ -8,6 +8,6 @@ namespace KakaoLion.widget
 {
     class Constants
     {
-        public const string CONNSTR = "Server=192.168.43.254;Database=lion;Uid=juyeop;Pwd=9946";
+        public const string CONNSTR = "Server=10.80.161.125;Database=lion;Uid=juyeop;Pwd=9946";
     }
 }
