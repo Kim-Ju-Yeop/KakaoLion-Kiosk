@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\App.xaml
-18-583791631
+19-1257527433
 1-989664666
-33-817950739
+34-2093548904
 1421058555613
-pages\admin\AdminPage.xaml;pages\admin\StatsPage1.xaml;pages\admin\StatsPage2.xaml;pages\admin\StatsPage3.xaml;pages\admin\StatsPage4.xaml;pages\admin\StatsPage5.xaml;pages\admin\StatsPage6.xaml;pages\admin\StatsPage7.xaml;pages\customer\CardMethodPage.xaml;pages\customer\HomePage.xaml;MainWindow.xaml;LoginWIndow.xaml;pages\customer\MoneyMethodPage.xaml;pages\customer\OrderPage.xaml;pages\customer\PurchaseMethodPage.xaml;pages\customer\PurchasePlacePage.xaml;pages\customer\ResultPage.xaml;pages\customer\SelectStorePage.xaml;
+pages\admin\AdminPage.xaml;pages\admin\StatsPage1.xaml;pages\admin\StatsPage2.xaml;pages\admin\StatsPage3.xaml;pages\admin\StatsPage4.xaml;pages\admin\StatsPage5.xaml;pages\admin\StatsPage6.xaml;pages\admin\StatsPage7.xaml;pages\admin\UserPage.xaml;pages\customer\CardMethodPage.xaml;pages\customer\HomePage.xaml;MainWindow.xaml;LoginWIndow.xaml;pages\customer\MoneyMethodPage.xaml;pages\customer\OrderPage.xaml;pages\customer\PurchaseMethodPage.xaml;pages\customer\PurchasePlacePage.xaml;pages\customer\ResultPage.xaml;pages\customer\SelectStorePage.xaml;
 
 False
 
