@@ -119,6 +119,9 @@
     <Compile Include="converter\DiscountToVisibillity.cs" />
     <Compile Include="converter\MenuIdxToName.cs" />
     <Compile Include="converter\BooleanToVisibillity.cs" />
+    <Compile Include="MenuWindow.xaml.cs">
+      <DependentUpon>MenuWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="model\Category.cs" />
     <Compile Include="model\MenuModel.cs" />
     <Compile Include="model\OrderModel.cs" />
@@ -127,6 +130,9 @@
     <Compile Include="model\UserModel.cs" />
     <Compile Include="pages\admin\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\admin\MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\admin\StatsPage1.xaml.cs">
       <DependentUpon>StatsPage1.xaml</DependentUpon>
@@ -171,9 +177,17 @@
       <DependentUpon>PurchasePlacePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="widget\Constants.cs" />
+    <Page Include="MenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\admin\AdminPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pages\admin\MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\admin\StatsPage1.xaml">
       <SubType>Designer</SubType>

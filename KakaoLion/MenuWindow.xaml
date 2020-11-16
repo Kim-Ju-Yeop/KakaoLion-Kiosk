@@ -1,0 +1,25 @@
+﻿<Window x:Class="KakaoLion.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KakaoLion"
+        mc:Ignorable="d"
+        Title="MenuWindow" Height="700" Width="600">
+    <Grid Background="White">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <Image Width="150px" Height="150px" Source="{Binding imagePath}"/>
+            <Label Content="{Binding name}" FontSize="20px" HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 100, 0, 0">
+                <Label Content="금액 : " FontSize="20px"/>
+                <Label Content="{Binding price}" FontSize="20px"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="할인율 : " FontSize="20px"/>
+                <TextBox Text="{Binding discount}" FontSize="20px" VerticalAlignment="Center"/>
+            </StackPanel>
+            <Button x:Name="saveButton" Width="180" Height="60" Content="저장하기" FontSize="14px" Background="#FFCB44" Margin="0, 200, 0, 0" Click="saveButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

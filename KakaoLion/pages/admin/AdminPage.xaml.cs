@@ -107,6 +107,12 @@ namespace KakaoLion.pages
         private void UserPage_Click(object sender, RoutedEventArgs e)
         {
             pageFrame.Source = new Uri("UserPage.xaml", UriKind.Relative);
+            categoryListBox.UnselectAll();
+        }
+        private void MenuPage_Click(object sender, RoutedEventArgs e)
+        {
+            pageFrame.Source = new Uri("MenuPage.xaml", UriKind.Relative);
+            categoryListBox.UnselectAll();
         }
     }
 }
