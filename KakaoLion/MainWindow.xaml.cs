@@ -41,6 +41,7 @@ namespace KakaoLion
 
         public void getAllMenu()
         {
+            menuList.Clear();
             using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
             {
                 conn.Open();
