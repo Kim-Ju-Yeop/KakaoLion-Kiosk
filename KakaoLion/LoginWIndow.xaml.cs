@@ -15,17 +15,11 @@ namespace KakaoLion
         private bool isCheck = false;
         private static List<UserModel> userList = new List<UserModel>();
 
-        public delegate void ClosedEventHandler(bool isClosed);
-        public static event ClosedEventHandler ClosedAction;
-
         public LoginWindow()
         {
             InitializeComponent();
             checkAutoLogin();
             getUserInfo();
-
-            Properties.Settings.Default.isAutoLogin = false;
-            Properties.Settings.Default.Save();
         }
 
         private void checkAutoLogin()
@@ -33,6 +27,23 @@ namespace KakaoLion
             bool isAutoLogin = Properties.Settings.Default.isAutoLogin;
             if (isAutoLogin)
             {
+                string userId = Properties.Settings.Default.userId;
+
+                JObject json = new JObject();
+                json.Add("MSGType", 0);
+                json.Add("Id", userId);
+                json.Add("Content", "");
+                json.Add("ShopName", "");
+                json.Add("OrderNumber", "");
+                json.Add("Group", false);
+                json.Add("Menus", "");
+
+                byte[] buffer = new byte[4096];
+                string message = JsonConvert.SerializeObject(json);
+                buffer = Encoding.UTF8.GetBytes(message);
+
+                App.stream.Write(buffer, 0, buffer.Length);
+
                 MainWindow MainWindow = new MainWindow();
                 MainWindow.Show();
                 this.Close();
@@ -50,7 +61,7 @@ namespace KakaoLion
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
-                { 
+                {
                     userList.Add(new UserModel
                     {
                         id = (string)rdr["id"],
@@ -84,6 +95,7 @@ namespace KakaoLion
                 if (isCheck)
                 {
                     Properties.Settings.Default.isAutoLogin = true;
+                    Properties.Settings.Default.userId = userId;
                     Properties.Settings.Default.Save();
                 }
 
@@ -105,7 +117,7 @@ namespace KakaoLion
                 MainWindow MainWindow = new MainWindow();
                 MainWindow.Show();
                 this.Close();
-            } 
+            }
             else
             {
                 MessageBox.Show("로그인 정보가 올바르지 않습니다.", "KAKAO");

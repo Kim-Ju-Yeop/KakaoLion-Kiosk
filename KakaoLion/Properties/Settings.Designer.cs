@@ -34,5 +34,17 @@ namespace KakaoLion.Properties {
                 this["isAutoLogin"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string userId {
+            get {
+                return ((string)(this["userId"]));
+            }
+            set {
+                this["userId"] = value;
+            }
+        }
     }
 }
