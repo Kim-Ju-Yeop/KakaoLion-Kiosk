@@ -29,7 +29,7 @@ namespace KakaoLion.pages.admin
 
         public void getAllUser()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string sql = "SELECT * FROM lion.user";
@@ -59,7 +59,7 @@ namespace KakaoLion.pages.admin
             int cardCount = 0;
             int moneyCount = 0;
 
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string sql = "SELECT * FROM lion.order WHERE userId = '" + userId + "';";

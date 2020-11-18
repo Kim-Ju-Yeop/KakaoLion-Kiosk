@@ -1,22 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Windows;
 using KakaoLion.model;
 using KakaoLion.widget;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-namespace KakaoLion.pages
+namespace KakaoLion
 {
-    public partial class loginWIndow : Window
+    public partial class LoginWindow : Window
     {
         private bool isCheck = false;
         private static List<UserModel> userList = new List<UserModel>();
 
-        public loginWIndow()
+        public delegate void ClosedEventHandler(bool isClosed);
+        public static event ClosedEventHandler ClosedAction;
+
+        public LoginWindow()
         {
             InitializeComponent();
             checkAutoLogin();
             getUserInfo();
+
+            Properties.Settings.Default.isAutoLogin = false;
+            Properties.Settings.Default.Save();
         }
 
         private void checkAutoLogin()
@@ -32,7 +41,7 @@ namespace KakaoLion.pages
 
         private void getUserInfo()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string sql = "SELECT * FROM lion.user";
@@ -57,12 +66,14 @@ namespace KakaoLion.pages
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
+            string userId = "";
             bool isSuccess = false;
 
             foreach (UserModel user in userList)
             {
                 if (user.id == textBoxId.Text.ToString() && user.pw == textBoxPw.Text.ToString())
                 {
+                    userId = user.id;
                     isSuccess = true;
                     break;
                 }
@@ -75,6 +86,22 @@ namespace KakaoLion.pages
                     Properties.Settings.Default.isAutoLogin = true;
                     Properties.Settings.Default.Save();
                 }
+
+                JObject json = new JObject();
+                json.Add("MSGType", 0);
+                json.Add("Id", userId);
+                json.Add("Content", "");
+                json.Add("ShopName", "");
+                json.Add("OrderNumber", "");
+                json.Add("Group", false);
+                json.Add("Menus", "");
+
+                byte[] buffer = new byte[4096];
+                string message = JsonConvert.SerializeObject(json);
+                buffer = Encoding.UTF8.GetBytes(message);
+
+                App.stream.Write(buffer, 0, buffer.Length);
+
                 MainWindow MainWindow = new MainWindow();
                 MainWindow.Show();
                 this.Close();
@@ -92,6 +119,10 @@ namespace KakaoLion.pages
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             isCheck = false;
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            App.LoginWindow_CloseAction(true);
         }
     }
 }

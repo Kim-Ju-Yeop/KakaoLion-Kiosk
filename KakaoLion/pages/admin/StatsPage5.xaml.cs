@@ -28,7 +28,7 @@ namespace KakaoLion.pages.admin
             int cardCount = 0;
             int moneyCount = 0;
 
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string today = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
