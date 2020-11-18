@@ -43,7 +43,7 @@ namespace KakaoLion.pages
 
         private void getAllMenu()
         {
-            using(MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using(MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string sql = "SELECT * FROM menu";

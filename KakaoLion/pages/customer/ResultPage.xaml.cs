@@ -1,7 +1,11 @@
 ﻿using KakaoLion.model;
 using KakaoLion.widget;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -26,10 +30,10 @@ namespace KakaoLion.pages
 
         public void getLastOrderCount()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
-                String sql = "SELECT MAX(orderCount) FROM lion.order";
+                String sql = "SELECT * FROM lion.order WHERE idx = (SELECT MAX(idx) FROM lion.order); ";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
@@ -37,7 +41,13 @@ namespace KakaoLion.pages
                 {
                     MySqlDataReader rdr = cmd.ExecuteReader();
                     rdr.Read();
-                    lastOrderCount = (int)rdr["MAX(orderCount)"];
+
+                    lastOrderCount = (int)rdr["orderCount"];
+
+                    if (lastOrderCount == 100)
+                    {
+                        lastOrderCount = 0;
+                    }
                 } 
                 catch (Exception e)
                 {
@@ -48,16 +58,15 @@ namespace KakaoLion.pages
 
         public void setOrder()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
-                string userId = "student";
                 string purchaseAt = String.Format("{0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
 
                 conn.Open();
                 foreach (OrderModel order in OrderPage.orderList)
                 {
                     string values = "(" + (lastOrderCount + 1) + ", " + order.menuIdx + ", " + order.quantity + ", " + order.totalPrice + ", '" +
-                        userId + "', '" + purchaseAt + "', " + order.paymentPlace + ", " + order.paymentMethod + ", " + (int)(order.shopIdx == null ? 0 : order.shopIdx) + ")";
+                        order.userId + "', '" + purchaseAt + "', " + order.paymentPlace + ", " + order.paymentMethod + ", " + (int)(order.shopIdx == null ? 0 : order.shopIdx) + ")";
 
                     string sql = "INSERT INTO lion.order(orderCount, menuIdx, quantity, totalPrice, userId, purchaseAt, paymentPlace, paymentMethod, shopIdx) VALUES" + values;
 
@@ -65,8 +74,13 @@ namespace KakaoLion.pages
                     cmd.ExecuteNonQuery();
                 }
             }
-            if (OrderPage.orderList[0].shopIdx != null) startTimer();
+            if (OrderPage.orderList[0].shopIdx != null)
+            {
+                startTimer();
+            }
+
             showData();
+            sendMessage();
         }
 
         public void showData()
@@ -86,7 +100,7 @@ namespace KakaoLion.pages
 
         public void startTimer()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 shopIdx = (int)OrderPage.orderList[0].shopIdx;
                 string lastOrder = String.Format("{0:HHmmss}", DateTime.Now);
@@ -104,7 +118,7 @@ namespace KakaoLion.pages
 
         public void stopTimer()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string sql = "UPDATE shop SET possible=" + true + " WHERE idx=" + shopIdx;
@@ -125,6 +139,43 @@ namespace KakaoLion.pages
         {
             OrderPage.orderList.Clear();
             this.NavigationService.Navigate(new HomePage());
+        }
+
+        private void sendMessage()
+        {
+            JArray jarray = new JArray();
+
+            for (int i = 0; i < OrderPage.orderList.Count; i++)
+            {
+                JObject jObject = new JObject();
+                string menuName = MainWindow.menuList.Where(menu => menu.idx == OrderPage.orderList[i].menuIdx).ToList()[0].name;
+
+                jObject.Add("Name", menuName);
+                jObject.Add("Count", OrderPage.orderList[i].quantity);
+                jObject.Add("Price", OrderPage.orderList[i].totalPrice);
+
+                jarray.Add(jObject);
+            }
+
+            string orderCount;
+            if (lastOrderCount + 1 < 10) orderCount = "00" + (lastOrderCount + 1);
+            else if (lastOrderCount + 1 < 100) orderCount = "0" + (lastOrderCount + 1);
+            else orderCount = "" + (lastOrderCount + 1);
+
+            JObject json = new JObject();
+            json.Add("MSGType", 2);
+            json.Add("Id", OrderPage.orderList[0].userId);
+            json.Add("Content", "");
+            json.Add("ShopName", "카카오프렌즈");
+            json.Add("OrderNumber", orderCount);
+            json.Add("Group", false);
+            json.Add("Menus", jarray);
+
+            byte[] buffer = new byte[4096];
+            string message = JsonConvert.SerializeObject(json);
+            buffer = Encoding.UTF8.GetBytes(message);
+
+            App.stream.Write(buffer, 0, buffer.Length);
         }
     }
 }

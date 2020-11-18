@@ -26,7 +26,6 @@
 
         <StackPanel Grid.Column="1" Width="800" Height="840" Background="#fcfcfc">
             <TextBlock x:Name="statusView" FontSize="34" HorizontalAlignment="Center" Margin="0 90 0 0">바코드를 보여주세요!</TextBlock>
-            <TextBlock x:Name="userInfo" FontSize="30" HorizontalAlignment="Center" Margin="0 190 0 0">전도권님의 바코드 번호입니다.</TextBlock>
             <TextBox x:Name="dataBox" FontSize="26" HorizontalAlignment="Center" Margin="0 30 0 0" TextChanged="dataBox_TextChanged"></TextBox>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 140 0 0">
                 <Button Width="200" Height="100" Margin="0 0 10 0" 

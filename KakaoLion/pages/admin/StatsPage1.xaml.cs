@@ -22,7 +22,7 @@ namespace KakaoLion.pages.admin
 
         public void getAllOrder()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string sql = "SELECT * FROM lion.order";

@@ -293,3 +293,5 @@ C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\pages\admin\MenuPage.baml
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\MenuWindow.g.cs
 C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\obj\Debug\MenuWindow.baml
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jueyop\Documents\GitHub\KakaoLion-Kiosk\KakaoLion\bin\Debug\Newtonsoft.Json.xml

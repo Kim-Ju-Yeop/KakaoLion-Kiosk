@@ -36,7 +36,7 @@ namespace KakaoLion
         {
             if (discount != menu.discount && discount >= 0 && discount <= 100)
             {
-                using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+                using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
                 {
                     conn.Open();
                     string sql = "UPDATE menu SET discount=" + discount + " WHERE idx=" + menu.idx;
@@ -51,7 +51,7 @@ namespace KakaoLion
             } 
             else
             {
-                if (discount == menu.discount) MessageBox.Show("이전의 할인율과 동일합니다.");
+                if (discount == menu.discount) MessageBox.Show("정확하게 값을 입력해주시기 바랍니다.");
                 else MessageBox.Show("0에서 100사이의 값을 입력해주세요.");
             }
         }

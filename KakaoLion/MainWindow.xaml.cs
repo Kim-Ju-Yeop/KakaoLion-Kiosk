@@ -13,8 +13,10 @@ namespace KakaoLion
     public partial class MainWindow : Window
     {
         public static DateTime operationDateTime;
+
         public static List<MenuModel> menuList = new List<MenuModel>();
         public static List<StoreModel> storeList = new List<StoreModel>();
+        public static List<UserModel> userList = new List<UserModel>();
 
         public MainWindow()
         {
@@ -22,6 +24,7 @@ namespace KakaoLion
             getOperationTime();
             getAllMenu();
             getAllStore();
+            getAllUser();
         }
 
         private void setTimer()
@@ -42,7 +45,7 @@ namespace KakaoLion
         public void getAllMenu()
         {
             menuList.Clear();
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string sql = "SELECT * FROM menu";
@@ -82,7 +85,7 @@ namespace KakaoLion
         }
         public void getAllStore()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string sql = "SELECT * FROM lion.shop";
@@ -106,7 +109,7 @@ namespace KakaoLion
 
         public void getOperationTime()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string sql = "SELECT * FROM program";
@@ -132,6 +135,31 @@ namespace KakaoLion
             setTimer();
         }
 
+        public void getAllUser()
+        {
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM lion.user";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    userList.Add(new UserModel
+                    {
+                        id = (string)rdr["id"],
+                        pw = (string)rdr["pw"],
+                        name = (string)rdr["name"],
+                        address = (string)rdr["address"],
+                        barcode = (string)rdr["barcode"],
+                        qrcode = (string)rdr["qrcode"]
+                    });
+                }
+            }
+        }
+
         private void homeButton_Click(object sender, RoutedEventArgs e)
         {
             if (pageFrame.Source == null)
@@ -153,7 +181,7 @@ namespace KakaoLion
             string operationTime = operationDateTime.Year + " " + operationDateTime.Month + " " + operationDateTime.Day + " " + 
                 operationDateTime.Hour + " " + operationDateTime.Minute + " " + operationDateTime.Second;
 
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
                 string sql = "UPDATE program SET operationTime = '" + operationTime + "'";
@@ -161,6 +189,7 @@ namespace KakaoLion
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
             }
+            App.MainWindow_ClosedAction(true);
         }
     }
 }

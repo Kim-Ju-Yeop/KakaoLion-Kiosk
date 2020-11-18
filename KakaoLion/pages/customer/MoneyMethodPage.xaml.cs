@@ -1,40 +1,21 @@
 ﻿using KakaoLion.model;
 using KakaoLion.widget;
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Controls;
 
 namespace KakaoLion.pages
 {
     public partial class MoneyMethodPage : Page
     {
-        string userBarcode;
 
         public MoneyMethodPage()
         {
             InitializeComponent();
-
-            getBarcode();
             setOrderInfo();
 
             dataBox.Focus();
-        }
-
-        private void getBarcode()
-        {
-            using(MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
-            {
-                conn.Open();
-                string sql = "SELECT * FROM user WHERE id = " + "'" + "student1" + "'";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    userBarcode = (string) rdr["barcode"];
-                    userInfo.Text = (string)rdr["name"] + "님의 바코드 번호입니다.";
-                }
-            }
         }
 
         private void setOrderInfo()
@@ -53,11 +34,18 @@ namespace KakaoLion.pages
 
         private void dataBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (userBarcode.Equals(dataBox.Text.ToString()))
+            List<UserModel> userList = MainWindow.userList.Where(user => user.barcode == dataBox.Text.ToString()).ToList();
+
+            if (userList.Count != 0)
             {
                 statusView.Text = "데이터가 일치합니다.";
+
+                foreach (OrderModel order in OrderPage.orderList)
+                {
+                    order.userId = userList.FirstOrDefault().id;
+                }
                 this.NavigationService.Navigate(new ResultPage());
-            }
+            } 
             else
             {
                 statusView.Text = "데이터가 일치하지 않습니다.";

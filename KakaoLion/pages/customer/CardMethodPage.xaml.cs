@@ -1,40 +1,21 @@
 ﻿using KakaoLion.model;
 using KakaoLion.widget;
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Controls;
 
 namespace KakaoLion.pages
 {
     public partial class CardMethodPage : Page
-    {
-        string userQrCode;
-
+    { 
         public CardMethodPage()
         {
             InitializeComponent();
-            getQrCode();
             setOrderInfo();
 
             dataBox.Focus();
             webcam.CameraIndex = 0;
-        }
-
-        private void getQrCode()
-        {
-            using (MySqlConnection conn = new MySqlConnection(Constants.CONNSTR))
-            {
-                conn.Open();
-                string sql = "SELECT * FROM user WHERE id = " + "'" + "student" + "'";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    userQrCode = (string)rdr["qrcode"];
-                    userInfo.Text = (string)rdr["name"] + "님의 QR 코드 번호입니다.";
-                }
-            }
         }
 
         private void setOrderInfo()
@@ -53,9 +34,16 @@ namespace KakaoLion.pages
 
         private void dataBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (userQrCode.Equals(dataBox.Text.ToString()))
+            List<UserModel> userList = MainWindow.userList.Where(user => user.qrcode == dataBox.Text.ToString()).ToList();
+
+            if (userList.Count != 0)
             {
                 statusView.Text = "데이터가 일치합니다.";
+
+                foreach (OrderModel order in OrderPage.orderList)
+                {
+                    order.userId = userList.FirstOrDefault().id;
+                }
                 this.NavigationService.Navigate(new ResultPage());
             }
             else

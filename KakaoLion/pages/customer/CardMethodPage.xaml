@@ -27,8 +27,6 @@
 
         <StackPanel Grid.Column="1" Width="800" Height="840" Background="#fcfcfc">
             <TextBlock x:Name="statusView" FontSize="34" HorizontalAlignment="Center" Margin="0 70 0 0">QR 코드를 보여주세요!</TextBlock>
-            <TextBlock x:Name="userInfo" FontSize="30" HorizontalAlignment="Center" Margin="0 50 0 0">전도권님의 QR 코드 번호입니다.</TextBlock>
-
             <qrcode:KQRWebCam x:Name="webcam" Width="300px" Height="300px" Margin="0, 50, 0, 0"  QrDecoded="webcam_QrDecoded"/>
             <TextBox x:Name="dataBox" FontSize="26" HorizontalAlignment="Center" Margin="0 30 0 0" TextChanged="dataBox_TextChanged"></TextBox>
 
