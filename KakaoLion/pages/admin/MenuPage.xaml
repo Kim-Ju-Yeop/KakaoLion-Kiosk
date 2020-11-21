@@ -11,7 +11,7 @@
     <Grid Background="White">
         <StackPanel Orientation="Vertical">
             <Label Content="메뉴 정보 수정" FontSize="30px" Foreground="Black" FontWeight="Bold" Margin="10, 30, 0, 0"/>
-            <ListView x:Name="lvResult" Height="600px" BorderThickness="0" Margin="10, 30, 10, 10" SelectionChanged="lvResult_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListView x:Name="lvResult" Height="600px" BorderThickness="0" Margin="10, 30, 10, 10" SelectionChanged="lvResult_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
@@ -49,6 +49,16 @@
                                 <DataTemplate>
                                     <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
                                         <TextBlock Text="{Binding discount}"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="재고" Width="640px">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding stock}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>

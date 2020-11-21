@@ -43,6 +43,7 @@ namespace KakaoLion
                 buffer = Encoding.UTF8.GetBytes(message);
 
                 App.stream.Write(buffer, 0, buffer.Length);
+                App.userId = userId;
 
                 MainWindow MainWindow = new MainWindow();
                 MainWindow.Show();
@@ -113,6 +114,7 @@ namespace KakaoLion
                 buffer = Encoding.UTF8.GetBytes(message);
 
                 App.stream.Write(buffer, 0, buffer.Length);
+                App.userId = userId;
 
                 MainWindow MainWindow = new MainWindow();
                 MainWindow.Show();
