@@ -10,6 +10,7 @@
       Title="OrderPage">
     <Page.Resources>
         <converter:MenuIdxToName x:Key="menuIdxToName"/>
+        <converter:BooleanToVisibillity x:Key="booleanToVisibillity"/>
         <converter:DiscountToVisibillity x:Key="discountToVisibillity"/>
     </Page.Resources>
 
@@ -62,6 +63,13 @@
             </ListBox>
 
             <ListBox x:Name="lbMenus" Height="710" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lbMenus_SelectionChanged" BorderThickness="0">
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="IsEnabled" Value="{Binding stock}"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal"/>
@@ -75,7 +83,8 @@
                             <Label Content="{Binding name}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Label Content="{Binding price}" FontSize="14px" FontWeight="Bold" HorizontalAlignment="Center"/>
-                                <Label x:Name="isDiscount" Content="할인중" Foreground="LightGray" Visibility="{Binding discount, Converter={StaticResource discountToVisibillity}}"/>
+                                <Label x:Name="isDiscount" Content="할인중" Visibility="{Binding discount, Converter={StaticResource discountToVisibillity}}"/>
+                                <Label Content="품절" Visibility="{Binding stock, Converter={StaticResource booleanToVisibillity}}"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

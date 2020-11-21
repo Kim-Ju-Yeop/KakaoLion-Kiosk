@@ -56,6 +56,7 @@ namespace KakaoLion
                 while (rdr.Read())
                 {
                     string imagePath = "";
+                    bool stock = int.Parse(rdr["stock"].ToString()) == 1;
 
                     switch ((Category)rdr["category"])
                     {
@@ -78,6 +79,7 @@ namespace KakaoLion
                         name = (string)rdr["name"],
                         price = (int)rdr["price"],
                         discount = (int)rdr["discount"],
+                        stock = stock,
                         imagePath = imagePath
                     });
                 }

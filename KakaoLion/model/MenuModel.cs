@@ -21,6 +21,16 @@ namespace KakaoLion.model
             }
         }
 
+        private bool _stock;
+        public bool stock
+        {
+            get { return _stock; }
+            set
+            {
+                SetProperty(ref _stock, value);
+            }
+        }
+
         public string imagePath { get; set; }
     }
 }

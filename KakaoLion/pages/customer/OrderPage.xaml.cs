@@ -14,7 +14,7 @@ namespace KakaoLion.pages
     {
         public int pageCount = 1;
 
-        public static List<MenuModel> menuList = new List<MenuModel>();
+        public List<MenuModel> menuList = new List<MenuModel>();
         public static ObservableCollection<OrderModel> orderList = new ObservableCollection<OrderModel>();
 
         public OrderPage()
@@ -56,6 +56,7 @@ namespace KakaoLion.pages
                     string imagePath = "";
                     int discount = (int)rdr["discount"];
                     int price = (int)rdr["price"];
+                    bool stock = int.Parse(rdr["stock"].ToString()) == 1;
 
                     if (discount > 0)
                     {
@@ -83,6 +84,7 @@ namespace KakaoLion.pages
                         name = (string)rdr["name"],
                         price = price,
                         discount = discount,
+                        stock = stock,
                         imagePath = imagePath
                     });
                 }
