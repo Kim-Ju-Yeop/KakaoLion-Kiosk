@@ -19,6 +19,10 @@
                 <Label Content="할인율 : " FontSize="20px"/>
                 <TextBox Text="{Binding discount}" FontSize="20px" VerticalAlignment="Center"/>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="품절 : " FontSize="20px"/>
+                <CheckBox x:Name="stockCheck" IsChecked="{Binding stock}" VerticalAlignment="Center"/>
+            </StackPanel>
             <Button x:Name="saveButton" Width="180" Height="60" Content="저장하기" FontSize="14px" Background="#FFCB44" Margin="0, 200, 0, 0" Click="saveButton_Click"/>
         </StackPanel>
     </Grid>
