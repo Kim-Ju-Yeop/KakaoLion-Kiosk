@@ -1,0 +1,70 @@
+﻿<Page x:Class="KakaoLion.pages.admin.ChatPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KakaoLion.pages.admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="ChatPage">
+
+    <Grid Background="White">
+        <StackPanel Orientation="Vertical">
+            <ListView x:Name="lvResult" Height="600px" BorderThickness="0" Margin="10, 30, 10, 10" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="Foreground" Value="Gray" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Height" Value="64" />
+                                <Setter Property="FontSize" Value="30"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+
+                        <GridViewColumn Header="메세지" Width="640px">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding message}"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="대상" Width="640px">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding target}"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="날짜" Width="640px">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding messageAt}"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <RadioButton x:Name="personButton" GroupName="isGroup" Content="개인" Margin="10, 0, 0, 0" Checked="RadioButton_Checked"/>
+                <RadioButton x:Name="groupButton" GroupName="isGroup" Content="그룹" Checked="RadioButton_Checked"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="textBox" Width="1500px" Height="120px" FontSize="30px" Background="LightGray"/>
+                <Button Content="전송하기" Width="420px" Height="120px" FontSize="40px" Background="#FFCB44" Click="SendButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

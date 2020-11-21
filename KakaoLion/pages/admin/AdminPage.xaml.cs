@@ -114,5 +114,10 @@ namespace KakaoLion.pages
             pageFrame.Source = new Uri("MenuPage.xaml", UriKind.Relative);
             categoryListBox.UnselectAll();
         }
+        private void ChatPage_Click(object sender, RoutedEventArgs e)
+        {
+            pageFrame.Source = new Uri("ChatPage.xaml", UriKind.Relative);
+            categoryListBox.UnselectAll();
+        }
     }
 }

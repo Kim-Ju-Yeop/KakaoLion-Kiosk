@@ -20,6 +20,7 @@
                 <Label Content="{Binding Time}" FontSize="30px" Foreground="Black" VerticalAlignment="Center"/>
                 <Button Content="회원 정보 확인" Background="#FFCB44" Margin="10, 0, 0, 0" Padding="10, 10, 10, 10" BorderThickness="0" Click="UserPage_Click"/>
                 <Button Content="메뉴 정보 수정" Background="#FFCB44" Margin="10, 0, 0, 0" Padding="10, 10, 10, 10" BorderThickness="0" Click="MenuPage_Click" />
+                <Button Content="채팅 서비스" Background="#FFCB44" Margin="10, 0, 0, 0" Padding="10, 10, 10, 10" BorderThickness="0" Click="ChatPage_Click" />
             </StackPanel>
         </Grid>
 
