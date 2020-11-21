@@ -127,12 +127,16 @@
     </Compile>
     <Compile Include="model\Category.cs" />
     <Compile Include="model\MenuModel.cs" />
+    <Compile Include="model\MessageModel.cs" />
     <Compile Include="model\OrderModel.cs" />
     <Compile Include="model\StatsModel.cs" />
     <Compile Include="model\StoreModel.cs" />
     <Compile Include="model\UserModel.cs" />
     <Compile Include="pages\admin\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\admin\ChatPage.xaml.cs">
+      <DependentUpon>ChatPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\admin\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
@@ -187,6 +191,10 @@
     <Page Include="pages\admin\AdminPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pages\admin\ChatPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\admin\MenuPage.xaml">
       <SubType>Designer</SubType>
