@@ -64,7 +64,8 @@
                             <Image Source="/resources/image/icon/ic_cancel.png" Visibility="{Binding possible, Converter={StaticResource booleanToVisibillity}}"/>
                             <Label Content="{Binding name}" FontSize="34px" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Grid VerticalAlignment="Bottom">
-                                <Label Content="{Binding timer}" FontSize="22px" Foreground="Black" HorizontalAlignment="Right"/>
+                                <Label Content="{Binding lastOrder}" FontSize="15px" Foreground="Black" HorizontalAlignment="Left" Visibility="{Binding possible, Converter={StaticResource booleanToVisibillity}}"/>
+                                <Label Content="{Binding timer}" FontSize="15px" Foreground="Black" HorizontalAlignment="Right" Visibility="{Binding possible, Converter={StaticResource booleanToVisibillity}}"/>
                             </Grid>
                         </Grid>
                     </DataTemplate>
@@ -92,7 +93,8 @@
                 <Grid Width="200px" Height="200px" Background="#FFCB44">
                     <Label Content="지점 이름" FontSize="34px" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Grid VerticalAlignment="Bottom">
-                        <Label Content="대기시간" FontSize="22px" Foreground="Black" HorizontalAlignment="Right"/>
+                        <Label Content="결제시간" FontSize="15px" Foreground="Black" HorizontalAlignment="Left"/>
+                        <Label Content="대기시간" FontSize="15px" Foreground="Black" HorizontalAlignment="Right"/>
                     </Grid>
                 </Grid>
                 <Label Content="상세 정보" FontSize="34px" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
