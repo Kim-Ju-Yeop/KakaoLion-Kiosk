@@ -10,7 +10,23 @@ namespace KakaoLion.model
 
         public string name { get; set; }
 
-        public string lastOrder { get; set; }
+        private string _lastOrder;
+        public string lastOrder
+        {
+            get
+            {
+                int hour = int.Parse(_lastOrder.Substring(0, 2));
+                int minute = int.Parse(_lastOrder.Substring(2, 2));
+                int seconds = int.Parse(_lastOrder.Substring(4));
+
+                return hour + "시 " + minute + "분 " + seconds + "초";
+            }
+
+            set
+            {
+                _lastOrder = value;
+            }
+        }
 
         private bool _possible;
         public bool possible
@@ -22,7 +38,7 @@ namespace KakaoLion.model
                 if (value == false)
                 {
                     var now = String.Format("{0:HHmmss}", DateTime.Now);
-                    var last = lastOrder;
+                    var last = _lastOrder;
 
                     int nowHour = int.Parse(now.Substring(0, 2));
                     int lastHour = int.Parse(last.Substring(0, 2));
