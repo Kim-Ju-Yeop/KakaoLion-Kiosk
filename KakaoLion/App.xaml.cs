@@ -60,18 +60,27 @@ namespace KakaoLion
 
             while (isRunning)
             {
-               try
+               if (client.Client.Receive(buffer, SocketFlags.Peek) != 0)
                {
-                  stream.Read(buffer, 0, buffer.Length);
-                  msg = Encoding.UTF8.GetString(buffer);
+                    try
+                    {
+                        stream.Read(buffer, 0, buffer.Length);
+                        msg = Encoding.UTF8.GetString(buffer);
 
-                  if (msg.Contains("총매출액")) getTodayAllOrder();
-                  MessageBox.Show(msg);
-               }
-               catch (Exception e)
-               {
-                  Console.WriteLine(e.Message);
-               }
+                        if (msg.Contains("총매출액")) getTodayAllOrder();
+                        MessageBox.Show(msg);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("서버와 연결이 유실되었습니다.");
+                    break;
+                }
             }
             client.Close();
             stream.Close();
