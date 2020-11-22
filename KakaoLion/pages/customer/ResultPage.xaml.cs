@@ -87,13 +87,24 @@ namespace KakaoLion.pages
         {
             int totalCount = 0;
             int totalPrice = 0;
+            string userName = "";
+            string userPurchaseMethodId = "";
 
             foreach (OrderModel order in OrderPage.orderList)
             {
                 totalCount += order.quantity;
                 totalPrice += order.totalPrice;
-            }
 
+                if (MainWindow.userList.Where(user => user.id == order.userId).ToList().Count != 0)
+                {
+                    UserModel user = MainWindow.userList.Where(u => u.id == order.userId).ToList()[0];
+                    userName = user.name;
+                
+                    if (order.paymentMethod == false) userPurchaseMethodId = user.qrcode;
+                    else userPurchaseMethodId = user.barcode;
+                }
+            }
+            userInfo.Text = "이름 : " + userName + " | 번호 : " + userPurchaseMethodId;
             orderInfo.Text = totalCount + "개 " + totalPrice + "원";
             orderCount.Text = (lastOrderCount + 1).ToString();
         }

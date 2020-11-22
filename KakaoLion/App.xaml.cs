@@ -33,13 +33,14 @@ namespace KakaoLion
 
         public App()
         { 
+            
             client.Connect(Constants.SERVER_CONNSTR, Constants.PORT);
             stream = client.GetStream();
 
             Thread thread = new Thread(new ThreadStart(messageThread));
             thread.Start();
-
             getAllMenu();
+            
         }
 
         public static void LoginWindow_CloseAction(bool isClosed)
@@ -69,7 +70,7 @@ namespace KakaoLion
                }
                catch (Exception e)
                {
-                 Console.WriteLine(e.Message);
+                  Console.WriteLine(e.Message);
                }
             }
             client.Close();
