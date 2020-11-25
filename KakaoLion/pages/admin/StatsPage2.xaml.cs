@@ -59,6 +59,7 @@ namespace KakaoLion.pages.admin
             {
                 int quantity = 0;
                 int totalPrice = 0;
+                int salePrice = 0;
 
                 foreach(MenuModel menu in MainWindow.menuList)
                 {
@@ -68,7 +69,8 @@ namespace KakaoLion.pages.admin
                         foreach (OrderModel order in menuOrderList)
                         {
                             quantity += order.quantity;
-                            totalPrice += order.totalPrice;
+                            totalPrice += order.quantity * menu.price;
+                            salePrice += order.totalPrice;
                         }
                     }
                 }
@@ -76,8 +78,9 @@ namespace KakaoLion.pages.admin
                 {
                     category = (Category)i,
                     quantity = quantity,
-                    totalPrice = totalPrice
-                });
+                    totalPrice = totalPrice,
+                    salePrice = salePrice
+                }) ;
             }
             lvResult.ItemsSource = statsList.ToList();
         }
