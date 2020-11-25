@@ -13,6 +13,7 @@ namespace KakaoLion.model
         public String purchaseAt { get; set; } 
         public Boolean? paymentPlace { get; set; } 
         public Boolean? paymentMethod { get; set; } 
-        public int? shopIdx { get; set; } 
+        public int? shopIdx { get; set; }
+        public int salePrice { get; set; }
     }
 }

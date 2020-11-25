@@ -94,7 +94,7 @@ namespace KakaoLion.pages.admin
                     totalPrice += menu.price * order.quantity;
                 }
             }
-            total.Content = "총 금액 : " + totalPrice;
+            total.Content = "정가가격 총액 : " + totalPrice;
         }
 
         public void getNetProfit()
@@ -105,7 +105,7 @@ namespace KakaoLion.pages.admin
             {
                 totalNetProfitPrice += order.totalPrice;
             }
-            netProfit.Content = "순수 이익 : " + totalNetProfitPrice;
+            netProfit.Content = "할인가격 총액 : " + totalNetProfitPrice;
         }
     }
 }

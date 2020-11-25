@@ -114,21 +114,23 @@ namespace KakaoLion.pages.admin
 
         public void getTotalPrice()
         {
-            int totalPrice = 0;
+            int resultPrice = 0;
 
             foreach (MenuModel menu in MainWindow.menuList)
             {
                 int quantity = 0;
-                int total = 0;
+                int totalPrice = 0;
+                int salePrice = 0;
 
                 List<OrderModel> menuOrderList = orderList.Where(order => menu.idx == order.menuIdx).ToList();
                 foreach (OrderModel order in menuOrderList)
                 {
-                    totalPrice += menu.price * order.quantity;
-
                     quantity += order.quantity;
-                    total += order.totalPrice;
+                    totalPrice += order.quantity * menu.price;
+                    salePrice += order.totalPrice;
                 }
+
+                resultPrice += totalPrice;
 
                 statsList.Add(new OrderModel
                 {
@@ -136,7 +138,8 @@ namespace KakaoLion.pages.admin
                     orderCount = null,
                     menuIdx = menu.idx,
                     quantity = quantity,
-                    totalPrice = total,
+                    totalPrice = totalPrice,
+                    salePrice = salePrice,
                     userId = null,
                     purchaseAt = null,
                     paymentPlace = null,
@@ -144,7 +147,7 @@ namespace KakaoLion.pages.admin
                     shopIdx = null
                 });
             }
-            total.Content = "총 금액 : " + totalPrice;
+            total.Content = "총 금액 : " + resultPrice;
             lvResult.ItemsSource = statsList.ToList();
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvResult.ItemsSource);
