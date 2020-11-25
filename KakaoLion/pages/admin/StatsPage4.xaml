@@ -66,7 +66,7 @@
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
 
-                        <GridViewColumn Header="카테고리" Width="640px">
+                        <GridViewColumn Header="카테고리" Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
@@ -76,7 +76,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="수량" Width="640px">
+                        <GridViewColumn Header="수량" Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="12">
@@ -86,11 +86,21 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="총가격" Width="640px">
+                        <GridViewColumn Header="총가격" Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
                                         <TextBlock Text="{Binding totalPrice}"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="할인가격" Width="480">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
+                                        <TextBlock Text="{Binding salePrice}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>

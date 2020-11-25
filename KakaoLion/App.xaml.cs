@@ -32,8 +32,7 @@ namespace KakaoLion
         public List<OrderModel> orderList = new List<OrderModel>();
 
         public App()
-        { 
-            
+        {
             client.Connect(Constants.SERVER_CONNSTR, Constants.PORT);
             stream = client.GetStream();
 

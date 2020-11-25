@@ -7,5 +7,6 @@ namespace KakaoLion.model
         public Category category { get; set; }
         public int quantity { get; set; }
         public int totalPrice { get; set; }
+        public int salePrice { get; set; }
     }
 }

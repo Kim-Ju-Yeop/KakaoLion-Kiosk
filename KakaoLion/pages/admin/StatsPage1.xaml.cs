@@ -59,12 +59,14 @@ namespace KakaoLion.pages.admin
             {
                 int quantity = 0;
                 int totalPrice = 0;
+                int salePrice = 0;
 
                 List<OrderModel> menuOrderList = orderList.Where(order => menu.idx == order.menuIdx).ToList();
                 foreach(OrderModel order in menuOrderList)
                 {
                     quantity += order.quantity;
-                    totalPrice += order.totalPrice;
+                    totalPrice += order.quantity * menu.price;
+                    salePrice += order.totalPrice;     
                 }
 
                 statsList.Add(new OrderModel
@@ -74,14 +76,16 @@ namespace KakaoLion.pages.admin
                     menuIdx = menu.idx,
                     quantity = quantity,
                     totalPrice = totalPrice,
+                    salePrice = salePrice,
                     userId = null,
                     purchaseAt = null,
                     paymentPlace = null,
                     paymentMethod = null,
-                    shopIdx = null
+                    shopIdx = null,
+                   
                 });
             }
-            lvResult.ItemsSource = statsList.ToList();
+            lvResult.ItemsSource = statsList;
         }
     }
 }
