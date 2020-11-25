@@ -50,8 +50,8 @@
             <StackPanel Orientation="Horizontal">
                 <lvc:PieChart x:Name="pieChart" Width="400px" Height="600px" LegendLocation="Bottom" Hoverable="False"/>
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="100, 0, 0, 0">
-                    <Label x:Name="total" Content="총 금액 : 50000000" FontSize="50px"/>
-                    <Label x:Name="netProfit" Content="순수 이익 : 450000000" FontSize="50px"/>
+                    <Label x:Name="total" Content="정가가격 총액 : 50000000" FontSize="50px"/>
+                    <Label x:Name="netProfit" Content="할인가격 총액 : 450000000" FontSize="50px"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

@@ -85,7 +85,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="총가격" Width="480">
+                        <GridViewColumn Header="정가가격 총액" Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
@@ -95,7 +95,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="할인가격" Width="480">
+                        <GridViewColumn Header="할인가격 총액" Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
