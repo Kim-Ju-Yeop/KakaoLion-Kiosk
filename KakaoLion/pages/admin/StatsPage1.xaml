@@ -15,7 +15,7 @@
     <Grid Background="White">
         <StackPanel Orientation="Vertical">
             <Label Content="메뉴별 판매 수 및 총액" FontSize="30px" Foreground="Black" FontWeight="Bold" Margin="10, 30, 0, 0"/>
-            <ListView x:Name="lvResult" Height="600px" BorderThickness="0" Margin="10, 30, 10, 10" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListView x:Name="lvResult" Height="600px" BorderThickness="0" Margin="10, 30, 10, 10">
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
@@ -48,7 +48,17 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="정가가격 총액" Width="480">
+                        <GridViewColumn Header="할인율" Width="480">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
+                                        <TextBlock Text="{Binding discount}"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="총 매출액" Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
@@ -57,7 +67,8 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="할인가격 총액" Width="480">
+                        
+                        <GridViewColumn Header="순수 매출액" Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock FontSize="18" FontWeight="Bold" Padding="12">

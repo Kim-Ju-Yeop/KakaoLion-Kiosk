@@ -80,7 +80,7 @@ namespace KakaoLion.pages.admin
                     quantity = quantity,
                     totalPrice = totalPrice,
                     salePrice = salePrice
-                }) ;
+                });
             }
             lvResult.ItemsSource = statsList.ToList();
         }

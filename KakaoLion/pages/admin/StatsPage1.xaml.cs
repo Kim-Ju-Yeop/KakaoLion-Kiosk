@@ -76,13 +76,13 @@ namespace KakaoLion.pages.admin
                     menuIdx = menu.idx,
                     quantity = quantity,
                     totalPrice = totalPrice,
-                    salePrice = salePrice,
                     userId = null,
                     purchaseAt = null,
                     paymentPlace = null,
                     paymentMethod = null,
                     shopIdx = null,
-                   
+                    salePrice = salePrice,
+                    discount = menu.discount
                 });
             }
             lvResult.ItemsSource = statsList;
