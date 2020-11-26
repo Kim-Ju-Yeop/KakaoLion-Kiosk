@@ -192,7 +192,7 @@ namespace KakaoLion
         {
             JObject json = new JObject();
 
-            string content = "총 금액 : " + totalPrice + "순수 이익 : " + totalNetProfitPrice;
+            string content = "총 금액 : " + totalPrice + " 순수 이익 : " + totalNetProfitPrice;
 
             json.Add("MSGType", 1);
             json.Add("Id", userId);

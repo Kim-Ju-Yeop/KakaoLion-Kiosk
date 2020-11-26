@@ -139,15 +139,16 @@ namespace KakaoLion.pages.admin
                     menuIdx = menu.idx,
                     quantity = quantity,
                     totalPrice = totalPrice,
-                    salePrice = salePrice,
                     userId = null,
                     purchaseAt = null,
                     paymentPlace = null,
                     paymentMethod = null,
-                    shopIdx = null
+                    shopIdx = null,
+                    salePrice = salePrice,
+                    discount = menu.discount
                 });
             }
-            total.Content = "총 금액 : " + resultPrice;
+            total.Content = "총 매출액 : " + resultPrice;
             lvResult.ItemsSource = statsList.ToList();
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvResult.ItemsSource);
@@ -167,7 +168,7 @@ namespace KakaoLion.pages.admin
             {
                 totalNetProfitPrice += order.totalPrice;
             }
-            netProfit.Content = "순수 이익 : " + totalNetProfitPrice;
+            netProfit.Content = "순수 매출액 : " + totalNetProfitPrice;
         }
 
         private void lbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)

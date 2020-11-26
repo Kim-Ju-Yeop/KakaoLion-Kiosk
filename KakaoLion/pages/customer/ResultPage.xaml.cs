@@ -179,7 +179,7 @@ namespace KakaoLion.pages
             json.Add("Content", "");
             json.Add("ShopName", "카카오프렌즈");
             json.Add("OrderNumber", orderCount);
-            json.Add("Group", false);
+            json.Add("Group", true);
             json.Add("Menus", jarray);
 
             byte[] buffer = new byte[4096];

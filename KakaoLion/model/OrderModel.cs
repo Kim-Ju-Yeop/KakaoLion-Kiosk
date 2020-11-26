@@ -15,5 +15,6 @@ namespace KakaoLion.model
         public Boolean? paymentMethod { get; set; } 
         public int? shopIdx { get; set; }
         public int salePrice { get; set; }
+        public int discount { get; set; }
     }
 }
