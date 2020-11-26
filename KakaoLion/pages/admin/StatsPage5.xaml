@@ -12,6 +12,40 @@
     <Grid Background="White">
         <StackPanel Orientation="Vertical">
             <Label Content="일별 총 매출액" FontSize="30px" Foreground="Black" FontWeight="Bold" Margin="10, 30, 0, 0"/>
+            <ListBox x:Name="lbTime" FontSize="30" FontWeight="SemiBold" BorderBrush="Transparent" VerticalAlignment="Center" SelectionChanged="lbTime_SelectionChanged">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Foreground" Value="Gray" />
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Width" Value="300"/>
+                        <Setter Property="Height" Value="88"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="38,23,38,23" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Grid>
+                                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                            <ContentPresenter ></ContentPresenter>
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter Property="Background" Value="#FFCB44" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
 
             <StackPanel Orientation="Horizontal">
                 <lvc:PieChart x:Name="pieChart" Width="400px" Height="600px" LegendLocation="Bottom" Hoverable="False"/>

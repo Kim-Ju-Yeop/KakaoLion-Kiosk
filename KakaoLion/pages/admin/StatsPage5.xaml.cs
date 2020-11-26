@@ -18,12 +18,59 @@ namespace KakaoLion.pages.admin
         public StatusPage5()
         {
             InitializeComponent();
-            getTodayAllOrder(); 
+            setDate();
 
-            DataContext = this;
+            this.DataContext = this;
         }
 
-        public void getTodayAllOrder()
+        public void setDate()
+        {
+            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
+            {
+                conn.Open();
+                string sql = "SELECT purchaseAt FROM lion.order";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    string date = (string)rdr["purchaseAt"];
+                    string formatDate = date.Substring(0, 10);
+
+                    if (lbTime.Items.IndexOf(formatDate) == -1)
+                    {
+                        lbTime.Items.Add(formatDate);
+                    }
+                }
+            }
+            if (lbTime.Items.Count != 0) lbTime.SelectedIndex = 0;
+            else
+            {
+                seriesCollection.Add(new PieSeries
+                {
+                    Title = "카드",
+                    Values = new ChartValues<double> { 0 },
+                    DataLabels = true,
+                    LabelPoint = chartPoint =>
+                    string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation)
+                });
+                seriesCollection.Add(new PieSeries
+                {
+                    Title = "현금",
+                    Values = new ChartValues<double> { 0 },
+                    DataLabels = true,
+                    LabelPoint = chartPoint =>
+                    string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation)
+                });
+                pieChart.Series = seriesCollection;
+
+                total.Content = "정가가격 총액 : " + 0;
+                netProfit.Content = "할인가격 총액 : " + 0;
+            }
+        }
+
+        public void getTodayAllOrder(string date)
         {
             int cardCount = 0;
             int moneyCount = 0;
@@ -31,8 +78,7 @@ namespace KakaoLion.pages.admin
             using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
             {
                 conn.Open();
-                string today = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
-                string sql = "SELECT * FROM lion.order WHERE purchaseAt LIKE '" + today + "%'";
+                string sql = "SELECT * FROM lion.order WHERE purchaseAt LIKE '" + date + "%'";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
@@ -106,6 +152,14 @@ namespace KakaoLion.pages.admin
                 totalNetProfitPrice += order.totalPrice;
             }
             netProfit.Content = "할인가격 총액 : " + totalNetProfitPrice;
+        }
+
+        private void lbTime_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            orderList.Clear();
+            seriesCollection.Clear();
+
+            getTodayAllOrder(lbTime.SelectedItem.ToString());
         }
     }
 }
