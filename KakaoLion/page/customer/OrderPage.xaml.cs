@@ -1,4 +1,6 @@
-﻿using KakaoLion.dto.model;
+﻿using KakaoLion.database.repository;
+using KakaoLion.database.repositoryImpl;
+using KakaoLion.dto.model;
 using KakaoLion.model;
 using KakaoLion.widget;
 using MySql.Data.MySqlClient;
@@ -12,83 +14,32 @@ namespace KakaoLion.pages
 {
     public partial class OrderPage : Page
     {
-        public int pageCount = 1;
-
-        public List<MenuModel> menuList = new List<MenuModel>();
         public static ObservableCollection<OrderModel> orderList = new ObservableCollection<OrderModel>();
+
+        private int pageCount = 1;
+        private List<MenuModel> menuList = new List<MenuModel>();
+
+        private MenuRepository menuRepository;
 
         public OrderPage()
         {
             InitializeComponent();
 
-            menuList.Clear();
+            menuRepository = new MenuRepositoryImpl();
+
             getAllMenu();
 
-            Loaded += OrderPage_Loaded;
-            orderList.CollectionChanged += OrderList_CollectionChanged;
-        }
-
-        private void OrderPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
-            DataContext = this;
-            previous.IsEnabled = false;
             lbCategory.SelectedIndex = 0;
-
-            orderCount.Content = "0개";
-            orderPrice.Content = "0원";
-
             lvResult.ItemsSource = orderList.ToList();
+
+            orderList.CollectionChanged += OrderList_CollectionChanged;
             OrderList_CollectionChanged(null, null);
         }
 
         private void getAllMenu()
         {
-            using(MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
-            {
-                conn.Open();
-                string sql = "SELECT * FROM menu";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while(rdr.Read())
-                {
-                    string imagePath = "";
-                    int discount = (int)rdr["discount"];
-                    int price = (int)rdr["price"];
-                    bool stock = int.Parse(rdr["stock"].ToString()) == 1;
-
-                    if (discount > 0)
-                    {
-                        price -= (price*discount/100);
-                    }
-
-                    switch ((Category) rdr["category"])
-                    {
-                        case Category.SMALL:
-                            imagePath = "/resources/image/small/" + rdr["name"] + ".jpg";
-                            break;
-                        case Category.MEDIUM:
-                            imagePath = "/resources/image/medium/" + rdr["name"] + ".jpg";
-                            break;
-                        case Category.BIG:
-                            imagePath = "/resources/image/big/" + rdr["name"] + ".jpg";
-                            break;
-                    }
-
-                    menuList.Add(new MenuModel
-                    {
-                        idx = (int)rdr["idx"],
-                        page = (int)rdr["page"],
-                        category = (Category) rdr["category"],
-                        name = (string)rdr["name"],
-                        price = price,
-                        discount = discount,
-                        stock = stock,
-                        imagePath = imagePath
-                    });
-                }
-            }
+            menuList.Clear();
+            menuList = menuRepository.getAllDisocuntMenu();
         }
 
         private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -96,17 +47,25 @@ namespace KakaoLion.pages
             pageCount = 1;
             previous.IsEnabled = false;
 
-            if (lbCategory.SelectedIndex == 2) next.IsEnabled = false;
-            else next.IsEnabled = true;
-
+            if (lbCategory.SelectedIndex == 2)
+            {
+                next.IsEnabled = false;
+            }
+            else
+            {
+                next.IsEnabled = true;
+            }
             lbMenus.ItemsSource = PageChange();
         }
 
         private void previous_Click(object sender, RoutedEventArgs e)
         {
             pageCount--;
-            if (pageCount == 1) previous.IsEnabled = false;
 
+            if (pageCount == 1)
+            {
+                previous.IsEnabled = false;
+            }
             next.IsEnabled = true;
             lbMenus.ItemsSource = PageChange();
         }
@@ -114,13 +73,16 @@ namespace KakaoLion.pages
         private void next_Click(object sender, RoutedEventArgs e)
         {
             pageCount++;
-            if (pageCount == 3) next.IsEnabled = false;
 
+            if (pageCount == 3)
+            {
+                next.IsEnabled = false;
+            }
             previous.IsEnabled = true;
             lbMenus.ItemsSource = PageChange();
         }
 
-        public List<MenuModel> PageChange()
+        private List<MenuModel> PageChange()
         {
             Category category = (Category)lbCategory.SelectedIndex;
             return menuList.Where(menu => menu.page == pageCount && menu.category == category).ToList();
@@ -156,7 +118,6 @@ namespace KakaoLion.pages
                     orderList[index].quantity += 1;
                     orderList[index].totalPrice = orderList[index].quantity * menu.price;
                 }
-
                 lvResult.ItemsSource = orderList.ToList();
                 OrderList_CollectionChanged(null, null);
                 lbMenus.UnselectAll();

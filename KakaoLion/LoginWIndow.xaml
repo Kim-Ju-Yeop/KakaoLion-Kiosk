@@ -7,23 +7,74 @@
         mc:Ignorable="d"
         Title="loginWIndow" Height="800" Width="800" WindowStartupLocation="CenterScreen"
         Closed="Window_Closed">
-    
-    <Grid Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label Content="Welcome Kakao" Height="100px" FontSize="60px" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="top"/>
-        <StackPanel Orientation="Vertical" Margin="0, 150, 0, 0">
+
+    <Grid Background="White" 
+          HorizontalAlignment="Center" 
+          VerticalAlignment="Center">
+
+        <Label Content="Welcome Kakao" 
+               Height="100px" 
+               FontSize="60px" 
+               FontWeight="Bold" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="top"/>
+        
+        <StackPanel Orientation="Vertical" 
+                    Margin="0, 150, 0, 0">
+            
             <StackPanel Orientation="Vertical">
-                <Label Content="아이디" FontSize="20px" FontWeight="Bold" Margin="0, 0, 0, 10"/>
-                <TextBox Width="500px" Height="40px" Name="textBoxId" FontSize="20px" Padding="0, 5, 0, 0"/>
+                
+                <Label Content="아이디" 
+                       FontSize="20px" 
+                       FontWeight="Bold" 
+                       Margin="0, 0, 0, 10"/>
+
+                <TextBox Width="500px" 
+                         Height="40px" 
+                         Name="textBoxId" 
+                         FontSize="20px" 
+                         Padding="0, 5, 0, 0"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="0, 20, 0, 0">
-                <Label Content="비밀번호" FontSize="20px" FontWeight="Bold" Margin="0, 0, 0, 10"/>
-                <TextBox Width="500px" Height="40px" Name="textBoxPw" FontSize="20px" Padding="0, 5, 0, 0"/>
+            
+            <StackPanel Orientation="Vertical" 
+                        Margin="0, 20, 0, 0">
+                
+                <Label Content="비밀번호" 
+                       FontSize="20px" 
+                       FontWeight="Bold" 
+                       Margin="0, 0, 0, 10"/>
+                
+                <TextBox Width="500px" 
+                         Height="40px" 
+                         Name="textBoxPw" 
+                         FontSize="20px" 
+                         Padding="0, 5, 0, 0"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <CheckBox VerticalAlignment="Center" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-                <Label Name="checkBox2" Content="자동로그인" FontSize="15px" FontWeight="Bold"/>
+            
+            <StackPanel Orientation="Horizontal" 
+                        Margin="0, 20, 0, 0" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Center">
+                
+                <CheckBox VerticalAlignment="Center" 
+                          Checked="CheckBox_Checked" 
+                          Unchecked="CheckBox_Unchecked"/>
+                
+                <Label Name="checkBox2" 
+                       Content="자동로그인" 
+                       FontSize="15px" 
+                       FontWeight="Bold"/>
             </StackPanel>
-            <Button Height="60px" Background="#FFCB44" Content="로그인" FontSize="20px" FontWeight="Bold" BorderThickness="0" Margin="0, 20, 0, 0" Click="loginButton_Click"/>
+            
+            <Button Height="60px" 
+                    Background="#FFCB44" 
+                    Content="로그인" 
+                    FontSize="20px" 
+                    FontWeight="Bold" 
+                    BorderThickness="0" 
+                    Margin="0, 20, 0, 0" 
+                    Click="loginButton_Click"/>
         </StackPanel>
+        
     </Grid>
 </Window>

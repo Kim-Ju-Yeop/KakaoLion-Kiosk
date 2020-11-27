@@ -142,55 +142,55 @@
     <Compile Include="model\StatsModel.cs" />
     <Compile Include="model\StoreModel.cs" />
     <Compile Include="model\UserModel.cs" />
-    <Compile Include="pages\admin\AdminPage.xaml.cs">
+    <Compile Include="page\admin\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\ChatPage.xaml.cs">
+    <Compile Include="page\admin\ChatPage.xaml.cs">
       <DependentUpon>ChatPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\MenuPage.xaml.cs">
+    <Compile Include="page\admin\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\StatsPage1.xaml.cs">
+    <Compile Include="page\admin\StatsPage1.xaml.cs">
       <DependentUpon>StatsPage1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\StatsPage2.xaml.cs">
+    <Compile Include="page\admin\StatsPage2.xaml.cs">
       <DependentUpon>StatsPage2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\StatsPage3.xaml.cs">
+    <Compile Include="page\admin\StatsPage3.xaml.cs">
       <DependentUpon>StatsPage3.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\StatsPage4.xaml.cs">
+    <Compile Include="page\admin\StatsPage4.xaml.cs">
       <DependentUpon>StatsPage4.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\StatsPage5.xaml.cs">
+    <Compile Include="page\admin\StatsPage5.xaml.cs">
       <DependentUpon>StatsPage5.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\StatsPage6.xaml.cs">
+    <Compile Include="page\admin\StatsPage6.xaml.cs">
       <DependentUpon>StatsPage6.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\StatsPage7.xaml.cs">
+    <Compile Include="page\admin\StatsPage7.xaml.cs">
       <DependentUpon>StatsPage7.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\UserPage.xaml.cs">
+    <Compile Include="page\admin\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\customer\CardMethodPage.xaml.cs">
+    <Compile Include="page\customer\CardMethodPage.xaml.cs">
       <DependentUpon>CardMethodPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\customer\MoneyMethodPage.xaml.cs">
+    <Compile Include="page\customer\MoneyMethodPage.xaml.cs">
       <DependentUpon>MoneyMethodPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\customer\OrderPage.xaml.cs">
+    <Compile Include="page\customer\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\customer\PurchaseMethodPage.xaml.cs">
+    <Compile Include="page\customer\PurchaseMethodPage.xaml.cs">
       <DependentUpon>PurchaseMethodPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\customer\PurchasePlacePage.xaml.cs">
+    <Compile Include="page\customer\PurchasePlacePage.xaml.cs">
       <DependentUpon>PurchasePlacePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="server\repositoryImpl\Jobject.cs" />
@@ -202,55 +202,55 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\admin\AdminPage.xaml">
+    <Page Include="page\admin\AdminPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\admin\ChatPage.xaml">
+    <Page Include="page\admin\ChatPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\admin\MenuPage.xaml">
+    <Page Include="page\admin\MenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\admin\StatsPage1.xaml">
+    <Page Include="page\admin\StatsPage1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\admin\StatsPage2.xaml">
+    <Page Include="page\admin\StatsPage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\admin\StatsPage3.xaml">
+    <Page Include="page\admin\StatsPage3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\admin\StatsPage4.xaml">
+    <Page Include="page\admin\StatsPage4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\admin\StatsPage5.xaml">
+    <Page Include="page\admin\StatsPage5.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\admin\StatsPage6.xaml">
+    <Page Include="page\admin\StatsPage6.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\admin\StatsPage7.xaml">
+    <Page Include="page\admin\StatsPage7.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\admin\UserPage.xaml">
+    <Page Include="page\admin\UserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\customer\CardMethodPage.xaml">
+    <Page Include="page\customer\CardMethodPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\customer\HomePage.xaml">
+    <Page Include="page\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -262,7 +262,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="pages\customer\HomePage.xaml.cs">
+    <Compile Include="page\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -273,36 +273,36 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\customer\MoneyMethodPage.xaml">
+    <Page Include="page\customer\MoneyMethodPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\customer\OrderPage.xaml">
+    <Page Include="page\customer\OrderPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\customer\PurchaseMethodPage.xaml">
+    <Page Include="page\customer\PurchaseMethodPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\customer\PurchasePlacePage.xaml">
+    <Page Include="page\customer\PurchasePlacePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\customer\ResultPage.xaml">
+    <Page Include="page\customer\ResultPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\customer\SelectStorePage.xaml">
+    <Page Include="page\customer\SelectStorePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="pages\customer\ResultPage.xaml.cs">
+    <Compile Include="page\customer\ResultPage.xaml.cs">
       <DependentUpon>ResultPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\customer\SelectStorePage.xaml.cs">
+    <Compile Include="page\customer\SelectStorePage.xaml.cs">
       <DependentUpon>SelectStorePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
