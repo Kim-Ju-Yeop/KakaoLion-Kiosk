@@ -1,5 +1,4 @@
 ﻿using KakaoLion.model;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Controls;
 
@@ -29,15 +28,6 @@ namespace KakaoLion.pages
             orderPrice.Content = totalPrice + "원";
         }
 
-        private void moneyBtn_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            foreach (OrderModel order in OrderPage.orderList)
-            {
-                order.paymentMethod = true;
-            }
-            this.NavigationService.Navigate(new MoneyMethodPage());
-        }
-
         private void cardBtn_click(object sender, System.Windows.RoutedEventArgs e)
         {
             foreach (OrderModel order in OrderPage.orderList)
@@ -47,10 +37,20 @@ namespace KakaoLion.pages
             this.NavigationService.Navigate(new CardMethodPage());
         }
 
+        private void moneyBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            foreach (OrderModel order in OrderPage.orderList)
+            {
+                order.paymentMethod = true;
+            }
+            this.NavigationService.Navigate(new MoneyMethodPage());
+        }
+
         private void backBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             foreach (OrderModel order in OrderPage.orderList)
             {
+                order.shopIdx = null;
                 order.paymentMethod = null;
             }
             this.NavigationService.Navigate(new PurchasePlacePage());
