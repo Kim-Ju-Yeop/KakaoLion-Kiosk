@@ -10,15 +10,17 @@ namespace KakaoLion.pages
 {
     public partial class AdminPage : INotifyPropertyChanged
     {
-        public const string CATEGORY1 = "메뉴별 판매 수 및 총액";
-        public const string CATEGORY2 = "카테고리 별 판매 수 및 총액";
-        public const string CATEGORY3 = "지점별 메뉴별 판매수 및 총액";
-        public const string CATEOGRY4 = "지점별 카테고리별 판매수 및 총액";
-        public const string CATEGORY5 = "일별 총 매출액";
-        public const string CATEGORY6 = "하루 중 시간대별 총 매출액";
-        public const string CATEGORY7 = "회원별 총 매출액 및 판매수 총액";
+        private const string CATEGORY1 = "메뉴별 판매 수 및 총액";
+        private const string CATEGORY2 = "카테고리 별 판매 수 및 총액";
+        private const string CATEGORY3 = "지점별 메뉴별 판매수 및 총액";
+        private const string CATEOGRY4 = "지점별 카테고리별 판매수 및 총액";
+        private const string CATEGORY5 = "일별 총 매출액";
+        private const string CATEGORY6 = "하루 중 시간대별 총 매출액";
+        private const string CATEGORY7 = "회원별 총 매출액 및 판매수 총액";
 
-        public DateTime dateTime = new DateTime(0001, 01, 01, 00, 00, 00);
+        private DispatcherTimer dispatcherTimer;
+        private List<string> categoryList = new List<string>();
+        private DateTime dateTime = new DateTime(0001, 01, 01, 00, 00, 00);
 
         private string _time;
         public string Time 
@@ -33,17 +35,17 @@ namespace KakaoLion.pages
         public AdminPage()
         {
             InitializeComponent();
+
+            Time = "가동시간 : " + (MainWindow.operationDateTime - dateTime).ToString();
+            this.DataContext = this;
+
             setTimer();
             setList();
-
-            this.DataContext = this;
-            Time = "가동시간 : " + (MainWindow.operationDateTime - dateTime).ToString();
         }
 
         private void setTimer()
         {
-            DispatcherTimer dispatcherTimer = new DispatcherTimer();
-
+            dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             dispatcherTimer.Tick += new EventHandler(timer_Tick);
             dispatcherTimer.Start();
@@ -56,7 +58,6 @@ namespace KakaoLion.pages
 
         public void setList()
         {
-            List<string> categoryList = new List<string>();
             categoryList.Add(CATEGORY1);
             categoryList.Add(CATEGORY2);
             categoryList.Add(CATEGORY3);
@@ -64,6 +65,7 @@ namespace KakaoLion.pages
             categoryList.Add(CATEGORY5);
             categoryList.Add(CATEGORY6);
             categoryList.Add(CATEGORY7);
+
             categoryListBox.ItemsSource = categoryList.ToList();
         }
 
@@ -98,26 +100,28 @@ namespace KakaoLion.pages
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged(String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         private void UserPage_Click(object sender, RoutedEventArgs e)
         {
             pageFrame.Source = new Uri("UserPage.xaml", UriKind.Relative);
             categoryListBox.UnselectAll();
         }
+
         private void MenuPage_Click(object sender, RoutedEventArgs e)
         {
             pageFrame.Source = new Uri("MenuPage.xaml", UriKind.Relative);
             categoryListBox.UnselectAll();
         }
+
         private void ChatPage_Click(object sender, RoutedEventArgs e)
         {
             pageFrame.Source = new Uri("ChatPage.xaml", UriKind.Relative);
             categoryListBox.UnselectAll();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
