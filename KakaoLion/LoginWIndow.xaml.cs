@@ -96,9 +96,11 @@ namespace KakaoLion
                 if (isCheck)
                 {
                     Properties.Settings.Default.isAutoLogin = true;
-                    Properties.Settings.Default.userId = userId;
                     Properties.Settings.Default.Save();
                 }
+
+                Properties.Settings.Default.userId = userId;
+                Properties.Settings.Default.Save();
 
                 JObject json = new JObject();
                 json.Add("MSGType", 0);
