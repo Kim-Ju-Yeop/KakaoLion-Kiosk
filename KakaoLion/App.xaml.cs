@@ -102,13 +102,13 @@ namespace KakaoLion
 
                     switch ((Category)rdr["category"])
                     {
-                        case Category.Small:
+                        case Category.SMALL:
                             imagePath = "/resources/image/small/" + rdr["name"] + ".jpg";
                             break;
-                        case Category.Medium:
+                        case Category.MEDIUM:
                             imagePath = "/resources/image/medium/" + rdr["name"] + ".jpg";
                             break;
-                        case Category.Big:
+                        case Category.BIG:
                             imagePath = "/resources/image/big/" + rdr["name"] + ".jpg";
                             break;
                     }

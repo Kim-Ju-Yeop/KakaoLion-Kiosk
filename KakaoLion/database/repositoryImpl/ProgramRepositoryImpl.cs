@@ -7,11 +7,11 @@ namespace KakaoLion.database.repositoryImpl
 {
     class ProgramRepositoryImpl : ProgramRepository
     {
-        Database db = new Database();
+        private Database db = new Database();
 
-        MySqlConnection conn;
-        MySqlCommand cmd;
-        MySqlDataReader rdr;
+        private MySqlConnection conn;
+        private MySqlCommand cmd;
+        private MySqlDataReader rdr;
 
         public DateTime getOperationTime()
         {

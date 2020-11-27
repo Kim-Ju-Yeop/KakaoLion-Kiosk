@@ -8,9 +8,9 @@ namespace KakaoLion.database.repositoryImpl
 {
     class StoreRepositoryImpl : StoreRepository
     {
-        MySqlConnection conn;
-        MySqlCommand cmd;
-        MySqlDataReader rdr;
+        private MySqlConnection conn;
+        private MySqlCommand cmd;
+        private MySqlDataReader rdr;
 
         public StoreRepositoryImpl()
         {

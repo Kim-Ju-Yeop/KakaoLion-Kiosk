@@ -20,12 +20,12 @@ namespace KakaoLion
         public static List<StoreModel> storeList = new List<StoreModel>();
         public static List<UserModel> userList = new List<UserModel>();
 
-        DispatcherTimer dispatcherTimer;
+        private DispatcherTimer dispatcherTimer;
 
-        MenuRepository menuRepository;
-        StoreRepository storeRepository;
-        ProgramRepository programRepository;
-        UserRepository userRepository;
+        private MenuRepository menuRepository;
+        private StoreRepository storeRepository;
+        private ProgramRepository programRepository;
+        private UserRepository userRepository;
 
         public MainWindow()
         {

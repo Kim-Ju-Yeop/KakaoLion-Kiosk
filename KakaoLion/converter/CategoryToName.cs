@@ -11,13 +11,13 @@ namespace KakaoLion.converter
         {
             switch (value)
             {
-                case Category.Small:
+                case Category.SMALL:
                     return "소형인형";
 
-                case Category.Medium:
+                case Category.MEDIUM:
                     return "중형인형";
 
-                case Category.Big:
+                case Category.BIG:
                     return "대형인형";
                 default:
                     return "";

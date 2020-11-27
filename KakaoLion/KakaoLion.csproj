@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="model\Category.cs" />
     <Compile Include="model\MenuModel.cs" />
+    <Compile Include="model\Message.cs" />
     <Compile Include="model\MessageModel.cs" />
     <Compile Include="model\OrderModel.cs" />
     <Compile Include="model\StatsModel.cs" />
@@ -192,6 +193,9 @@
     <Compile Include="pages\customer\PurchasePlacePage.xaml.cs">
       <DependentUpon>PurchasePlacePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="server\repositoryImpl\Jobject.cs" />
+    <Compile Include="server\repositoryImpl\LoginRepositoryImpl.cs" />
+    <Compile Include="server\repository\LoginRepository.cs" />
     <Compile Include="widget\Constants.cs" />
     <Compile Include="widget\extension\DateTImeExtension.cs" />
     <Page Include="MenuWindow.xaml">
@@ -403,6 +407,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\image\icon\ic_cancel.png" />
+    <Resource Include="resources\image\icon\ic_green_circle.png" />
+    <Resource Include="resources\image\icon\ic_red_circle.png" />
     <Content Include="resources\video\video.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
