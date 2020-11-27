@@ -19,6 +19,7 @@ namespace KakaoLion.converter
 
                 case Category.BIG:
                     return "대형인형";
+
                 default:
                     return "";
             } 

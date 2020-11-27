@@ -1,4 +1,6 @@
-﻿using KakaoLion.model;
+﻿using KakaoLion.database.repository;
+using KakaoLion.database.repositoryImpl;
+using KakaoLion.model;
 using KakaoLion.widget;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
@@ -10,32 +12,23 @@ namespace KakaoLion.pages
 {
     public partial class SelectStorePage : Page
     {
+        private StoreRepository storeRepository;
+        private List<StoreModel> storeList = new List<StoreModel>();
+
         public SelectStorePage()
         {
             InitializeComponent();
+
+            storeRepository = new StoreRepositoryImpl();
+
             getAllStore();
         }
 
         private void getAllStore()
         {
-            List<StoreModel> storeList = new List<StoreModel>();
-
-            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
-            {
-                conn.Open();
-                string sql = "SELECT * FROM shop";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    bool possible = int.Parse(rdr["possible"].ToString()) == 1;
-                    storeList.Add(new StoreModel() { idx = (int)rdr["idx"], name = (string)rdr["name"], lastOrder = (string)rdr["lastOrder"], possible = possible });
-                }
-
-                storeListBox.ItemsSource = storeList.ToList();
-            }
+            storeList.Clear();
+            storeList = storeRepository.getAllStore();
+            storeListBox.ItemsSource = storeList.ToList();
         }
 
         private void storeListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
