@@ -122,6 +122,15 @@
     <Compile Include="converter\DiscountToVisibillity.cs" />
     <Compile Include="converter\MenuIdxToName.cs" />
     <Compile Include="converter\BooleanToVisibillity.cs" />
+    <Compile Include="database\repositoryImpl\MenuRepositoryImpl.cs" />
+    <Compile Include="database\repositoryImpl\ProgramRepositoryImpl.cs" />
+    <Compile Include="database\repositoryImpl\StoreRepositoryImpl.cs" />
+    <Compile Include="database\repositoryImpl\UserRepositoryImpl.cs" />
+    <Compile Include="database\repository\MenuRepository.cs" />
+    <Compile Include="database\repository\ProgramRepository.cs" />
+    <Compile Include="database\repository\StoreRepository.cs" />
+    <Compile Include="database\repository\UserRepository.cs" />
+    <Compile Include="database\util\Database.cs" />
     <Compile Include="MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
@@ -184,6 +193,7 @@
       <DependentUpon>PurchasePlacePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="widget\Constants.cs" />
+    <Compile Include="widget\extension\DateTImeExtension.cs" />
     <Page Include="MenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -397,5 +407,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
