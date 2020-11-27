@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
+using KakaoLion.database.repository;
+using KakaoLion.database.repositoryImpl;
 using KakaoLion.model;
+using KakaoLion.server.repository;
+using KakaoLion.server.repositoryImpl;
 using KakaoLion.widget;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
@@ -13,13 +17,19 @@ namespace KakaoLion
     public partial class LoginWindow : Window
     {
         private bool isCheck = false;
-        private static List<UserModel> userList = new List<UserModel>();
+        private List<UserModel> userList = new List<UserModel>();
+
+        private LoginRepository loginRepository;
+        private UserRepository userRepository;
 
         public LoginWindow()
         {
             InitializeComponent();
+
+            loginRepository = new LoginRepositoryImpl();
+            userRepository = new UserRepositoryImpl();
+
             checkAutoLogin();
-            getUserInfo();
         }
 
         private void checkAutoLogin()
@@ -29,51 +39,23 @@ namespace KakaoLion
             {
                 string userId = Properties.Settings.Default.userId;
 
-                JObject json = new JObject();
-                json.Add("MSGType", 0);
-                json.Add("Id", userId);
-                json.Add("Content", "");
-                json.Add("ShopName", "");
-                json.Add("OrderNumber", "");
-                json.Add("Group", false);
-                json.Add("Menus", "");
-
-                byte[] buffer = new byte[4096];
-                string message = JsonConvert.SerializeObject(json);
-                buffer = Encoding.UTF8.GetBytes(message);
-
-                App.stream.Write(buffer, 0, buffer.Length);
+                loginRepository.sendLoginMessage(userId);
                 App.userId = userId;
 
                 MainWindow MainWindow = new MainWindow();
                 MainWindow.Show();
                 this.Close();
+            } 
+            else
+            {
+                getAllUser();
             }
         }
 
-        private void getUserInfo()
+        private void getAllUser()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
-            {
-                conn.Open();
-                string sql = "SELECT * FROM lion.user";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    userList.Add(new UserModel
-                    {
-                        id = (string)rdr["id"],
-                        pw = (string)rdr["pw"],
-                        name = (string)rdr["name"],
-                        address = (string)rdr["address"],
-                        barcode = (string)rdr["barcode"],
-                        qrcode = (string)rdr["qrcode"],
-                    });
-                }
-            }
+            userList.Clear();
+            userList = userRepository.getAllUser();
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
@@ -96,26 +78,12 @@ namespace KakaoLion
                 if (isCheck)
                 {
                     Properties.Settings.Default.isAutoLogin = true;
-                    Properties.Settings.Default.Save();
                 }
 
                 Properties.Settings.Default.userId = userId;
                 Properties.Settings.Default.Save();
 
-                JObject json = new JObject();
-                json.Add("MSGType", 0);
-                json.Add("Id", userId);
-                json.Add("Content", "");
-                json.Add("ShopName", "");
-                json.Add("OrderNumber", "");
-                json.Add("Group", false);
-                json.Add("Menus", "");
-
-                byte[] buffer = new byte[4096];
-                string message = JsonConvert.SerializeObject(json);
-                buffer = Encoding.UTF8.GetBytes(message);
-
-                App.stream.Write(buffer, 0, buffer.Length);
+                loginRepository.sendLoginMessage(userId);
                 App.userId = userId;
 
                 MainWindow MainWindow = new MainWindow();

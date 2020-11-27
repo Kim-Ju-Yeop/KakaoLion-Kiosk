@@ -2,8 +2,8 @@
 { 
     public enum Category
     {
-        Small,
-        Medium,
-        Big,
+        SMALL,
+        MEDIUM,
+        BIG,
     }
 }
