@@ -8,6 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="PurchaseMethodPage">
+    
     <Page.Resources>
         <converter:MenuIdxToName x:Key="menuIdxToName"/>
     </Page.Resources>
@@ -19,22 +20,31 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Width="900" Height="600" Background="White">
+        <StackPanel Grid.Column="0" 
+                    Width="900" 
+                    Height="600" 
+                    Background="White">
 
-            <ListView x:Name="lvResult" Height="530">
+            <ListView x:Name="lvResult" 
+                      Height="530">
+
                 <ListView.View>
                     <GridView>
-
                         <GridView.ColumnHeaderContainerStyle>
                             <Style TargetType="GridViewColumnHeader">
-                                <Setter Property="Foreground" Value="Gray" />
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Height" Value="64" />
-                                <Setter Property="FontSize" Value="30"/>
+                                <Setter Property="Foreground" 
+                                        Value="Gray" />
+                                <Setter Property="Background" 
+                                        Value="Transparent" />
+                                <Setter Property="Height" 
+                                        Value="64" />
+                                <Setter Property="FontSize"
+                                        Value="30"/>
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
 
-                        <GridViewColumn Header="메뉴" Width="250">
+                        <GridViewColumn Header="메뉴" 
+                                        Width="250">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Padding="12">
@@ -44,7 +54,8 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="수량" Width="240">
+                        <GridViewColumn Header="수량"
+                                        Width="240">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Stretch" Padding="12">
@@ -54,7 +65,8 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="총가격" Width="400">
+                        <GridViewColumn Header="총가격" 
+                                        Width="400">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
@@ -63,37 +75,75 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-
                     </GridView>
                 </ListView.View>
-
             </ListView>
 
-            <StackPanel Orientation="Horizontal">
-                <Label Content="총 개수, 금액"/>
-                <Label x:Name="orderCount"/>
-                <Label x:Name="orderPrice"/>
-            </StackPanel>
+            <StackPanel Orientation="Horizontal" 
+                        Height="64">
 
+                <Label Content="총 개수, 금액" 
+                       Width="250" 
+                       VerticalAlignment="Center" 
+                       HorizontalContentAlignment="Center" 
+                       FontSize="18" 
+                       FontWeight="Bold"/>
+
+                <Label x:Name="orderCount" 
+                       Content="0개"
+                       Width="240" 
+                       VerticalAlignment="Center" 
+                       HorizontalContentAlignment="Center" 
+                       FontSize="18" 
+                       FontWeight="Bold"/>
+
+                <Label x:Name="orderPrice" 
+                       Content="0원"
+                       Width="400" 
+                       VerticalAlignment="Center" 
+                       HorizontalContentAlignment="Center" 
+                       FontSize="18" 
+                       FontWeight="Bold"/>
+            </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Orientation="Vertical" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Column="1" 
+                    Orientation="Vertical" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+            
             <StackPanel Orientation="Horizontal">
-                <Button Width="380px" Height="380px" 
-                    Click="cardBtn_click"  Content="카드" 
-                    FontFamily="Noto Sans" FontSize="70" FontWeight="Bold"  
-                    Background="#FFCB44" Margin="0 0 20 50"/>
                 
-                <Button Width="380px" Height="380px"  
-                    Click="moneyBtn_Click" Content="현금"  
-                    FontWeight="Bold" FontFamily="Noto Sans" FontSize="70"
-                    Background="#FFCB44" Margin="0 0 20 50"/>
+                <Button Width="380px" 
+                        Height="380px" 
+                        Click="cardBtn_click"  
+                        Content="카드" 
+                        FontFamily="Noto Sans" 
+                        FontSize="70" 
+                        FontWeight="Bold"  
+                        Background="#FFCB44"
+                        Margin="0 0 20 50"/>
+
+                <Button Width="380px" 
+                        Height="380px"  
+                        Click="moneyBtn_Click" 
+                        Content="현금"  
+                        FontWeight="Bold" 
+                        FontFamily="Noto Sans" 
+                        FontSize="70"
+                        Background="#FFCB44" 
+                        Margin="0 0 20 50"/>
             </StackPanel>
 
-            <Button Width="200px" Height="80px"  
-                    Background="#FFCB44" Content="이전" FontFamily="Noto Sans" 
-                    FontSize="36" FontWeight="Bold" Click="backBtn_Click"/>
+            <Button Width="200px" 
+                    Height="80px"  
+                    Background="#FFCB44" 
+                    Content="이전" 
+                    FontFamily="Noto Sans" 
+                    FontSize="36" 
+                    FontWeight="Bold" 
+                    Click="backBtn_Click"/>
         </StackPanel>
+        
     </Grid>
 </Page>
