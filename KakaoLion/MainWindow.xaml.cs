@@ -2,9 +2,7 @@
 using KakaoLion.database.repositoryImpl;
 using KakaoLion.model;
 using KakaoLion.pages;
-using KakaoLion.widget;
 using KakaoLion.widget.extension;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Windows;

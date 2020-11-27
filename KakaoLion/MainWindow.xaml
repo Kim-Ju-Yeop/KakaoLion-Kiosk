@@ -9,8 +9,9 @@
         Closed="Window_Closed">
     <Grid Background="#FFCB44">
 
-        
-        <Frame NavigationUIVisibility="Hidden" Name="pageFrame" Margin="0, 120, 0, 0" Source="pages/customer/HomePage.xaml" />
+        <Frame NavigationUIVisibility="Hidden" 
+               Name="pageFrame" Margin="0, 120, 0, 0" 
+               Source="pages/customer/HomePage.xaml" />
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -24,11 +25,40 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Image Grid.Column="0" Grid.Row="0" Source="resources/image/icon/ic_logo2.png"  Width="200px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label Grid.Column="1" Grid.Row="0" Content="tt HH시 mm분 ss초 dddd" FontSize="50px" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Name="timerLabel"/>
-            <Image Grid.Column="1" Width="50px" Height="50px" Source="resources/image/icon/ic_red_circle.png" HorizontalAlignment="Left" Margin="-20, 0, 0, 0"/>
+            <Image Grid.Column="0" 
+                   Grid.Row="0" 
+                   Source="resources/image/icon/ic_logo2.png"  
+                   Width="200px" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"/>
+            
+            <Label Grid.Column="1" 
+                   Grid.Row="0" 
+                   Content="tt HH시 mm분 ss초 dddd" 
+                   FontSize="50px" 
+                   Foreground="Black" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   Name="timerLabel"/>
 
-            <Button Grid.Column="2" Grid.Row="0" Width="60px" Height="60px" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFCB44" BorderThickness="0" Click="homeButton_Click">
+            <Image Grid.Column="1" 
+                   Width="50px" 
+                   Height="50px" 
+                   Source="resources/image/icon/ic_red_circle.png" 
+                   HorizontalAlignment="Left" 
+                   Margin="-20, 0, 0, 0"/>
+
+            <Button Grid.Column="2" 
+                    Grid.Row="0" 
+                    Width="60px" 
+                    Height="60px" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Background="#FFCB44" 
+                    BorderThickness="0" 
+                    Click="homeButton_Click">
+                
                 <Image Source="resources/image/icon/ic_home.png"/>
             </Button>
         </Grid>

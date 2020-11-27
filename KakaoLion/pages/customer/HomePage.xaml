@@ -9,13 +9,47 @@
       Title="HomePage">
 
     <Grid>
-        <MediaElement Source="resources/video/video.mp4" LoadedBehavior="Play" Stretch="Fill"/>
+        
+        <MediaElement 
+            Source="resources/video/video.mp4" 
+            LoadedBehavior="Play" 
+            Stretch="Fill"/>
+        
         <StackPanel Background="#66000000" />
 
-        <Label Content="카카오프렌즈샵에 오신 것을 환영합니다!" FontSize="50px" Foreground="White" FontWeight="Bold" Margin="0, 0, 0, 320" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0, 0, 0, 100">
-            <Button Width="500px" Height="140px" Background="#FFCB44" Content="주문하기" FontSize="50px" FontWeight="Bold" Margin="0, 0, 25, 0" BorderThickness="0" Click="orderButton_Click"/>
-            <Button Width="500px" Height="140px" Background="#FFCB44" Content="관리하기" FontSize="50px" FontWeight="Bold" Margin="25, 0, 0, 0" BorderThickness="0" Click="adminButton_Click"/>
+        <Label Content="카카오프렌즈샵에 오신 것을 환영합니다!"
+               FontSize="50px" 
+               Foreground="White" 
+               FontWeight="Bold" 
+               Margin="0, 0, 0, 320" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Bottom"/>
+        
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" 
+                    Margin="0, 0, 0, 100">
+            
+            <Button Width="500px" 
+                    Height="140px"
+                    Background="#FFCB44" 
+                    Content="주문하기"
+                    FontSize="50px" 
+                    FontWeight="Bold" 
+                    Margin="0, 0, 25, 0" 
+                    BorderThickness="0" 
+                    Click="orderButton_Click"/>
+            
+            <Button Width="500px" 
+                    Height="140px" 
+                    Background="#FFCB44" 
+                    Content="관리하기" 
+                    FontSize="50px" 
+                    FontWeight="Bold" 
+                    Margin="25, 0, 0, 0" 
+                    BorderThickness="0"
+                    Click="adminButton_Click"/>
         </StackPanel>
+        
     </Grid>
 </Page>
