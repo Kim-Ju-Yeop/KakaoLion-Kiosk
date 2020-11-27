@@ -6,11 +6,11 @@ using System.Text;
 
 namespace KakaoLion.server.repositoryImpl
 {
-    class LoginRepositoryImpl : LoginRepository
+    class LoginMessageRepositoryImpl : LoginMessageRepository
     {
         private JObject json;
 
-        public LoginRepositoryImpl()
+        public LoginMessageRepositoryImpl()
         {
             json = new JObject();
         }

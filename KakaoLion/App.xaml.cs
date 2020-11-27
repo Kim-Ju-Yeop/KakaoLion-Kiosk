@@ -39,7 +39,6 @@ namespace KakaoLion
             Thread thread = new Thread(new ThreadStart(messageThread));
             thread.Start();
             getAllMenu();
-            
         }
 
         public static void LoginWindow_CloseAction(bool isClosed)

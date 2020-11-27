@@ -19,14 +19,14 @@ namespace KakaoLion
         private bool isCheck = false;
         private List<UserModel> userList = new List<UserModel>();
 
-        private LoginRepository loginRepository;
+        private LoginMessageRepository loginRepository;
         private UserRepository userRepository;
 
         public LoginWindow()
         {
             InitializeComponent();
 
-            loginRepository = new LoginRepositoryImpl();
+            loginRepository = new LoginMessageRepositoryImpl();
             userRepository = new UserRepositoryImpl();
 
             checkAutoLogin();
