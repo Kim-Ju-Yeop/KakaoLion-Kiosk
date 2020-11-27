@@ -1,5 +1,4 @@
 ﻿using KakaoLion.model;
-using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,15 +11,6 @@ namespace KakaoLion.pages
             InitializeComponent();
         }
 
-        private void storeButton_Click(object sender, RoutedEventArgs e)
-        {
-            foreach (OrderModel order in OrderPage.orderList)
-            {
-                order.paymentPlace = true;
-            }
-            this.NavigationService.Navigate(new SelectStorePage());
-        }
-
         private void deliveryButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (OrderModel order in OrderPage.orderList)
@@ -28,6 +18,15 @@ namespace KakaoLion.pages
                 order.paymentPlace = false;
             }
             this.NavigationService.Navigate(new PurchaseMethodPage());
+        }
+
+        private void storeButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (OrderModel order in OrderPage.orderList)
+            {
+                order.paymentPlace = true;
+            }
+            this.NavigationService.Navigate(new SelectStorePage());
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
