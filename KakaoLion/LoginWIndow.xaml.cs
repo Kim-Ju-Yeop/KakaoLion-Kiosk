@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using KakaoLion.database.repository;
 using KakaoLion.database.repositoryImpl;
 using KakaoLion.model;
 using KakaoLion.server.repository;
 using KakaoLion.server.repositoryImpl;
-using KakaoLion.widget;
-using MySql.Data.MySqlClient;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace KakaoLion
 {

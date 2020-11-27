@@ -136,14 +136,14 @@
     <Compile Include="MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="model\Category.cs" />
-    <Compile Include="model\MenuModel.cs" />
-    <Compile Include="model\Message.cs" />
-    <Compile Include="model\MessageModel.cs" />
-    <Compile Include="model\OrderModel.cs" />
-    <Compile Include="model\StatsModel.cs" />
-    <Compile Include="model\StoreModel.cs" />
-    <Compile Include="model\UserModel.cs" />
+    <Compile Include="dto\enum\Category.cs" />
+    <Compile Include="dto\model\MenuModel.cs" />
+    <Compile Include="dto\enum\Message.cs" />
+    <Compile Include="dto\model\MessageModel.cs" />
+    <Compile Include="dto\model\OrderModel.cs" />
+    <Compile Include="dto\model\StatsModel.cs" />
+    <Compile Include="dto\model\StoreModel.cs" />
+    <Compile Include="dto\model\UserModel.cs" />
     <Compile Include="page\admin\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
