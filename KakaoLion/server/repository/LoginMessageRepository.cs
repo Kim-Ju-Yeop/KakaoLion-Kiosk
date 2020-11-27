@@ -1,6 +1,6 @@
 ﻿namespace KakaoLion.server.repository
 {
-    interface LoginRepository
+    interface LoginMessageRepository
     {
         void sendLoginMessage(string userId);
     }

@@ -123,10 +123,12 @@
     <Compile Include="converter\MenuIdxToName.cs" />
     <Compile Include="converter\BooleanToVisibillity.cs" />
     <Compile Include="database\repositoryImpl\MenuRepositoryImpl.cs" />
+    <Compile Include="database\repositoryImpl\OrderRepositoryImpl.cs" />
     <Compile Include="database\repositoryImpl\ProgramRepositoryImpl.cs" />
     <Compile Include="database\repositoryImpl\StoreRepositoryImpl.cs" />
     <Compile Include="database\repositoryImpl\UserRepositoryImpl.cs" />
     <Compile Include="database\repository\MenuRepository.cs" />
+    <Compile Include="database\repository\OrderRepository.cs" />
     <Compile Include="database\repository\ProgramRepository.cs" />
     <Compile Include="database\repository\StoreRepository.cs" />
     <Compile Include="database\repository\UserRepository.cs" />
@@ -193,9 +195,10 @@
     <Compile Include="page\customer\PurchasePlacePage.xaml.cs">
       <DependentUpon>PurchasePlacePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="server\repositoryImpl\Jobject.cs" />
-    <Compile Include="server\repositoryImpl\LoginRepositoryImpl.cs" />
-    <Compile Include="server\repository\LoginRepository.cs" />
+    <Compile Include="server\repositoryImpl\LoginMessageRepositoryImpl.cs" />
+    <Compile Include="server\repositoryImpl\OrderMessageRepositoryImpl.cs" />
+    <Compile Include="server\repository\LoginMessageRepository.cs" />
+    <Compile Include="server\repository\OrderMessageRepository.cs" />
     <Compile Include="widget\Constants.cs" />
     <Compile Include="widget\extension\DateTImeExtension.cs" />
     <Page Include="MenuWindow.xaml">
