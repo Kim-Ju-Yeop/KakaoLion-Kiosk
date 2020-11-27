@@ -11,9 +11,10 @@
 
         <Frame NavigationUIVisibility="Hidden" 
                Name="pageFrame" Margin="0, 120, 0, 0" 
-               Source="pages/customer/HomePage.xaml" />
+               Source="page/HomePage.xaml" />
 
         <Grid>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="1*"/>

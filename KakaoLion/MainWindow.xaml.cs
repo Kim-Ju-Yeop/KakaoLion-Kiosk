@@ -85,12 +85,12 @@ namespace KakaoLion
             {
                 if(OrderPage.orderList.Count == 0)
                 {
-                    pageFrame.Source = new Uri("pages/customer/HomePage.xaml", UriKind.Relative);
+                    pageFrame.Source = new Uri("page/HomePage.xaml", UriKind.Relative);
                 }
                 else if (MessageBox.Show("정말로 홈화면으로 돌아가시겠습니까?\n(주문 목록이 삭제됩니다.)", "이전으로", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     OrderPage.orderList.Clear();
-                    pageFrame.Source = new Uri("pages/customer/HomePage.xaml", UriKind.Relative);
+                    pageFrame.Source = new Uri("page/HomePage.xaml", UriKind.Relative);
                 }
             }
         }
