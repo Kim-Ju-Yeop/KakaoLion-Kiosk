@@ -9,18 +9,15 @@ namespace KakaoLion.database.repositoryImpl
 {
     class MenuRepositoryImpl : MenuRepository
     {
+        private Database db = new Database();
+
         private MySqlConnection conn;
         private MySqlCommand cmd;
         private MySqlDataReader rdr;
 
-        public MenuRepositoryImpl()
-        {
-            Database db = new Database();
-            conn = db.getConnection();
-        }
-
         public List<MenuModel> getAllMenu()
         {
+            conn = db.getConnection();
             List<MenuModel> menuList = new List<MenuModel>();
             using (conn)
             {
@@ -65,6 +62,7 @@ namespace KakaoLion.database.repositoryImpl
 
         public List<MenuModel> getAllDisocuntMenu()
         {
+            conn = db.getConnection();
             List<MenuModel> menuList = new List<MenuModel>();
             using (conn)
             {
@@ -112,6 +110,18 @@ namespace KakaoLion.database.repositoryImpl
                 }
             }
             return menuList;
+        }
+
+        public void updateMenu(int discount, int stock, int menuIdx)
+        {
+            conn = db.getConnection();
+            using (conn)
+            {
+                string sql = "UPDATE menu SET discount=" + discount + ", stock=" + stock + " WHERE idx=" + menuIdx;
+
+                cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

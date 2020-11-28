@@ -1,9 +1,8 @@
-﻿using KakaoLion.model;
-using KakaoLion.widget;
+﻿using KakaoLion.database.repository;
+using KakaoLion.database.repositoryImpl;
+using KakaoLion.model;
 using LiveCharts;
 using LiveCharts.Wpf;
-using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
@@ -12,38 +11,35 @@ namespace KakaoLion.pages.admin
 {
     public partial class StatusPage5 : Page
     {
-        public List<OrderModel> orderList = new List<OrderModel>();
-        public SeriesCollection seriesCollection = new SeriesCollection();
+        private List<string> purchaseAtList = new List<string>();
+        private List<OrderModel> orderList = new List<OrderModel>();
+        private SeriesCollection seriesCollection = new SeriesCollection();
+
+        private OrderRepository orderRepository;
 
         public StatusPage5()
         {
             InitializeComponent();
-            setDate();
 
+            orderRepository = new OrderRepositoryImpl();
             this.DataContext = this;
+
+            setDate();
         }
 
         public void setDate()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
+            purchaseAtList.Clear();
+            purchaseAtList = orderRepository.getAllPurchaseAt();
+
+            foreach (string purchaseAt in purchaseAtList)
             {
-                conn.Open();
-                string sql = "SELECT purchaseAt FROM lion.order";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
+                if (lbTime.Items.IndexOf(purchaseAt) == -1)
                 {
-                    string date = (string)rdr["purchaseAt"];
-                    string formatDate = date.Substring(0, 10);
-
-                    if (lbTime.Items.IndexOf(formatDate) == -1)
-                    {
-                        lbTime.Items.Add(formatDate);
-                    }
+                    lbTime.Items.Add(purchaseAt);
                 }
             }
+
             if (lbTime.Items.Count != 0) lbTime.SelectedIndex = 0;
             else
             {
@@ -75,37 +71,21 @@ namespace KakaoLion.pages.admin
             int cardCount = 0;
             int moneyCount = 0;
 
-            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
+            orderList.Clear();
+            orderList = orderRepository.getTodayAllOrder(date);
+
+            foreach (OrderModel order in orderList)
             {
-                conn.Open();
-                string sql = "SELECT * FROM lion.order WHERE purchaseAt LIKE '" + date + "%'";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
+                if ((bool)order.paymentMethod)
                 {
-                    Boolean paymentPlace = rdr["paymentPlace"].ToString().Equals("0") ? true : false;
-                    Boolean paymentMethod = rdr["paymentMethod"].ToString().Equals("0") ? true : false;
-
-                    if (paymentMethod) cardCount++;
-                    else moneyCount++;
-
-                    orderList.Add(new OrderModel
-                    {
-                        idx = (int)rdr["idx"],
-                        orderCount = (int)rdr["orderCount"],
-                        menuIdx = (int)rdr["menuIdx"],
-                        quantity = (int)rdr["quantity"],
-                        totalPrice = (int)rdr["totalPrice"],
-                        userId = (string)rdr["userId"],
-                        purchaseAt = (string)rdr["purchaseAt"],
-                        paymentPlace = paymentPlace,
-                        paymentMethod = paymentMethod,
-                        shopIdx = (int)rdr["shopIdx"]
-                    });
+                    cardCount++;
+                }
+                else
+                {
+                    moneyCount++;
                 }
             }
+
             seriesCollection.Add(new PieSeries
             {
                 Title = "카드",

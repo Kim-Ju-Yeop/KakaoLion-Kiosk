@@ -9,65 +9,98 @@
       Title="UserPage">
 
     <Grid Background="White">
+        
         <StackPanel Orientation="Vertical">
-            <Label Content="회원 정보 확인" FontSize="30px" Foreground="Black" FontWeight="Bold" Margin="10, 30, 0, 0"/>
-            <ListView x:Name="lvResult" Height="600px" BorderThickness="0" Margin="10, 30, 10, 10">
+            
+            <Label Content="회원 정보 확인" 
+                   FontSize="30px" 
+                   Foreground="Black" 
+                   FontWeight="Bold" 
+                   Margin="10, 30, 0, 0"/>
+            
+            <ListView x:Name="lvResult"
+                      Height="600px" 
+                      BorderThickness="0"
+                      Margin="10, 30, 10, 10">
+                
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
                             <Style TargetType="GridViewColumnHeader">
-                                <Setter Property="Foreground" Value="Gray" />
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Height" Value="64" />
-                                <Setter Property="FontSize" Value="30"/>
-                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Foreground" 
+                                        Value="Gray" />
+                                <Setter Property="Background" 
+                                        Value="Transparent" />
+                                <Setter Property="Height" 
+                                        Value="64" />
+                                <Setter Property="FontSize" 
+                                        Value="30"/>
+                                <Setter Property="FontWeight" 
+                                        Value="Bold"/>
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
 
-                        <GridViewColumn Header="회원 아이디" Width="640px">
+                        <GridViewColumn Header="회원 아이디" 
+                                        Width="640px">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                    <TextBlock Padding="12" 
+                                               FontWeight="Bold" 
+                                               HorizontalAlignment="Center">
                                         <TextBlock Text="{Binding id}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="회원 이름" Width="640px">
+                        <GridViewColumn Header="회원 이름" 
+                                        Width="640px">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                    <TextBlock Padding="12" 
+                                               FontWeight="Bold" 
+                                               HorizontalAlignment="Center">
                                         <TextBlock Text="{Binding name}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="회원 주소" Width="640px">
+                        <GridViewColumn Header="회원 주소" 
+                                        Width="640px">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                    <TextBlock Padding="12" 
+                                               FontWeight="Bold" 
+                                               HorizontalAlignment="Center">
                                         <TextBlock Text="{Binding address}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="바코드 번호" Width="640px">
+                        <GridViewColumn Header="바코드 번호" 
+                                        Width="640px">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="12">
+                                    <TextBlock FontSize="18" 
+                                               FontWeight="Bold" 
+                                               HorizontalAlignment="Center" 
+                                               VerticalAlignment="Center" 
+                                               Padding="12">
                                         <TextBlock Text="{Binding barcode}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="QR 코드 번호" Width="640px">
+                        <GridViewColumn Header="QR 코드 번호" 
+                                        Width="640px">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
+                                    <TextBlock FontSize="18" 
+                                               FontWeight="Bold" 
+                                               Padding="12">
                                         <TextBlock Text="{Binding qrcode}"/>
                                     </TextBlock>
                                 </DataTemplate>
@@ -77,5 +110,6 @@
                 </ListView.View>
             </ListView>
         </StackPanel>
+        
     </Grid>
 </Page>

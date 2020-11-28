@@ -1,7 +1,6 @@
-﻿using KakaoLion.model;
-using KakaoLion.widget;
-using MySql.Data.MySqlClient;
-using System;
+﻿using KakaoLion.database.repository;
+using KakaoLion.database.repositoryImpl;
+using KakaoLion.model;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
@@ -10,12 +9,17 @@ namespace KakaoLion.pages.admin
 {
     public partial class StatsPage3 : Page
     {
-        public List<OrderModel> orderList = new List<OrderModel>();
-        public List<OrderModel> statsList = new List<OrderModel>();
+        private List<OrderModel> orderList = new List<OrderModel>();
+        private List<OrderModel> statsList = new List<OrderModel>();
+
+        private OrderRepository orderRepository;
 
         public StatsPage3()
         {
             InitializeComponent();
+
+            orderRepository = new OrderRepositoryImpl();
+
             setStore();
         }
 
@@ -30,34 +34,9 @@ namespace KakaoLion.pages.admin
 
         public void getAllOrder(int storeIdx)
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
-            {
-                conn.Open();
-                string sql = "SELECT * FROM lion.order";
+            orderList.Clear();
+            orderList = orderRepository.getAllOrder();
 
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    Boolean paymentPlace = rdr["paymentPlace"].ToString().Equals("0") ? true : false;
-                    Boolean paymentMethod = rdr["paymentMethod"].ToString().Equals("0") ? true : false;
-
-                    orderList.Add(new OrderModel
-                    {
-                        idx = (int)rdr["idx"],
-                        orderCount = (int)rdr["orderCount"],
-                        menuIdx = (int)rdr["menuIdx"],
-                        quantity = (int)rdr["quantity"],
-                        totalPrice = (int)rdr["totalPrice"],
-                        userId = (string)rdr["userId"],
-                        purchaseAt = (string)rdr["purchaseAt"],
-                        paymentPlace = paymentPlace,
-                        paymentMethod = paymentMethod,
-                        shopIdx = (int)rdr["shopIdx"]
-                    });
-                }
-            }
             combineData(storeIdx);
         }
 

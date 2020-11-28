@@ -1,4 +1,6 @@
-﻿using KakaoLion.model;
+﻿using KakaoLion.database.repository;
+using KakaoLion.database.repositoryImpl;
+using KakaoLion.model;
 using KakaoLion.widget;
 using LiveCharts;
 using LiveCharts.Wpf;
@@ -14,42 +16,33 @@ namespace KakaoLion.pages.admin
 {
     public partial class StatsPage7 : Page
     {
-        public List<UserModel> userList = new List<UserModel>();
-        public List<OrderModel> orderList = new List<OrderModel>();
-        public List<OrderModel> statsList = new List<OrderModel>();
-        public SeriesCollection seriesCollection = new SeriesCollection();
+        private List<UserModel> userList = new List<UserModel>();
+        private List<OrderModel> orderList = new List<OrderModel>();
+        private List<OrderModel> statsList = new List<OrderModel>();
+        private SeriesCollection seriesCollection = new SeriesCollection();
 
-        bool sortMethod;
+        private bool sortMethod;
+        private UserRepository userRepository;
+        private OrderRepository orderRepository;
 
         public StatsPage7()
         {
             InitializeComponent();
+
+            userRepository = new UserRepositoryImpl();
+            orderRepository = new OrderRepositoryImpl();
+
             getAllUser();
         }
 
         public void getAllUser()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
+            userList.Clear();
+            userList = userRepository.getAllUser();
+
+            foreach (UserModel user in userList)
             {
-                conn.Open();
-                string sql = "SELECT * FROM lion.user";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    userList.Add(new UserModel
-                    {
-                        id = (string)rdr["id"],
-                        pw = (string)rdr["pw"],
-                        name = (string)rdr["name"],
-                        address = (string)rdr["address"],
-                        barcode = (string)rdr["barcode"],
-                        qrcode = (string)rdr["qrcode"],
-                    });
-                    lbUser.Items.Add((string)rdr["id"]);
-                }
+                lbUser.Items.Add(user.id);
             }
             lbUser.SelectedIndex = 0;
         }
@@ -59,37 +52,21 @@ namespace KakaoLion.pages.admin
             int cardCount = 0;
             int moneyCount = 0;
 
-            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
+            orderList.Clear();
+            orderList = orderRepository.getUserOrder(userId);
+
+            foreach (OrderModel order in orderList)
             {
-                conn.Open();
-                string sql = "SELECT * FROM lion.order WHERE userId = '" + userId + "';";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
+                if ((bool)order.paymentMethod)
                 {
-                    Boolean paymentPlace = rdr["paymentPlace"].ToString().Equals("0") ? true : false;
-                    Boolean paymentMethod = rdr["paymentMethod"].ToString().Equals("0") ? true : false;
-
-                    if (paymentMethod) cardCount++;
-                    else moneyCount++;
-
-                    orderList.Add(new OrderModel
-                    {
-                        idx = (int)rdr["idx"],
-                        orderCount = (int)rdr["orderCount"],
-                        menuIdx = (int)rdr["menuIdx"],
-                        quantity = (int)rdr["quantity"],
-                        totalPrice = (int)rdr["totalPrice"],
-                        userId = (string)rdr["userId"],
-                        purchaseAt = (string)rdr["purchaseAt"],
-                        paymentPlace = paymentPlace,
-                        paymentMethod = paymentMethod,
-                        shopIdx = (int)rdr["shopIdx"]
-                    });
+                    cardCount++;
+                }
+                else
+                {
+                    moneyCount++;
                 }
             }
+
             seriesCollection.Add(new PieSeries
             {
                 Title = "카드",
@@ -129,7 +106,6 @@ namespace KakaoLion.pages.admin
                     totalPrice += order.quantity * menu.price;
                     salePrice += order.totalPrice;
                 }
-
                 resultPrice += totalPrice;
 
                 statsList.Add(new OrderModel
@@ -157,6 +133,7 @@ namespace KakaoLion.pages.admin
             view.SortDescriptions.Add(new SortDescription("totalPrice", ListSortDirection.Ascending));
             view.SortDescriptions.Add(new SortDescription("quantity", ListSortDirection.Ascending));
             view.Refresh();
+
             sortMethod = false;
         }
 

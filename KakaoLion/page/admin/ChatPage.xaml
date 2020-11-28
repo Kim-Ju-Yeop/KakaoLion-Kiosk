@@ -9,44 +9,65 @@
       Title="ChatPage">
 
     <Grid Background="White">
+        
         <StackPanel Orientation="Vertical">
-            <ListView x:Name="lvResult" Height="600px" BorderThickness="0" Margin="10, 30, 10, 10" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            
+            <ListView x:Name="lvResult"
+                      Height="500px"
+                      BorderThickness="0" 
+                      Margin="10, 30, 10, 10"
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
                             <Style TargetType="GridViewColumnHeader">
-                                <Setter Property="Foreground" Value="Gray" />
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Height" Value="64" />
-                                <Setter Property="FontSize" Value="30"/>
-                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Foreground" 
+                                        Value="Gray" />
+                                <Setter Property="Background" 
+                                        Value="Transparent" />
+                                <Setter Property="Height" 
+                                        Value="64" />
+                                <Setter Property="FontSize" 
+                                        Value="30"/>
+                                <Setter Property="FontWeight"
+                                        Value="Bold"/>
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
 
-                        <GridViewColumn Header="메세지" Width="640px">
+                        <GridViewColumn Header="메세지"
+                                        Width="640px">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                    <TextBlock Padding="12" 
+                                               FontWeight="Bold" 
+                                               HorizontalAlignment="Center">
                                         <TextBlock Text="{Binding message}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="대상" Width="640px">
+                        <GridViewColumn Header="대상"
+                                        Width="640px">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                    <TextBlock Padding="12"
+                                               FontWeight="Bold"
+                                               HorizontalAlignment="Center">
                                         <TextBlock Text="{Binding target}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="날짜" Width="640px">
+                        <GridViewColumn Header="날짜"
+                                        Width="640px">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                    <TextBlock Padding="12"
+                                               FontWeight="Bold" 
+                                               HorizontalAlignment="Center">
                                         <TextBlock Text="{Binding messageAt}"/>
                                     </TextBlock>
                                 </DataTemplate>
@@ -56,15 +77,38 @@
                 </ListView.View>
             </ListView>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <RadioButton x:Name="personButton" GroupName="isGroup" Content="개인" Margin="10, 0, 0, 0" Checked="RadioButton_Checked"/>
-                <RadioButton x:Name="groupButton" GroupName="isGroup" Content="그룹" Checked="RadioButton_Checked"/>
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Right"
+                        Margin="0, 25, 25, 25">
+                
+                <RadioButton x:Name="personButton" 
+                             GroupName="isGroup" 
+                             Content="개인" 
+                             Margin="10, 0, 0, 0"
+                             Checked="RadioButton_Checked"/>
+                
+                <RadioButton x:Name="groupButton"
+                             GroupName="isGroup"
+                             Content="그룹" 
+                             Checked="RadioButton_Checked"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="textBox" Width="1500px" Height="120px" FontSize="30px" Background="LightGray"/>
-                <Button Content="전송하기" Width="420px" Height="120px" FontSize="40px" Background="#FFCB44" Click="SendButton_Click"/>
+                
+                <TextBox x:Name="textBox"
+                         Width="1500px"
+                         Height="120px" 
+                         FontSize="30px"
+                         Background="LightGray"/>
+                
+                <Button Content="전송하기"
+                        Width="420px" 
+                        Height="120px" 
+                        FontSize="40px" 
+                        Background="#FFCB44" 
+                        Click="SendButton_Click"/>
             </StackPanel>
         </StackPanel>
+        
     </Grid>
 </Page>

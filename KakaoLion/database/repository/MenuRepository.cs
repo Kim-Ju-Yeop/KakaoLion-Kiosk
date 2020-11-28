@@ -8,5 +8,7 @@ namespace KakaoLion.database.repository
         List<MenuModel> getAllMenu();
 
         List<MenuModel> getAllDisocuntMenu();
+
+        void updateMenu(int discount, int stock, int menuIdx);
     }
 }

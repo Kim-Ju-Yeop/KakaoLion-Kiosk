@@ -18,109 +18,157 @@
         <ScrollViewer>
 
             <StackPanel Orientation="Vertical">
-            <Label Content="지점별 메뉴별 판매 수 및 총액" FontSize="30px" Foreground="Black" FontWeight="Bold" Margin="10, 30, 0, 0"/>
+                
+                <Label Content="지점별 메뉴별 판매 수 및 총액" 
+                       FontSize="30px" 
+                       Foreground="Black" 
+                       FontWeight="Bold" 
+                       Margin="10, 30, 0, 0"/>
 
-            <ListBox x:Name="lbStore" FontSize="30" FontWeight="SemiBold" BorderBrush="Transparent" VerticalAlignment="Center" SelectionChanged="lbCategory_SelectionChanged">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
+                <ListBox x:Name="lbStore" 
+                         FontSize="30" 
+                         FontWeight="SemiBold" 
+                         BorderBrush="Transparent"
+                         VerticalAlignment="Center" 
+                         SelectionChanged="lbCategory_SelectionChanged">
+                    
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
 
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="Foreground" Value="Gray" />
-                        <Setter Property="Background" Value="Transparent" />
-                        <Setter Property="Width" Value="204"/>
-                        <Setter Property="Height" Value="88"/>
-                        <Setter Property="VerticalAlignment" Value="Center"/>
-                        <Setter Property="Padding" Value="38,23,38,23" />
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                    <Grid>
-                                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
-                                            <ContentPresenter ></ContentPresenter>
-                                        </Border>
-                                    </Grid>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsSelected" Value="true">
-                                            <Setter Property="Background" Value="#FFCB44" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </ListBox.ItemContainerStyle>
-            </ListBox>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="Foreground" 
+                                    Value="Gray" />
+                            <Setter Property="Background" 
+                                    Value="Transparent" />
+                            <Setter Property="Width" 
+                                    Value="204"/>
+                            <Setter Property="Height" 
+                                    Value="88"/>
+                            <Setter Property="VerticalAlignment" 
+                                    Value="Center"/>
+                            <Setter Property="Padding" 
+                                    Value="38,23,38,23" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                        <Grid>
+                                            <Border Background="{TemplateBinding Background}" 
+                                                    Padding="{TemplateBinding Padding}" 
+                                                    VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                                <ContentPresenter ></ContentPresenter>
+                                            </Border>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" 
+                                                     Value="true">
+                                                <Setter Property="Background" 
+                                                        Value="#FFCB44" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
 
-            <ListView x:Name="lvResult" Height="600px" BorderThickness="0" Margin="10, 30, 10, 10">
-                <ListView.View>
-                    <GridView>
-                        <GridView.ColumnHeaderContainerStyle>
-                            <Style TargetType="GridViewColumnHeader">
-                                <Setter Property="Foreground" Value="Gray" />
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Height" Value="64" />
-                                <Setter Property="FontSize" Value="30"/>
-                                <Setter Property="FontWeight" Value="Bold"/>
-                            </Style>
-                        </GridView.ColumnHeaderContainerStyle>
+                <ListView x:Name="lvResult" 
+                          Height="600px" 
+                          BorderThickness="0"
+                          Margin="10, 30, 10, 10">
+                    
+                    <ListView.View>
+                        <GridView>
+                            <GridView.ColumnHeaderContainerStyle>
+                                <Style TargetType="GridViewColumnHeader">
+                                    <Setter Property="Foreground"
+                                            Value="Gray" />
+                                    <Setter Property="Background" 
+                                            Value="Transparent" />
+                                    <Setter Property="Height" 
+                                            Value="64" />
+                                    <Setter Property="FontSize"
+                                            Value="30"/>
+                                    <Setter Property="FontWeight"
+                                            Value="Bold"/>
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
 
-                        <GridViewColumn Header="메뉴" Width="480">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding menuIdx, Converter={StaticResource menuIdxToName}}"/>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                            <GridViewColumn Header="메뉴" 
+                                            Width="480">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Padding="12"
+                                                   FontWeight="Bold" 
+                                                   HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding menuIdx, Converter={StaticResource menuIdxToName}}"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
-                        <GridViewColumn Header="수량" Width="480">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="12">
-                                        <TextBlock Text="{Binding quantity}"/>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                            <GridViewColumn Header="수량" 
+                                            Width="480">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="18" 
+                                                   FontWeight="Bold" 
+                                                   HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center" 
+                                                   Padding="12">
+                                            <TextBlock Text="{Binding quantity}"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
-                        <GridViewColumn Header="할인율" Width="480">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
-                                        <TextBlock Text="{Binding discount}"/>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                            <GridViewColumn Header="할인율" 
+                                            Width="480">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="18" 
+                                                   FontWeight="Bold" 
+                                                   Padding="12">
+                                            <TextBlock Text="{Binding discount}"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
-                        <GridViewColumn Header="총 매출액" Width="480">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
-                                        <TextBlock Text="{Binding totalPrice}"/>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                            <GridViewColumn Header="총 매출액"
+                                            Width="480">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="18" 
+                                                   FontWeight="Bold" 
+                                                   Padding="12">
+                                            <TextBlock Text="{Binding totalPrice}"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
-                        <GridViewColumn Header="순수 매출액" Width="480">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
-                                        <TextBlock Text="{Binding salePrice}"/>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </StackPanel>
+                            <GridViewColumn Header="순수 매출액" 
+                                            Width="480">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="18" 
+                                                   FontWeight="Bold" 
+                                                   Padding="12">
+                                            <TextBlock Text="{Binding salePrice}"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
         </ScrollViewer>
+        
     </Grid>
 </Page>

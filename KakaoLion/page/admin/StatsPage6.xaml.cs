@@ -1,4 +1,6 @@
-﻿using KakaoLion.model;
+﻿using KakaoLion.database.repository;
+using KakaoLion.database.repositoryImpl;
+using KakaoLion.model;
 using KakaoLion.widget;
 using LiveCharts;
 using LiveCharts.Wpf;
@@ -12,12 +14,17 @@ namespace KakaoLion.pages.admin
 {
     public partial class StatsPage6 : Page
     {
-        public List<OrderModel> orderList = new List<OrderModel>();
-        public SeriesCollection seriesCollection = new SeriesCollection();
+        private List<OrderModel> orderList = new List<OrderModel>();
+        private SeriesCollection seriesCollection = new SeriesCollection();
+
+        private OrderRepository orderRepository;
 
         public StatsPage6()
         {
             InitializeComponent();
+
+            orderRepository = new OrderRepositoryImpl();
+
             setTime();
         }
 
@@ -36,38 +43,21 @@ namespace KakaoLion.pages.admin
             int cardCount = 0;
             int moneyCount = 0;
 
-            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
+            orderList.Clear();
+            orderList = orderRepository.getAllTimeOrder(hour);
+
+            foreach (OrderModel order in orderList)
             {
-                conn.Open();
-                string time = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
-                string sql = "SELECT * FROM lion.order WHERE purchaseAt LIKE '" + time + " " + hour + "%'";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
+                if ((bool)order.paymentMethod)
                 {
-                    Boolean paymentPlace = rdr["paymentPlace"].ToString().Equals("0") ? true : false;
-                    Boolean paymentMethod = rdr["paymentMethod"].ToString().Equals("0") ? true : false;
-
-                    if (paymentMethod) cardCount++;
-                    else moneyCount++;
-
-                    orderList.Add(new OrderModel
-                    {
-                        idx = (int)rdr["idx"],
-                        orderCount = (int)rdr["orderCount"],
-                        menuIdx = (int)rdr["menuIdx"],
-                        quantity = (int)rdr["quantity"],
-                        totalPrice = (int)rdr["totalPrice"],
-                        userId = (string)rdr["userId"],
-                        purchaseAt = (string)rdr["purchaseAt"],
-                        paymentPlace = paymentPlace,
-                        paymentMethod = paymentMethod,
-                        shopIdx = (int)rdr["shopIdx"]
-                    });
+                    cardCount++;
+                }
+                else
+                {
+                    moneyCount++;
                 }
             }
+
             seriesCollection.Add(new PieSeries
             {
                 Title = "카드",
