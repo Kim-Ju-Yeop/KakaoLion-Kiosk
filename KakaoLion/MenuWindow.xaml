@@ -6,24 +6,59 @@
         xmlns:local="clr-namespace:KakaoLion"
         mc:Ignorable="d"
         Title="MenuWindow" Height="700" Width="600">
+    
     <Grid Background="White">
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-            <Image Width="150px" Height="150px" Source="{Binding imagePath}"/>
-            <Label Content="{Binding name}" FontSize="20px" HorizontalAlignment="Center"/>
+        
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Center">
+            
+            <Image Width="150px"
+                   Height="150px" 
+                   Source="{Binding imagePath}"/>
+            
+            <Label Content="{Binding name}" 
+                   FontSize="20px" 
+                   HorizontalAlignment="Center"/>
 
-            <StackPanel Orientation="Horizontal" Margin="0, 100, 0, 0">
-                <Label Content="금액 : " FontSize="20px"/>
-                <Label Content="{Binding price}" FontSize="20px"/>
+            <StackPanel Orientation="Horizontal" 
+                        Margin="0, 100, 0, 0">
+                
+                <Label Content="금액 : " 
+                       FontSize="20px"/>
+                
+                <Label Content="{Binding price}" 
+                       FontSize="20px"/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
-                <Label Content="할인율 : " FontSize="20px"/>
-                <TextBox Text="{Binding discount}" FontSize="20px" VerticalAlignment="Center"/>
+                
+                <Label Content="할인율 : " 
+                       FontSize="20px"/>
+
+                <TextBox Text="{Binding discount}"
+                         FontSize="20px" 
+                         VerticalAlignment="Center"/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
-                <Label Content="품절 : " FontSize="20px"/>
-                <CheckBox x:Name="stockCheck" IsChecked="{Binding stock}" VerticalAlignment="Center"/>
+                
+                <Label Content="품절 : " 
+                       FontSize="20px"/>
+                
+                <CheckBox x:Name="stockCheck"
+                          IsChecked="{Binding stock}" 
+                          VerticalAlignment="Center"/>
             </StackPanel>
-            <Button x:Name="saveButton" Width="180" Height="60" Content="저장하기" FontSize="14px" Background="#FFCB44" Margin="0, 200, 0, 0" Click="saveButton_Click"/>
+            
+            <Button x:Name="saveButton" 
+                    Width="180" 
+                    Height="60" 
+                    Content="저장하기"
+                    FontSize="14px" 
+                    Background="#FFCB44" 
+                    Margin="0, 200, 0, 0" 
+                    Click="saveButton_Click"/>
         </StackPanel>
+        
     </Grid>
 </Window>

@@ -16,7 +16,12 @@ namespace KakaoLion.widget.extension
 
         public static string dateTimeFormat3(DateTime dateTime)
         {
-            return String.Format("{0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
+            return String.Format("{0:yyyy-MM-dd HH:mm:ss}", dateTime);
+        }
+
+        public static string dateTimeFormat4(DateTime dateTime)
+        {
+            return String.Format("{0:yyyy-MM-dd}", dateTime);
         }
     }
 }

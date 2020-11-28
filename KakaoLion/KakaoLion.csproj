@@ -195,8 +195,10 @@
     <Compile Include="page\customer\PurchasePlacePage.xaml.cs">
       <DependentUpon>PurchasePlacePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="server\repositoryImpl\GeneralMessageRepositoryImpl.cs" />
     <Compile Include="server\repositoryImpl\LoginMessageRepositoryImpl.cs" />
     <Compile Include="server\repositoryImpl\OrderMessageRepositoryImpl.cs" />
+    <Compile Include="server\repository\GeneralMessageRepository.cs" />
     <Compile Include="server\repository\LoginMessageRepository.cs" />
     <Compile Include="server\repository\OrderMessageRepository.cs" />
     <Compile Include="widget\Constants.cs" />

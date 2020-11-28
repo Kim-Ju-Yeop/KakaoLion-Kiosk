@@ -15,10 +15,22 @@
     </Page.Resources>
 
     <Grid Background="White">
+        
         <StackPanel Orientation="Vertical">
-            <Label Content="지점별 카테고리별 판매 수 및 총액" FontSize="30px" Foreground="Black" FontWeight="Bold" Margin="10, 30, 0, 0"/>
+            
+            <Label Content="지점별 카테고리별 판매 수 및 총액"
+                   FontSize="30px"
+                   Foreground="Black"
+                   FontWeight="Bold" 
+                   Margin="10, 30, 0, 0"/>
 
-            <ListBox x:Name="lbStore" FontSize="30" FontWeight="SemiBold" BorderBrush="Transparent" VerticalAlignment="Center" SelectionChanged="lbStore_SelectionChanged">
+            <ListBox x:Name="lbStore" 
+                     FontSize="30"
+                     FontWeight="SemiBold" 
+                     BorderBrush="Transparent" 
+                     VerticalAlignment="Center" 
+                     SelectionChanged="lbStore_SelectionChanged">
+                
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal"/>
@@ -27,23 +39,33 @@
 
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="Foreground" Value="Gray" />
-                        <Setter Property="Background" Value="Transparent" />
-                        <Setter Property="Width" Value="204"/>
-                        <Setter Property="Height" Value="88"/>
-                        <Setter Property="VerticalAlignment" Value="Center"/>
-                        <Setter Property="Padding" Value="38,23,38,23" />
+                        <Setter Property="Foreground" 
+                                Value="Gray" />
+                        <Setter Property="Background" 
+                                Value="Transparent" />
+                        <Setter Property="Width" 
+                                Value="204"/>
+                        <Setter Property="Height" 
+                                Value="88"/>
+                        <Setter Property="VerticalAlignment" 
+                                Value="Center"/>
+                        <Setter Property="Padding" 
+                                Value="38,23,38,23" />
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                                     <Grid>
-                                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
-                                            <ContentPresenter ></ContentPresenter>
+                                        <Border Background="{TemplateBinding Background}" 
+                                                Padding="{TemplateBinding Padding}" 
+                                                VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                            <ContentPresenter/>
                                         </Border>
                                     </Grid>
                                     <ControlTemplate.Triggers>
-                                        <Trigger Property="IsSelected" Value="true">
-                                            <Setter Property="Background" Value="#FFCB44" />
+                                        <Trigger Property="IsSelected" 
+                                                 Value="true">
+                                            <Setter Property="Background" 
+                                                    Value="#FFCB44" />
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
@@ -53,53 +75,76 @@
                 </ListBox.ItemContainerStyle>
             </ListBox>
 
-            <ListView x:Name="lvResult" Height="600px" BorderThickness="0" Margin="10, 30, 10, 10">
+            <ListView x:Name="lvResult" 
+                      Height="600px" 
+                      BorderThickness="0" 
+                      Margin="10, 30, 10, 10">
+                
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
                             <Style TargetType="GridViewColumnHeader">
-                                <Setter Property="Foreground" Value="Gray" />
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Height" Value="64" />
-                                <Setter Property="FontSize" Value="30"/>
-                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Foreground"
+                                        Value="Gray" />
+                                <Setter Property="Background"
+                                        Value="Transparent" />
+                                <Setter Property="Height"
+                                        Value="64" />
+                                <Setter Property="FontSize" 
+                                        Value="30"/>
+                                <Setter Property="FontWeight"
+                                        Value="Bold"/>
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
 
-                        <GridViewColumn Header="카테고리" Width="480">
+                        <GridViewColumn Header="카테고리"
+                                        Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Padding="12" FontWeight="Bold" HorizontalAlignment="Center">
+                                    <TextBlock Padding="12" 
+                                               FontWeight="Bold" 
+                                               HorizontalAlignment="Center">
                                         <TextBlock Text="{Binding category, Converter={StaticResource categoryToName}}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="수량" Width="480">
+                        <GridViewColumn Header="수량" 
+                                        Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="12">
+                                    <TextBlock FontSize="18" 
+                                               FontWeight="Bold" 
+                                               HorizontalAlignment="Center" 
+                                               VerticalAlignment="Center"
+                                               Padding="12">
                                         <TextBlock Text="{Binding quantity}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="총 매출액" Width="480">
+                        <GridViewColumn Header="총 매출액"
+                                        Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
+                                    <TextBlock FontSize="18"
+                                               FontWeight="Bold"
+                                               Padding="12">
                                         <TextBlock Text="{Binding totalPrice}"/>
                                     </TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="순수 매출액" Width="480">
+                        <GridViewColumn Header="순수 매출액" 
+                                        Width="480">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="18" FontWeight="Bold" Padding="12">
+                                    <TextBlock FontSize="18"
+                                               FontWeight="Bold"
+                                               Padding="12">
                                         <TextBlock Text="{Binding salePrice}"/>
                                     </TextBlock>
                                 </DataTemplate>
@@ -109,5 +154,6 @@
                 </ListView.View>
             </ListView>
         </StackPanel>
+        
     </Grid>
 </Page>

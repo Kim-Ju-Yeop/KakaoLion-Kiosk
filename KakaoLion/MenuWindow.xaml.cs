@@ -1,27 +1,33 @@
-﻿using KakaoLion.model;
-using KakaoLion.widget;
-using MySql.Data.MySqlClient;
+﻿using KakaoLion.database.repository;
+using KakaoLion.database.repositoryImpl;
+using KakaoLion.model;
 using System.Windows;
 
 namespace KakaoLion
 {
     public partial class MenuWindow : Window
     {
-        public MenuModel menu;
-
         public string imagePath { get; set; }
+
         public string name { get; set; }
+
         public int price { get; set; }
+
         public int discount { get; set; }
 
         public bool stock { get; set; }
+
+        private MenuModel menu;
+        private MenuRepository menuRepository;
 
         public MenuWindow(MenuModel menu)
         {
             InitializeComponent();
 
+            menuRepository = new MenuRepositoryImpl();
+
             this.menu = menu;
-            this.DataContext = this;
+            DataContext = this;
 
             setData();
         }
@@ -41,14 +47,8 @@ namespace KakaoLion
             {
                 int stock = this.stock == true ? 0 : 1;
 
-                using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
-                {
-                    conn.Open();
-                    string sql = "UPDATE menu SET discount=" + discount + ", stock=" + stock + " WHERE idx=" + menu.idx;
+                menuRepository.updateMenu(discount, stock, menu.idx);
 
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.ExecuteNonQuery();
-                }
                 MenuModel menuItem = MainWindow.menuList.Find((item) => item.idx == menu.idx);
                 menuItem.discount = discount;
                 menuItem.stock = !this.stock;

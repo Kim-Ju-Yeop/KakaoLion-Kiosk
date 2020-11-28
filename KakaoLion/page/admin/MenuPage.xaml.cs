@@ -11,6 +11,7 @@ namespace KakaoLion.pages.admin
         public MenuPage()
         {
             InitializeComponent();
+
             lvResult.ItemsSource = MainWindow.menuList.ToList();
         }
 
