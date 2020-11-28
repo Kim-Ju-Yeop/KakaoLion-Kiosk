@@ -133,6 +133,9 @@
     <Compile Include="database\repository\StoreRepository.cs" />
     <Compile Include="database\repository\UserRepository.cs" />
     <Compile Include="database\util\Database.cs" />
+    <Compile Include="LoadingWindow.xaml.cs">
+      <DependentUpon>LoadingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
@@ -203,6 +206,10 @@
     <Compile Include="server\repository\OrderMessageRepository.cs" />
     <Compile Include="widget\Constants.cs" />
     <Compile Include="widget\extension\DateTImeExtension.cs" />
+    <Page Include="LoadingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
