@@ -27,6 +27,7 @@ namespace KakaoLion
         public static bool isMainWindowClosed = false;
 
         public static NetworkStream stream;
+        public static LoadingWindow loadingWindow;
 
         public static TcpClient client;
         public static List<MenuModel> menuList = new List<MenuModel>();
@@ -47,11 +48,14 @@ namespace KakaoLion
         }
 
         public static void connectServer()
-        {
+        { 
             isRunning = true;
 
             try
             {
+                loadingWindow = new LoadingWindow();
+                loadingWindow.Show();
+
                 client = new TcpClient();
                 client.Connect(Constants.SERVER_CONNSTR, Constants.PORT);
                 stream = client.GetStream();
@@ -118,6 +122,7 @@ namespace KakaoLion
                 {
                     return false;
                 }
+                loadingWindow.Close();
             }
         }
 
