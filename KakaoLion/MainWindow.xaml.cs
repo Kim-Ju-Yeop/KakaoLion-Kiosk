@@ -12,6 +12,7 @@ namespace KakaoLion
 {
     public partial class MainWindow : Window
     {
+        public static MainWindow mainWindow;
         public static DateTime operationDateTime;
 
         public static List<MenuModel> menuList = new List<MenuModel>();
@@ -28,6 +29,8 @@ namespace KakaoLion
         public MainWindow()
         {
             InitializeComponent();
+
+            mainWindow = this;
 
             menuRepository = new MenuRepositoryImpl();
             storeRepository = new StoreRepositoryImpl();
@@ -93,6 +96,11 @@ namespace KakaoLion
                     pageFrame.Source = new Uri("page/HomePage.xaml", UriKind.Relative);
                 }
             }
+        }
+
+        public static void closeWindow()
+        {
+            mainWindow.Close();
         }
 
         private void Window_Closed(object sender, EventArgs e)

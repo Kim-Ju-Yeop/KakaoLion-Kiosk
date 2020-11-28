@@ -32,7 +32,7 @@
                    Width="200px" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center"/>
-            
+
             <Label Grid.Column="1" 
                    Grid.Row="0" 
                    Content="tt HH시 mm분 ss초 dddd" 
@@ -42,13 +42,6 @@
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center" 
                    Name="timerLabel"/>
-
-            <Image Grid.Column="1" 
-                   Width="50px" 
-                   Height="50px" 
-                   Source="resources/image/icon/ic_red_circle.png" 
-                   HorizontalAlignment="Left" 
-                   Margin="-20, 0, 0, 0"/>
 
             <Button Grid.Column="2" 
                     Grid.Row="0" 
