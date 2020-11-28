@@ -20,22 +20,21 @@ using System.Windows;
 namespace KakaoLion
 {
     public partial class App : Application
-    { 
+    {
         public static string userId;
+        public static bool isRunning;
         public static bool isLoginWindowClosed = false;
         public static bool isMainWindowClosed = false;
 
         public static NetworkStream stream;
 
-        private bool isRunning = true;
+        public static TcpClient client;
+        public static List<MenuModel> menuList = new List<MenuModel>();
+        public static List<OrderModel> orderList = new List<OrderModel>();
 
-        private TcpClient client;
-        private List<MenuModel> menuList = new List<MenuModel>();
-        private List<OrderModel> orderList = new List<OrderModel>();
-
-        private MenuRepository menuRepository;
-        private OrderRepository orderRepository;
-        private GeneralMessageRepository generalMessageRepository;
+        private static MenuRepository menuRepository;
+        private static OrderRepository orderRepository;
+        private static GeneralMessageRepository generalMessageRepository;
 
         public App()
         {
@@ -43,17 +42,31 @@ namespace KakaoLion
             orderRepository = new OrderRepositoryImpl();
             generalMessageRepository = new GeneralMessageRepositoryImpl();
 
-            client = new TcpClient();
-            client.Connect(Constants.SERVER_CONNSTR, Constants.PORT);
-            stream = client.GetStream();
-
-            Thread thread = new Thread(new ThreadStart(messageThread));
-            thread.Start();
-
+            connectServer();
             getAllMenu();
         }
 
-        public void messageThread()
+        public static void connectServer()
+        {
+            isRunning = true;
+
+            try
+            {
+                client = new TcpClient();
+                client.Connect(Constants.SERVER_CONNSTR, Constants.PORT);
+                stream = client.GetStream();
+
+                Thread thread = new Thread(new ThreadStart(messageThread));
+                thread.Start();
+            } 
+            catch (Exception e)
+            {
+                isRunning = false;
+                client.Close();
+            }
+        }
+
+        public static void messageThread()
         {
             byte[] buffer = new byte[1024];
             string msg;
@@ -82,17 +95,19 @@ namespace KakaoLion
                     break;
                 }
             }
+            isRunning = false;
+
             client.Close();
             stream.Close();
         }
 
-        public void getAllMenu()
+        public static void getAllMenu()
         {
             menuList.Clear();
             menuList = menuRepository.getAllMenu();
         }
 
-        public void getTodayAllOrder()
+        public static void getTodayAllOrder()
         {
             orderList.Clear();
             orderList = orderRepository.getTodayAllOrder(DateTImeExtension.dateTimeFormat4(DateTime.Now));
@@ -100,7 +115,7 @@ namespace KakaoLion
             getTotalPrice();
         }
 
-        public void getTotalPrice()
+        public static void getTotalPrice()
         {
             int totalPrice = 0;
 
@@ -115,7 +130,7 @@ namespace KakaoLion
             getNetProfit(totalPrice);
         }
 
-        public void getNetProfit(int totalPrice)
+        public static void getNetProfit(int totalPrice)
         {
             int totalNetProfitPrice = 0;
 
@@ -126,7 +141,7 @@ namespace KakaoLion
             sendMessage(totalPrice, totalNetProfitPrice);
         }
 
-        public void sendMessage(int totalPrice, int totalNetProfitPrice)
+        public static void sendMessage(int totalPrice, int totalNetProfitPrice)
         {
             string content = "총 금액 : " + totalPrice + " 순수 이익 : " + totalNetProfitPrice;
 
