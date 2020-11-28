@@ -37,12 +37,19 @@ namespace KakaoLion
                 if (App.isRunning)
                 {
                     loginRepository.sendLoginMessage(userId);
+                    Properties.Settings.Default.isLogin = true;
                 }
                 else
                 {
-                    checkReconnectServer();
+                    bool state = App.checkReconnectServer();
+                    if (state)
+                    {
+                        loginRepository.sendLoginMessage(userId);
+                        Properties.Settings.Default.isLogin = true;
+                    }
                 }
                 App.userId = userId;
+                Properties.Settings.Default.Save();
 
                 MainWindow MainWindow = new MainWindow();
                 MainWindow.Show();
@@ -88,12 +95,19 @@ namespace KakaoLion
                 if (App.isRunning)
                 {
                     loginRepository.sendLoginMessage(userId);
+                    Properties.Settings.Default.isLogin = true;
                 }
                 else
                 {
-                    checkReconnectServer();
+                    bool state = App.checkReconnectServer();
+                    if (state)
+                    {
+                        loginRepository.sendLoginMessage(userId);
+                        Properties.Settings.Default.isLogin = true;
+                    }
                 }
                 App.userId = userId;
+                Properties.Settings.Default.Save();
 
                 MainWindow MainWindow = new MainWindow();
                 MainWindow.Show();
@@ -102,26 +116,6 @@ namespace KakaoLion
             else
             {
                 MessageBox.Show("로그인 정보가 올바르지 않습니다.", "KAKAO");
-            }
-        }
-
-        private void checkReconnectServer()
-        {
-            while (true)
-            {
-                if (MessageBox.Show("서버와 연결이 유실되었습니다.\n(서버와 재연결을 하시겠습니까?)", "서버 재연결", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                {
-                    App.connectServer();
-
-                    if (App.isRunning)
-                    {
-                        break;
-                    }
-                }
-                else
-                {
-                    break;
-                }
             }
         }
 

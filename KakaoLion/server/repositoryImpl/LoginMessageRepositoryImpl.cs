@@ -10,13 +10,9 @@ namespace KakaoLion.server.repositoryImpl
     {
         private JObject json;
 
-        public LoginMessageRepositoryImpl()
-        {
-            json = new JObject();
-        }
-
         public void sendLoginMessage(string userId)
         {
+            json = new JObject();
             json.Add("MSGType", (int)Message.LOGIN);
             json.Add("Id", userId);
             json.Add("Content", "");

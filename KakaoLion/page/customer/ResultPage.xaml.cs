@@ -117,7 +117,18 @@ namespace KakaoLion.pages
 
         private void sendMessage()
         {
-            orderMessageRepository.sendOrderMessage(lastOrderCount);
+            if (App.isRunning)
+            {
+                orderMessageRepository.sendOrderMessage(lastOrderCount);
+            }
+            else
+            {
+                bool state = App.checkReconnectServer();
+                if (state)
+                {
+                    orderMessageRepository.sendOrderMessage(lastOrderCount);
+                }
+            }
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)

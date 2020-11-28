@@ -46,5 +46,17 @@ namespace KakaoLion.Properties {
                 this["userId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isLogin {
+            get {
+                return ((bool)(this["isLogin"]));
+            }
+            set {
+                this["isLogin"] = value;
+            }
+        }
     }
 }

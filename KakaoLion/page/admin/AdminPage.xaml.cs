@@ -118,6 +118,19 @@ namespace KakaoLion.pages
             categoryListBox.UnselectAll();
         }
 
+        private void LoginWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.isAutoLogin = false;
+            Properties.Settings.Default.userId = null;
+            Properties.Settings.Default.isLogin = false;
+            Properties.Settings.Default.Save();
+
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+
+            MainWindow.closeWindow();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String propertyName = "")
         {

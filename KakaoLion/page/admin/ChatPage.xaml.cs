@@ -16,6 +16,7 @@ namespace KakaoLion.pages.admin
         private bool person;
         private bool group;
 
+        private LoginMessageRepository loginMessageRepository;
         private GeneralMessageRepository generalMessageRepository;
         private List<MessageModel> messageList = new List<MessageModel>();
 
@@ -23,6 +24,7 @@ namespace KakaoLion.pages.admin
         {
             InitializeComponent();
 
+            loginMessageRepository = new LoginMessageRepositoryImpl();
             generalMessageRepository = new GeneralMessageRepositoryImpl();
 
             person = true;
@@ -40,24 +42,49 @@ namespace KakaoLion.pages.admin
             }
             else
             {
-                string userId = Properties.Settings.Default.userId.ToString();
-                bool isGroup = person == true ? false : true;
-
-                generalMessageRepository.sendGeneralMessage(userId, textBox.Text, isGroup);
-
-                string target = person == true ? "개인" : "그룹";
-                string date = string.Format("{0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
-
-                messageList.Add(new MessageModel
+                if (App.isRunning)
                 {
-                    message = textBox.Text,
-                    target = target,
-                    messageAt = date
-                }) ;
-                lvResult.ItemsSource = messageList;
-                lvResult.Items.Refresh();
+                    if (!Properties.Settings.Default.isLogin)
+                    {
+                        loginMessageRepository.sendLoginMessage(Properties.Settings.Default.userId.ToString());
+                    }
+                    sendMessage();
+                } 
+                else
+                {
+                    bool state = App.checkReconnectServer();
+                    if (state)
+                    {
+                        if (!Properties.Settings.Default.isLogin)
+                        {
+                            loginMessageRepository.sendLoginMessage(Properties.Settings.Default.userId.ToString());
+                        }
+                        loginMessageRepository.sendLoginMessage(Properties.Settings.Default.userId.ToString());
+                        sendMessage();
+                    }
+                }
                 textBox.Text = "";
             }
+        }
+
+        private void sendMessage()
+        {
+            string userId = Properties.Settings.Default.userId.ToString();
+            bool isGroup = person == true ? false : true;
+
+            generalMessageRepository.sendGeneralMessage(userId, textBox.Text, isGroup);
+
+            string target = person == true ? "개인" : "그룹";
+            string date = string.Format("{0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
+
+            messageList.Add(new MessageModel
+            {
+                message = textBox.Text,
+                target = target,
+                messageAt = date
+            });
+            lvResult.ItemsSource = messageList;
+            lvResult.Items.Refresh();
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)

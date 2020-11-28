@@ -101,6 +101,26 @@ namespace KakaoLion
             stream.Close();
         }
 
+        public static bool checkReconnectServer()
+        {
+            while (true)
+            {
+                if (MessageBox.Show("서버와 연결이 유실되었습니다.\n(서버와 재연결을 하시겠습니까?)", "서버 재연결", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    connectServer();
+
+                    if (isRunning)
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public static void getAllMenu()
         {
             menuList.Clear();

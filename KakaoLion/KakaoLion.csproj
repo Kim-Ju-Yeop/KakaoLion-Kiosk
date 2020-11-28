@@ -412,8 +412,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\image\icon\ic_cancel.png" />
-    <Resource Include="resources\image\icon\ic_green_circle.png" />
-    <Resource Include="resources\image\icon\ic_red_circle.png" />
     <Content Include="resources\video\video.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
