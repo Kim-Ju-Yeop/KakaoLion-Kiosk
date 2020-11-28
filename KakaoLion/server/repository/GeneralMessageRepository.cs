@@ -9,5 +9,7 @@ namespace KakaoLion.server.repository
     interface GeneralMessageRepository
     {
         void sendGeneralMessage(string userId, string content, bool isGroup);
+
+        void sendGeneralMessage2(string userId, string content);
     }
 }

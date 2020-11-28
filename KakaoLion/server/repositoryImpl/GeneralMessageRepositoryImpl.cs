@@ -27,5 +27,23 @@ namespace KakaoLion.server.repositoryImpl
 
             App.stream.Write(buffer, 0, buffer.Length);
         }
+
+        public void sendGeneralMessage2(string userId, string content)
+        {
+            json = new JObject();
+            json.Add("MSGType", (int)Message.GENERAL);
+            json.Add("Id", userId);
+            json.Add("Content", content);
+            json.Add("ShopName", "");
+            json.Add("OrderNumber", "");
+            json.Add("Group", true);
+            json.Add("Menus", "");
+
+            byte[] buffer = new byte[4096];
+            string message = JsonConvert.SerializeObject(json);
+            buffer = Encoding.UTF8.GetBytes(message);
+
+            App.stream.Write(buffer, 0, buffer.Length);
+        }
     }
 }

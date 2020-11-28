@@ -1,9 +1,10 @@
-﻿using KakaoLion.dto.model;
+﻿using KakaoLion.database.repository;
+using KakaoLion.database.repositoryImpl;
 using KakaoLion.model;
+using KakaoLion.server.repository;
+using KakaoLion.server.repositoryImpl;
 using KakaoLion.widget;
-using MySql.Data.MySqlClient;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using KakaoLion.widget.extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,36 +20,37 @@ using System.Windows;
 namespace KakaoLion
 {
     public partial class App : Application
-    {
-        private static TcpClient client = new TcpClient();
+    { 
+        public static string userId;
+        public static bool isLoginWindowClosed = false;
+        public static bool isMainWindowClosed = false;
+
         public static NetworkStream stream;
 
-        public static string userId;
-        private static bool isRunning = true;
-        private static bool isLoginWindowClosed = false;
-        private static bool isMainWindowClosed = false;
+        private bool isRunning = true;
 
-        public List<MenuModel> menuList = new List<MenuModel>();
-        public List<OrderModel> orderList = new List<OrderModel>();
+        private TcpClient client;
+        private List<MenuModel> menuList = new List<MenuModel>();
+        private List<OrderModel> orderList = new List<OrderModel>();
+
+        private MenuRepository menuRepository;
+        private OrderRepository orderRepository;
+        private GeneralMessageRepository generalMessageRepository;
 
         public App()
         {
+            menuRepository = new MenuRepositoryImpl();
+            orderRepository = new OrderRepositoryImpl();
+            generalMessageRepository = new GeneralMessageRepositoryImpl();
+
+            client = new TcpClient();
             client.Connect(Constants.SERVER_CONNSTR, Constants.PORT);
             stream = client.GetStream();
 
             Thread thread = new Thread(new ThreadStart(messageThread));
             thread.Start();
+
             getAllMenu();
-        }
-
-        public static void LoginWindow_CloseAction(bool isClosed)
-        {
-            isLoginWindowClosed = isClosed;
-        }
-
-        public static void MainWindow_ClosedAction(bool isClosed)
-        {
-            isMainWindowClosed = isClosed;
         }
 
         public void messageThread()
@@ -86,78 +88,15 @@ namespace KakaoLion
 
         public void getAllMenu()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
-            {
-                conn.Open();
-                string sql = "SELECT * FROM menu";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    string imagePath = "";
-                    bool stock = int.Parse(rdr["stock"].ToString()) == 1;
-
-                    switch ((Category)rdr["category"])
-                    {
-                        case Category.SMALL:
-                            imagePath = "/resources/image/small/" + rdr["name"] + ".jpg";
-                            break;
-                        case Category.MEDIUM:
-                            imagePath = "/resources/image/medium/" + rdr["name"] + ".jpg";
-                            break;
-                        case Category.BIG:
-                            imagePath = "/resources/image/big/" + rdr["name"] + ".jpg";
-                            break;
-                    }
-
-                    menuList.Add(new MenuModel
-                    {
-                        idx = (int)rdr["idx"],
-                        page = (int)rdr["page"],
-                        category = (Category)rdr["category"],
-                        name = (string)rdr["name"],
-                        price = (int)rdr["price"],
-                        discount = (int)rdr["discount"],
-                        stock = stock,
-                        imagePath = imagePath
-                    });
-                }
-            }
+            menuList.Clear();
+            menuList = menuRepository.getAllMenu();
         }
 
         public void getTodayAllOrder()
         {
-            using (MySqlConnection conn = new MySqlConnection(Constants.DATABASE_CONNSTR))
-            {
-                conn.Open();
-                string today = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
-                string sql = "SELECT * FROM lion.order WHERE purchaseAt LIKE '" + today + "%'";
+            orderList.Clear();
+            orderList = orderRepository.getTodayAllOrder(DateTImeExtension.dateTimeFormat4(DateTime.Now));
 
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    Boolean paymentPlace = rdr["paymentPlace"].ToString().Equals("0") ? true : false;
-                    Boolean paymentMethod = rdr["paymentMethod"].ToString().Equals("0") ? true : false;
-
-                    orderList.Add(new OrderModel
-                    {
-                        idx = (int)rdr["idx"],
-                        orderCount = (int)rdr["orderCount"],
-                        menuIdx = (int)rdr["menuIdx"],
-                        quantity = (int)rdr["quantity"],
-                        totalPrice = (int)rdr["totalPrice"],
-                        userId = (string)rdr["userId"],
-                        purchaseAt = (string)rdr["purchaseAt"],
-                        paymentPlace = paymentPlace,
-                        paymentMethod = paymentMethod,
-                        shopIdx = (int)rdr["shopIdx"]
-                    });
-                }
-            }
             getTotalPrice();
         }
 
@@ -189,23 +128,19 @@ namespace KakaoLion
 
         public void sendMessage(int totalPrice, int totalNetProfitPrice)
         {
-            JObject json = new JObject();
-
             string content = "총 금액 : " + totalPrice + " 순수 이익 : " + totalNetProfitPrice;
 
-            json.Add("MSGType", 1);
-            json.Add("Id", userId);
-            json.Add("Content", content);
-            json.Add("ShopName", "");
-            json.Add("OrderNumber", "");
-            json.Add("Group", true);
-            json.Add("Menus", "");
+            generalMessageRepository.sendGeneralMessage2(userId, content);
+        }
 
-            byte[] buffer = new byte[4096];
-            string message = JsonConvert.SerializeObject(json);
-            buffer = Encoding.UTF8.GetBytes(message);
+        public static void LoginWindow_CloseAction(bool isClosed)
+        {
+            isLoginWindowClosed = isClosed;
+        }
 
-            App.stream.Write(buffer, 0, buffer.Length);
+        public static void MainWindow_ClosedAction(bool isClosed)
+        {
+            isMainWindowClosed = isClosed;
         }
     }
 }
