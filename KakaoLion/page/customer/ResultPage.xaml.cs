@@ -86,6 +86,7 @@ namespace KakaoLion.pages
             int totalPrice = 0;
             string userName = "";
             string userPurchaseMethodId = "";
+            bool paymentMethod = false;
 
             foreach (OrderModel order in OrderPage.orderList)
             {
@@ -99,16 +100,27 @@ namespace KakaoLion.pages
 
                     if (order.paymentMethod == false)
                     {
+                        paymentMethod = false;
                         userPurchaseMethodId = user.qrcode;
                     }
                     else
                     {
+                        paymentMethod = true;
                         userPurchaseMethodId = user.barcode;
                     }
                 }
             }
-            userInfo.Text = "이름 : " + userName + " | 번호 : " + userPurchaseMethodId;
-            orderInfo.Text = totalCount + "개 " + totalPrice + "원";
+
+            if (!paymentMethod)
+            {
+                userInfo.Text = "이름 : " + userName + " | 카드 번호 : " + userPurchaseMethodId;
+                orderInfo.Text = totalCount + "개 " + totalPrice + "원";
+            }
+            else
+            {
+                userInfo.Text = "이름 : " + userName + " | 바코드 번호 : " + userPurchaseMethodId;
+                orderInfo.Text = totalCount + "개 " + totalPrice + "원";
+            }
 
             if (lastOrderCount + 1 < 10) orderCount.Text = "00" + (lastOrderCount + 1);
             else if (lastOrderCount + 1 < 100) orderCount.Text = "0" + (lastOrderCount + 1);
