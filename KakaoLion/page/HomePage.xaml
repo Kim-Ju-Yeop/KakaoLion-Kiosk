@@ -25,7 +25,7 @@
                VerticalAlignment="Bottom"/>
 
         <Label Content="(주문시) 주문하기 버튼 | (관리시) F2 또는 관리하기 버튼"
-               FontSize="40px" 
+               FontSize="35px" 
                Foreground="White" 
                FontWeight="Bold" 
                Margin="0, 0, 0, 270" 
