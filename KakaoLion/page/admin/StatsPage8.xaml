@@ -1,0 +1,54 @@
+﻿<Page x:Class="KakaoLion.page.admin.StatsPage8"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KakaoLion.page.admin"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="StatsPage8">
+
+    <Grid Background="White">
+
+        <ScrollViewer>
+
+            <StackPanel Orientation="Vertical">
+
+                <Label Content="총매출액" 
+                       FontSize="30px" 
+                       Foreground="Black"
+                       FontWeight="Bold" 
+                       Margin="10, 30, 0, 0"/>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <lvc:PieChart x:Name="pieChart" 
+                                  Width="400px"
+                                  Height="600px" 
+                                  LegendLocation="Bottom" 
+                                  Hoverable="False"/>
+
+                    <StackPanel Orientation="Vertical"
+                                VerticalAlignment="Center"
+                                Margin="100, 0, 0, 0">
+
+                        <Label x:Name="total" 
+                               Content="총 매출액 : 50000000"
+                               FontSize="50px"/>
+
+                        <Label x:Name="netProfit"
+                               Content="순수 매출액 : 450000000" 
+                               FontSize="50px"/>
+
+                        <Label x:Name="discount"
+                               Content="할인 금액 : 450000000" 
+                               FontSize="50px"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+</Page>
