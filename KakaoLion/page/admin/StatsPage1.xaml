@@ -16,13 +16,24 @@
     <Grid Background="White">
         
         <StackPanel Orientation="Vertical">
-            
-            <Label Content="메뉴별 판매 수 및 총액"
-                   FontSize="30px" 
-                   Foreground="Black" 
-                   FontWeight="Bold" 
-                   Margin="10, 30, 0, 0"/>
-            
+
+            <StackPanel Orientation="Horizontal">
+
+                <Label Content="메뉴별 판매 수 및 총액"
+                       FontSize="30px" 
+                       Foreground="Black" 
+                       FontWeight="Bold" 
+                       Margin="10, 30, 0, 0"/>
+
+                <Button Content="파일 추출"
+                        Background="#FFCB44" 
+                        Margin="20, 30, 0, 0"
+                        Width="100px"
+                        Height="40px"
+                        BorderThickness="0" 
+                        Click="ExportButton_Click"/>
+            </StackPanel>
+
             <ListView x:Name="lvResult" 
                       Height="600px" 
                       BorderThickness="0" 

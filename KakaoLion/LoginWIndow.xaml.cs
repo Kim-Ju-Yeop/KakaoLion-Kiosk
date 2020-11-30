@@ -21,8 +21,6 @@ namespace KakaoLion
         {
             InitializeComponent();
 
-            App.loadingWindow.Close();
-
             loginRepository = new LoginMessageRepositoryImpl();
             userRepository = new UserRepositoryImpl();
 
