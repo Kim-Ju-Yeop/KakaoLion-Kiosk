@@ -6,6 +6,7 @@ using KakaoLion.widget.extension;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Threading;
 
 namespace KakaoLion
@@ -84,17 +85,10 @@ namespace KakaoLion
 
         private void homeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (pageFrame.Source == null)
+            if (MessageBox.Show("정말로 홈화면으로 돌아가시겠습니까?\n(주문 시 주문 목록이 삭제됩니다.)", "이전으로", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                if(OrderPage.orderList.Count == 0)
-                {
-                    pageFrame.Source = new Uri("page/HomePage.xaml", UriKind.Relative);
-                }
-                else if (MessageBox.Show("정말로 홈화면으로 돌아가시겠습니까?\n(주문 목록이 삭제됩니다.)", "이전으로", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                {
-                    OrderPage.orderList.Clear();
-                    pageFrame.Source = new Uri("page/HomePage.xaml", UriKind.Relative);
-                }
+                OrderPage.orderList.Clear();
+                pageFrame.Source = new Uri("page/HomePage.xaml", UriKind.Relative);
             }
         }
 
@@ -110,6 +104,15 @@ namespace KakaoLion
 
             programRepository.updateOperationTime(operationTime);
             App.MainWindow_ClosedAction(true);
+        }
+
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.F2)
+            {
+                OrderPage.orderList.Clear();
+                pageFrame.Source = new Uri("page/admin/AdminPage.xaml", UriKind.Relative);
+            }
         }
     }
 }

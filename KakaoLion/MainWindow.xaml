@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:KakaoLion"
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920"
-        Closed="Window_Closed">
+        Closed="Window_Closed"
+        KeyDown="Window_KeyDown">
     <Grid Background="#FFCB44">
 
         <Frame NavigationUIVisibility="Hidden" 
