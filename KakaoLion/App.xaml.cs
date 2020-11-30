@@ -163,7 +163,7 @@ namespace KakaoLion
 
         public static void sendMessage(int totalPrice, int totalNetProfitPrice)
         {
-            string content = "총 금액 : " + totalPrice + " 순수 이익 : " + totalNetProfitPrice;
+            string content = "총 매출액 : " + totalPrice + " 순수 매출액 : " + totalNetProfitPrice;
 
             generalMessageRepository.sendGeneralMessage2(userId, content);
         }
