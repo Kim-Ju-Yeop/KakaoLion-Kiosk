@@ -9,93 +9,97 @@
       Title="MenuPage">
 
     <Grid Background="White">
+
+        <ScrollViewer>
         
-        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical">
             
-            <Label Content="메뉴 정보 수정"
-                   FontSize="30px"
-                   Foreground="Black" 
-                   FontWeight="Bold" 
-                   Margin="10, 30, 0, 0"/>
+                <Label Content="메뉴 정보 수정"
+                       FontSize="30px"
+                       Foreground="Black" 
+                       FontWeight="Bold" 
+                       Margin="10, 30, 0, 0"/>
 
-            <ListView x:Name="lvResult"
-                      Height="600px" 
-                      BorderThickness="0" 
-                      Margin="10, 30, 10, 10" 
-                      SelectionChanged="lvResult_SelectionChanged">
+                <ListView x:Name="lvResult"
+                          Height="600px" 
+                          BorderThickness="0" 
+                          Margin="10, 30, 10, 10" 
+                          SelectionChanged="lvResult_SelectionChanged">
 
-                <ListView.View>
-                    <GridView>
-                        <GridView.ColumnHeaderContainerStyle>
-                            <Style TargetType="GridViewColumnHeader">
-                                <Setter Property="Foreground" 
-                                        Value="Gray" />
-                                <Setter Property="Background" 
-                                        Value="Transparent" />
-                                <Setter Property="Height" 
-                                        Value="64" />
-                                <Setter Property="FontSize" 
-                                        Value="30"/>
-                                <Setter Property="FontWeight"
-                                        Value="Bold"/>
-                            </Style>
-                        </GridView.ColumnHeaderContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridView.ColumnHeaderContainerStyle>
+                                <Style TargetType="GridViewColumnHeader">
+                                    <Setter Property="Foreground" 
+                                            Value="Gray" />
+                                    <Setter Property="Background" 
+                                            Value="Transparent" />
+                                    <Setter Property="Height" 
+                                            Value="64" />
+                                    <Setter Property="FontSize" 
+                                            Value="30"/>
+                                    <Setter Property="FontWeight"
+                                            Value="Bold"/>
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
 
-                        <GridViewColumn Header="메뉴" 
-                                        Width="640px">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Padding="12" 
-                                               FontWeight="Bold"
-                                               HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding name}"/>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                            <GridViewColumn Header="메뉴" 
+                                            Width="640px">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Padding="12" 
+                                                   FontWeight="Bold"
+                                                   HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding name}"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
-                        <GridViewColumn Header="가격" 
-                                        Width="640px">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Padding="12" 
-                                               FontWeight="Bold"
-                                               HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding price}"/>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                            <GridViewColumn Header="가격" 
+                                            Width="640px">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Padding="12" 
+                                                   FontWeight="Bold"
+                                                   HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding price}"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
-                        <GridViewColumn Header="할인율" 
-                                        Width="640px">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Padding="12" 
-                                               FontWeight="Bold"
-                                               HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding discount}"/>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                            <GridViewColumn Header="할인율" 
+                                            Width="640px">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Padding="12" 
+                                                   FontWeight="Bold"
+                                                   HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding discount}"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
-                        <GridViewColumn Header="재고" 
-                                        Width="640px">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Padding="12"
-                                               FontWeight="Bold"
-                                               HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding stock}"/>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </StackPanel>
-        
+                            <GridViewColumn Header="재고" 
+                                            Width="640px">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Padding="12"
+                                                   FontWeight="Bold"
+                                                   HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding stock}"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+
+        </ScrollViewer>
+
     </Grid>
 </Page>
