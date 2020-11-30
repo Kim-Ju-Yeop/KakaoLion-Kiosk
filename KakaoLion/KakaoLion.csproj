@@ -177,6 +177,9 @@
     <Compile Include="page\admin\StatsPage7.xaml.cs">
       <DependentUpon>StatsPage7.xaml</DependentUpon>
     </Compile>
+    <Compile Include="page\admin\StatsPage8.xaml.cs">
+      <DependentUpon>StatsPage8.xaml</DependentUpon>
+    </Compile>
     <Compile Include="page\admin\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
@@ -247,6 +250,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="page\admin\StatsPage7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="page\admin\StatsPage8.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

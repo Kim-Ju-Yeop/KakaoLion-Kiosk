@@ -17,6 +17,7 @@ namespace KakaoLion.pages
         private const string CATEGORY5 = "일별 총 매출액";
         private const string CATEGORY6 = "하루 중 시간대별 총 매출액";
         private const string CATEGORY7 = "회원별 총 매출액 및 판매수 총액";
+        private const string CATEGORY8 = "총매출액";
 
         private DispatcherTimer dispatcherTimer;
         private List<string> categoryList = new List<string>();
@@ -65,6 +66,7 @@ namespace KakaoLion.pages
             categoryList.Add(CATEGORY5);
             categoryList.Add(CATEGORY6);
             categoryList.Add(CATEGORY7);
+            categoryList.Add(CATEGORY8);
 
             categoryListBox.ItemsSource = categoryList.ToList();
         }
@@ -96,6 +98,9 @@ namespace KakaoLion.pages
                     break;
                 case CATEGORY7:
                     pageFrame.Source = new Uri("StatsPage7.xaml", UriKind.Relative);
+                    break;
+                case CATEGORY8:
+                    pageFrame.Source = new Uri("StatsPage8.xaml", UriKind.Relative);
                     break;
             }
         }
