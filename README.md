@@ -11,12 +11,12 @@
 - 현재 음식점을 포함한 시중에 많은 상점들이 자신들만의 키오스크 프로그램을 활용 중입니다.
 
 ## Function
-#### 손님
+#### 손님용
 - 카테고리별 상품 조회 및 다중 상품 선택
 - 배달 및 지점 주문을 통한 결제 장소 선택
 - 카드 및 현금 결제를 통한 결제 방식 선택
 
-#### 관리자
+#### 관리자용
 - 회원 정보 확인
 - 메뉴 정보 수정
 - 채팅 서비스
@@ -36,3 +36,19 @@
 | Develop People | 김주엽, 김진호, 전도권 | 전도권       |
 | Develop Language | C#| |
 | Develop Tool     | Visual Studio  | Figma |
+
+## Skill
+- <a href="https://github.com/dotnet/wpf">WPF</a>
+- <a href="https://github.com/mysql-net">MySQL</a>
+- <a href="https://chriskim10.tistory.com/9">KQRCode</a>
+
+## UI/UX
+#### 손님용
+<div>
+<img src="https://user-images.githubusercontent.com/49600974/101423392-51e95800-393c-11eb-90ed-f23fdeb6a8cb.png"></img>
+</div>
+
+#### 관리자용
+<div>
+<img src="https://user-images.githubusercontent.com/49600974/101423580-c7edbf00-393c-11eb-8948-794768bab74d.png"></img>
+</div>
